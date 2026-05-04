@@ -1,0 +1,392 @@
+[
+  {
+    "name": "Mastercard",
+    "website": "https://www.mastercard.com",
+    "careers_url": "https://careers.mastercard.com/us/en/search-results?keywords=&location=Dublin",
+    "sectors": ["fintech", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Large Dublin tech hub. Known to sponsor CSEP for security roles. Trusted Partner.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Microsoft",
+    "website": "https://www.microsoft.com",
+    "careers_url": "https://careers.microsoft.com/global/en/search?l=Dublin&lc=Dublin",
+    "sectors": ["tech", "cloud", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Major Dublin presence. Regularly sponsors CSEP. Trusted Partner.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Google",
+    "website": "https://www.google.com",
+    "careers_url": "https://www.google.com/about/careers/applications/jobs/results/?location=Dublin",
+    "sectors": ["tech", "cloud", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "EMEA HQ in Dublin. Sponsors CSEP frequently. Trusted Partner.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Meta",
+    "website": "https://www.meta.com",
+    "careers_url": "https://www.metacareers.com/jobs?offices[0]=Dublin%2C%20Ireland",
+    "sectors": ["tech", "social media"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "EMEA HQ in Dublin. Sponsors CSEP. Trusted Partner.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Amazon / AWS",
+    "website": "https://www.amazon.com",
+    "careers_url": "https://www.amazon.jobs/en/locations/dublin-ireland",
+    "sectors": ["tech", "cloud", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "AWS and Amazon both have Dublin offices. Regularly sponsor permits. Trusted Partner.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Stripe",
+    "website": "https://stripe.com",
+    "careers_url": "https://stripe.com/jobs/search?office_locations=Dublin",
+    "sectors": ["fintech", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Founded by Irish founders. Dublin engineering office. Sponsors CSEP.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Workday",
+    "website": "https://www.workday.com",
+    "careers_url": "https://workday.wd5.myworkdayjobs.com/Workday?locationCountry=29247e57dbaf101700e7ece23a0b6600",
+    "sectors": ["SaaS", "enterprise"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Major Dublin presence. European HQ. Known CSEP sponsor. Trusted Partner.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Salesforce",
+    "website": "https://www.salesforce.com",
+    "careers_url": "https://careers.salesforce.com/en/jobs/?search=&location=Dublin",
+    "sectors": ["SaaS", "cloud"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Dublin Tower offices. Sponsors CSEP. Trusted Partner.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "ServiceNow",
+    "website": "https://www.servicenow.com",
+    "careers_url": "https://careers.servicenow.com/jobs?page=1&location=Dublin",
+    "sectors": ["SaaS", "enterprise"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Dublin office. Known to sponsor permits for tech roles.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Intercom",
+    "website": "https://www.intercom.com",
+    "careers_url": "https://www.intercom.com/careers",
+    "sectors": ["SaaS", "tech"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Irish-founded. Dublin HQ. Sponsors permits.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Accenture",
+    "website": "https://www.accenture.com",
+    "careers_url": "https://www.accenture.com/ie-en/careers/jobsearch?jk=&sb=0&pg=1&is_rj=0",
+    "sectors": ["consulting", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Large Dublin presence. Security consulting practice. Sponsors permits. Trusted Partner.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Deloitte Ireland",
+    "website": "https://www.deloitte.com/ie/",
+    "careers_url": "https://apply.deloitte.com/careers/SearchJobs/?534=2932&534_format=1482&listFilterMode=1",
+    "sectors": ["consulting", "cybersecurity", "GRC"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Cyber risk practice in Dublin. Sponsors CSEP for security consultants. Trusted Partner.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "EY Ireland",
+    "website": "https://www.ey.com/en_ie",
+    "careers_url": "https://careers.ey.com/ey/search/?q=&locationsearch=dublin",
+    "sectors": ["consulting", "cybersecurity", "GRC"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Cybersecurity and risk advisory practice. Sponsors permits.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "PwC Ireland",
+    "website": "https://www.pwc.ie",
+    "careers_url": "https://www.pwc.ie/careers.html",
+    "sectors": ["consulting", "cybersecurity", "GRC"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Cyber security and privacy practice. Sponsors permits.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "KPMG Ireland",
+    "website": "https://www.kpmg.com/ie/",
+    "careers_url": "https://www.kpmg.com/ie/en/home/careers.html",
+    "sectors": ["consulting", "cybersecurity", "GRC"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Technology risk and cybersecurity services. Sponsors permits.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "IBM",
+    "website": "https://www.ibm.com",
+    "careers_url": "https://www.ibm.com/careers/search?field_keyword_18[0]=Dublin",
+    "sectors": ["tech", "cybersecurity", "consulting"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Dublin technology campus. Security division. Sponsors permits. Trusted Partner.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Dell Technologies",
+    "website": "https://www.dell.com",
+    "careers_url": "https://jobs.dell.com/search-jobs/Dublin/375/1",
+    "sectors": ["tech", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Cork and Dublin offices. Sponsors permits for tech roles.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Cisco",
+    "website": "https://www.cisco.com",
+    "careers_url": "https://jobs.cisco.com/jobs/SearchJobs/?3_56_3=169",
+    "sectors": ["networking", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Dublin office. Security products division (Talos, etc). Sponsors permits.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "HPE (Hewlett Packard Enterprise)",
+    "website": "https://www.hpe.com",
+    "careers_url": "https://careers.hpe.com/jobs?location=Dublin",
+    "sectors": ["tech", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Dublin office. Sponsors permits for IT and security roles.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Vodafone Ireland",
+    "website": "https://www.vodafone.ie",
+    "careers_url": "https://careers.vodafone.com/search/?q=&locationsearch=Dublin",
+    "sectors": ["telco", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Large Irish telco. Sponsors permits. Has internal security team.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Three Ireland",
+    "website": "https://www.three.ie",
+    "careers_url": "https://www.three.ie/careers/",
+    "sectors": ["telco"],
+    "permit_types": ["GEP"],
+    "dublin_office": true,
+    "notes": "Irish telco. May sponsor GEP for tech roles. Verify sponsorship for specific roles.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Eir",
+    "website": "https://www.eir.ie",
+    "careers_url": "https://www.eir.ie/careers/",
+    "sectors": ["telco"],
+    "permit_types": ["GEP"],
+    "dublin_office": true,
+    "notes": "Irish telco. May sponsor GEP. Verify sponsorship for specific roles.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Ericsson Ireland",
+    "website": "https://www.ericsson.com",
+    "careers_url": "https://jobs.ericsson.com/careers?query=&location=Dublin&pid=&domain=&sort_by=",
+    "sectors": ["telco", "tech"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "R&D centre in Athlone, offices in Dublin. Sponsors permits.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Integrity360",
+    "website": "https://www.integrity360.com",
+    "careers_url": "https://www.integrity360.com/careers",
+    "sectors": ["cybersecurity"],
+    "permit_types": ["CSEP"],
+    "dublin_office": true,
+    "notes": "Ireland's largest dedicated cybersecurity firm. Dublin HQ. Has sponsored CSEP for security roles.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Smarttech247",
+    "website": "https://www.smarttech247.com",
+    "careers_url": "https://www.smarttech247.com/careers/",
+    "sectors": ["cybersecurity", "SOC"],
+    "permit_types": ["CSEP"],
+    "dublin_office": false,
+    "notes": "Irish MSSP based in Cork. SOC analyst roles. Has sponsored CSEP. Cork-based, no Dublin office.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Ward Solutions",
+    "website": "https://www.wardsolutions.com",
+    "careers_url": "https://www.wardsolutions.com/careers/",
+    "sectors": ["cybersecurity"],
+    "permit_types": ["CSEP"],
+    "dublin_office": true,
+    "notes": "Irish cybersecurity consultancy. Dublin office. Has sponsored security roles.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Tines",
+    "website": "https://www.tines.com",
+    "careers_url": "https://www.tines.com/careers",
+    "sectors": ["cybersecurity", "SaaS"],
+    "permit_types": ["CSEP"],
+    "dublin_office": true,
+    "notes": "Irish-founded security automation startup. Dublin HQ. Sponsors permits.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Evervault",
+    "website": "https://evervault.com",
+    "careers_url": "https://evervault.com/careers",
+    "sectors": ["cybersecurity", "SaaS"],
+    "permit_types": ["CSEP"],
+    "dublin_office": true,
+    "notes": "Irish data encryption startup. Dublin based. Sponsors permits.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Fenergo",
+    "website": "https://www.fenergo.com",
+    "careers_url": "https://www.fenergo.com/careers/",
+    "sectors": ["fintech", "regtech"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Irish fintech/regtech. Dublin HQ. Sponsors permits for tech roles.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Cubic Telecom",
+    "website": "https://www.cubictelecom.com",
+    "careers_url": "https://www.cubictelecom.com/careers/",
+    "sectors": ["telco", "IoT"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Previous employer. Dublin based. Sponsors permits.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Fidelity Investments Ireland",
+    "website": "https://www.fidelityinvestments.ie",
+    "careers_url": "https://fil.wd3.myworkdayjobs.com/fidelitycareersite?locationCountry=bc33aa3152ec42d4995f4791a106ed09",
+    "sectors": ["finance", "tech"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Large Dublin tech centre. Sponsors permits. Has security team.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Bank of Ireland",
+    "website": "https://www.bankofireland.com",
+    "careers_url": "https://careers.bankofireland.com/",
+    "sectors": ["finance", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Major Irish bank. Has internal cybersecurity team. Sponsors permits.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "AIB (Allied Irish Banks)",
+    "website": "https://aib.ie",
+    "careers_url": "https://aib.wd3.myworkdayjobs.com/aibcareers",
+    "sectors": ["finance", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Major Irish bank. Has security operations team. Sponsors permits.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Concentrix",
+    "website": "https://www.concentrix.com",
+    "careers_url": "https://jobs.concentrix.com/global/en/search-results?keywords=&location=Dublin",
+    "sectors": ["BPO", "customer support"],
+    "permit_types": ["unverified"],
+    "dublin_office": true,
+    "notes": "Large BPO. Dublin offices. GEP sponsorship for customer support roles is UNVERIFIED — rare for BPO sector. Investigate directly.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Teleperformance",
+    "website": "https://www.teleperformance.com",
+    "careers_url": "https://www.teleperformance.com/en-ie/careers/",
+    "sectors": ["BPO", "customer support"],
+    "permit_types": ["unverified"],
+    "dublin_office": true,
+    "notes": "Large BPO. Dublin presence. GEP sponsorship UNVERIFIED — BPOs rarely sponsor. Confirm with recruiter.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Sutherland Global",
+    "website": "https://www.sutherlandglobal.com",
+    "careers_url": "https://jobs.sutherlandglobal.com/",
+    "sectors": ["BPO", "customer support"],
+    "permit_types": ["unverified"],
+    "dublin_office": true,
+    "notes": "BPO with Dublin office. GEP sponsorship UNVERIFIED — BPOs rarely sponsor general permits.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Workhuman",
+    "website": "https://www.workhuman.com",
+    "careers_url": "https://www.workhuman.com/careers/",
+    "sectors": ["SaaS", "HR tech"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Irish-founded HR tech. Dublin HQ. Sponsors permits for tech roles.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "Version 1",
+    "website": "https://www.version1.com",
+    "careers_url": "https://www.version1.com/careers/",
+    "sectors": ["consulting", "tech"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Irish IT consultancy. Dublin HQ. Sponsors permits for IT and security roles.",
+    "source_verified_on": "2026-05-04"
+  },
+  {
+    "name": "BearingPoint Ireland",
+    "website": "https://www.bearingpoint.com",
+    "careers_url": "https://www.bearingpoint.com/en-ie/careers/",
+    "sectors": ["consulting", "cybersecurity"],
+    "permit_types": ["CSEP", "GEP"],
+    "dublin_office": true,
+    "notes": "Management and technology consultancy. Dublin office. Sponsors permits.",
+    "source_verified_on": "2026-05-04"
+  }
+]
