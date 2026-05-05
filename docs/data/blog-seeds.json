@@ -1,0 +1,184 @@
+[
+  {
+    "id": "bs-01",
+    "theme": "ai-llm-security",
+    "prompt": "The OWASP LLM Top 10 explained with real-world attack scenarios",
+    "angle": "Walk through each risk category with a concrete example. Position yourself as someone actively studying this space.",
+    "est_read_time": "8 min"
+  },
+  {
+    "id": "bs-02",
+    "theme": "ai-llm-security",
+    "prompt": "Prompt injection is the new SQL injection — here's why AppSec engineers should care",
+    "angle": "Draw parallels between SQLi and prompt injection. Show how traditional AppSec skills translate to LLM security.",
+    "est_read_time": "6 min"
+  },
+  {
+    "id": "bs-03",
+    "theme": "ai-llm-security",
+    "prompt": "I tested an LLM app with Garak — here's what I found",
+    "angle": "Hands-on walkthrough of using Garak for LLM red teaming. Show process and findings.",
+    "est_read_time": "7 min"
+  },
+  {
+    "id": "bs-04",
+    "theme": "ai-llm-security",
+    "prompt": "What Gandalf taught me about LLM guardrails (and their limits)",
+    "angle": "Use the Lakera Gandalf challenge as a teaching moment about prompt injection defence layers.",
+    "est_read_time": "5 min"
+  },
+  {
+    "id": "bs-05",
+    "theme": "ai-llm-security",
+    "prompt": "From SAST/DAST to AI red teaming: the AppSec pivot nobody is talking about",
+    "angle": "Argue that AppSec professionals are uniquely positioned to pivot into AI security. Use your own background as proof.",
+    "est_read_time": "6 min"
+  },
+  {
+    "id": "bs-06",
+    "theme": "appsec",
+    "prompt": "15 security assessments in one contract: what I learned at a telecom company",
+    "angle": "Lessons from Cubic Telecom — volume, variety of findings, patterns across assessments. No company names needed, let the numbers speak.",
+    "est_read_time": "7 min"
+  },
+  {
+    "id": "bs-07",
+    "theme": "appsec",
+    "prompt": "The API security mistakes I keep finding (and how to stop making them)",
+    "angle": "Top recurring API vulnerabilities from your assessment experience. Practical fix advice.",
+    "est_read_time": "6 min"
+  },
+  {
+    "id": "bs-08",
+    "theme": "appsec",
+    "prompt": "SAST vs DAST vs manual review: when each actually matters",
+    "angle": "Honest comparison from someone who's used all three in production environments.",
+    "est_read_time": "5 min"
+  },
+  {
+    "id": "bs-09",
+    "theme": "hall-of-fame",
+    "prompt": "How I got into the Nokia Hall of Fame through responsible disclosure",
+    "angle": "The full story: what you found, how you reported it, Nokia's response, what you learned about the disclosure process.",
+    "est_read_time": "6 min"
+  },
+  {
+    "id": "bs-10",
+    "theme": "hall-of-fame",
+    "prompt": "Responsible disclosure to the Government of India: a security researcher's perspective",
+    "angle": "The process, the bureaucracy, the recognition. Show what responsible disclosure looks like with a government entity.",
+    "est_read_time": "7 min"
+  },
+  {
+    "id": "bs-11",
+    "theme": "hall-of-fame",
+    "prompt": "Two Hall of Fames and what they actually mean for a security career",
+    "angle": "Reflect on what Nokia and Government of India recognitions demonstrate about your skills. Not bragging — proof of methodology.",
+    "est_read_time": "5 min"
+  },
+  {
+    "id": "bs-12",
+    "theme": "grc-dora",
+    "prompt": "DORA is here: what cybersecurity professionals need to know",
+    "angle": "Practical overview of DORA compliance for the security practitioner. Connect it to your ISO 27001 study.",
+    "est_read_time": "7 min"
+  },
+  {
+    "id": "bs-13",
+    "theme": "grc-dora",
+    "prompt": "ISO 27001 Lead Implementer: what studying it taught me that pentesting didn't",
+    "angle": "Bridge between offensive and governance. Show how GRC knowledge makes you a better security engineer.",
+    "est_read_time": "6 min"
+  },
+  {
+    "id": "bs-14",
+    "theme": "grc-dora",
+    "prompt": "The overlap between pentesting reports and GRC frameworks nobody talks about",
+    "angle": "How pentest findings map to control frameworks. Practical for both pentesters and GRC professionals.",
+    "est_read_time": "5 min"
+  },
+  {
+    "id": "bs-15",
+    "theme": "career-change",
+    "prompt": "From offensive security to defensive: why I'm making the switch",
+    "angle": "Honest career reflection. Offensive skills → building secure systems. Market reality in Ireland.",
+    "est_read_time": "6 min"
+  },
+  {
+    "id": "bs-16",
+    "theme": "career-change",
+    "prompt": "Job hunting on a visa clock: the cybersecurity job market in Ireland",
+    "angle": "Raw, numbers-driven account of the Irish cybersecurity job market with visa constraints. No self-pity, just data.",
+    "est_read_time": "7 min"
+  },
+  {
+    "id": "bs-17",
+    "theme": "career-change",
+    "prompt": "What working at a cyber cell taught me about real-world incident response",
+    "angle": "Maharashtra Cyber Cell experience — how government IR differs from corporate. Unique perspective.",
+    "est_read_time": "6 min"
+  },
+  {
+    "id": "bs-18",
+    "theme": "career-change",
+    "prompt": "The security engineer's guide to Irish work permits (Critical Skills vs General)",
+    "angle": "Factual breakdown for other security professionals considering Ireland. Share what you've learned.",
+    "est_read_time": "8 min"
+  },
+  {
+    "id": "bs-19",
+    "theme": "appsec",
+    "prompt": "Mobile app security testing: the checklist I wish I had on day one",
+    "angle": "Practical mobile pentesting checklist from your Indusface experience. Android/iOS.",
+    "est_read_time": "7 min"
+  },
+  {
+    "id": "bs-20",
+    "theme": "appsec",
+    "prompt": "Vulnerability management at scale: lessons from a WAF company",
+    "angle": "What working at Indusface (WAF vendor) taught you about vuln management from the product side.",
+    "est_read_time": "6 min"
+  },
+  {
+    "id": "bs-21",
+    "theme": "ai-llm-security",
+    "prompt": "Building a home lab for AI security research on a budget",
+    "angle": "Your DVWA + Penligent AI setup. Practical guide for others starting AI security research.",
+    "est_read_time": "6 min"
+  },
+  {
+    "id": "bs-22",
+    "theme": "career-change",
+    "prompt": "MSc Cybersecurity at NCI: was it worth it for landing an Irish job?",
+    "angle": "Honest ROI analysis. What it taught, what it didn't, how employers perceive it.",
+    "est_read_time": "7 min"
+  },
+  {
+    "id": "bs-23",
+    "theme": "appsec",
+    "prompt": "The financial services security landscape: what's different about securing banking apps",
+    "angle": "Specific challenges from finserv experience. Compliance, legacy systems, risk appetite.",
+    "est_read_time": "6 min"
+  },
+  {
+    "id": "bs-24",
+    "theme": "ai-llm-security",
+    "prompt": "Why every SOC needs an AI security playbook in 2026",
+    "angle": "Emerging LLM-related threats that SOC teams will encounter. Detection strategies.",
+    "est_read_time": "5 min"
+  },
+  {
+    "id": "bs-25",
+    "theme": "career-change",
+    "prompt": "I built a tool to track my job hunt — here's what the data shows",
+    "angle": "Meta post about sponsor-track-ie itself. Application rates, response rates, what worked. Write this once you have data.",
+    "est_read_time": "6 min"
+  },
+  {
+    "id": "bs-26",
+    "theme": "hall-of-fame",
+    "prompt": "What responsible disclosure taught me about writing better pentest reports",
+    "angle": "How the discipline of coordinating with Nokia and the Indian government improved your reporting skills.",
+    "est_read_time": "5 min"
+  }
+]

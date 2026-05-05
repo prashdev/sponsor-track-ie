@@ -1,0 +1,49 @@
+{
+  "gep_threshold": 36605,
+  "csep_threshold": 40904,
+  "critical_skills_note": "Cybersecurity specialists (ICT security specialist, SOC 2519) are on the Critical Skills Occupations List. Roles must pay €40,904+ to qualify for CSEP. The CSEP route grants Stamp 4 after 21 months vs 57 months on GEP.",
+  "redundancy_rule": "After redundancy, you have 6 months from the date of notification to find a new employer willing to apply for a new employment permit on your behalf. During this period you may remain in Ireland on your existing stamp.",
+  "links": [
+    {
+      "label": "Critical Skills Employment Permit",
+      "url": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/"
+    },
+    {
+      "label": "General Employment Permit",
+      "url": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/general-employment-permit/"
+    },
+    {
+      "label": "Critical Skills Occupations List",
+      "url": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/employment-permit-eligibility/critical-skills-occupations-list/"
+    },
+    {
+      "label": "Ineligible List of Occupations",
+      "url": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/employment-permit-eligibility/ineligible-categories-of-employment/"
+    },
+    {
+      "label": "EPOS — Employment Permits Online System",
+      "url": "https://epos.enterprise.gov.ie/"
+    },
+    {
+      "label": "Citizens Information — Employment Permits",
+      "url": "https://www.citizensinformation.ie/en/moving-country/working-in-ireland/employment-permits/overview-employment-permits/"
+    },
+    {
+      "label": "Citizens Information — Redundancy",
+      "url": "https://www.citizensinformation.ie/en/employment/unemployment-and-redundancy/redundancy/redundancy-payments/"
+    },
+    {
+      "label": "DETE Employment Permit Statistics",
+      "url": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/statistics/"
+    },
+    {
+      "label": "Trusted Partner Initiative",
+      "url": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/trusted-partner-initiative/"
+    },
+    {
+      "label": "DETE Latest Updates",
+      "url": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/"
+    }
+  ],
+  "last_updated": "2026-05-04"
+}

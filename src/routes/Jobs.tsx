@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
 import {
   Plus, LayoutGrid, List, ExternalLink, Pencil, Trash2,
-  AlertTriangle, Search, Rss, RefreshCw,
+  AlertTriangle, Search, Rss, RefreshCw, Briefcase,
 } from 'lucide-react';
 import { useAppState } from '../hooks/useLocalStorage';
 import { useStaticData } from '../hooks/useStaticData';
@@ -27,6 +27,37 @@ interface JobFeed {
   url: string;
   description: string;
   role_types: string[];
+}
+
+interface JobicyJob {
+  id: number;
+  url: string;
+  jobTitle: string;
+  companyName: string;
+  companyLogo: string;
+  jobType: string[];
+  jobGeo: string;
+  jobLevel: string;
+  jobExcerpt: string;
+  pubDate: string;
+}
+
+function useJobicyJobs(tag: string) {
+  const [jobs, setJobs] = useState<JobicyJob[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    fetch(`https://jobicy.com/api/v2/remote-jobs?tag=${encodeURIComponent(tag)}&count=20`)
+      .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then((d) => { if (!cancelled) { setJobs(d.jobs ?? []); setLoading(false); } })
+      .catch((e) => { if (!cancelled) { setError(e.message); setLoading(false); } });
+    return () => { cancelled = true; };
+  }, [tag]);
+
+  return { jobs, loading, error };
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -343,7 +374,110 @@ function LiveJobsRssFeed({ feed }: { feed: JobFeed }) {
   );
 }
 
-function LiveJobs() {
+const JOBICY_TAGS = [
+  { tag: 'security', label: 'Security' },
+  { tag: 'cybersecurity', label: 'Cybersecurity' },
+  { tag: 'devops', label: 'DevOps / DevSecOps' },
+  { tag: 'compliance', label: 'Compliance / GRC' },
+];
+
+function LiveApiJobs({ onAddToTracker }: { onAddToTracker: (j: JobicyJob) => void }) {
+  const [activeTag, setActiveTag] = useState('security');
+  const { jobs, loading, error } = useJobicyJobs(activeTag);
+
+  return (
+    <div className="mt-8">
+      <div className="mb-3 flex items-center justify-between">
+        <h3 className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+          <Briefcase size={12} className="inline" /> Live Remote Jobs — Jobicy API
+        </h3>
+        <span className="text-xs text-zinc-400">Updates on page load · no login required</span>
+      </div>
+
+      <div className="mb-3 flex gap-1.5">
+        {JOBICY_TAGS.map(({ tag, label }) => (
+          <button key={tag} onClick={() => setActiveTag(tag)}
+            className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+              activeTag === tag ? 'bg-zinc-900 text-white' : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
+            }`}>
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {loading && (
+        <div className="flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-8 text-sm text-zinc-400">
+          <RefreshCw size={14} className="animate-spin" /> Fetching live jobs…
+        </div>
+      )}
+      {error && (
+        <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+          Failed to load: {error}
+        </div>
+      )}
+      {!loading && !error && jobs.length === 0 && (
+        <div className="rounded-lg border border-dashed border-zinc-200 px-4 py-8 text-center text-sm text-zinc-400">
+          No jobs found for "{activeTag}" right now. Try another category.
+        </div>
+      )}
+      {!loading && jobs.length > 0 && (
+        <div className="space-y-2">
+          {jobs.map((job) => (
+            <div key={job.id}
+              className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-white p-4 hover:border-zinc-300 hover:shadow-sm transition-all">
+              {job.companyLogo ? (
+                <img src={job.companyLogo} alt={job.companyName}
+                  className="h-9 w-9 shrink-0 rounded-md border border-zinc-100 object-contain bg-white p-0.5"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+              ) : (
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-zinc-100 bg-zinc-50 text-lg">🏢</div>
+              )}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <a href={job.url} target="_blank" rel="noreferrer"
+                      className="text-sm font-semibold text-zinc-900 hover:underline">
+                      {job.jobTitle}
+                    </a>
+                    <p className="text-xs text-zinc-500 mt-0.5">{job.companyName} · {job.jobGeo}</p>
+                  </div>
+                  <div className="flex shrink-0 items-center gap-2">
+                    <button
+                      onClick={() => onAddToTracker(job)}
+                      title="Add to My Tracker"
+                      className="flex items-center gap-1 rounded-md border border-zinc-200 bg-white px-2 py-1 text-xs text-zinc-600 hover:border-zinc-400 hover:text-zinc-900 transition-colors">
+                      <Plus size={11} /> Track
+                    </button>
+                    <a href={job.url} target="_blank" rel="noreferrer"
+                      className="text-zinc-400 hover:text-zinc-700">
+                      <ExternalLink size={14} />
+                    </a>
+                  </div>
+                </div>
+                <div className="mt-1.5 flex flex-wrap gap-1.5">
+                  {job.jobType?.map((t) => (
+                    <span key={t} className="rounded bg-zinc-100 px-1.5 py-0.5 text-[10px] text-zinc-500">{t}</span>
+                  ))}
+                  {job.jobLevel && (
+                    <span className="rounded bg-blue-50 px-1.5 py-0.5 text-[10px] text-blue-600">{job.jobLevel}</span>
+                  )}
+                  <span className="text-[10px] text-zinc-400">{job.pubDate?.slice(0, 10)}</span>
+                </div>
+                <p className="mt-1.5 text-xs text-zinc-500 line-clamp-2">{job.jobExcerpt}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      <p className="mt-2 text-xs text-zinc-400">
+        Source: Jobicy.com public API. Remote roles globally — many open to Ireland-based candidates.
+        Click "Track" to save a role to My Tracker.
+      </p>
+    </div>
+  );
+}
+
+function LiveJobs({ onAddToTracker }: { onAddToTracker: (j: JobicyJob) => void }) {
   const { data: boards } = useStaticData<JobBoard[]>('data/job-boards.json');
   const { data: feeds } = useStaticData<JobFeed[]>('data/job-feeds.json');
   const [roleFilter, setRoleFilter] = useState<string>('all');
@@ -415,6 +549,8 @@ function LiveJobs() {
           </div>
         ))}
       </div>
+
+      <LiveApiJobs onAddToTracker={onAddToTracker} />
 
       {feeds && feeds.length > 0 && (
         <div className="mt-8">
@@ -548,7 +684,10 @@ export default function Jobs() {
         </>
       ) : (
         <div className="mt-4">
-          <LiveJobs />
+          <LiveJobs onAddToTracker={(j) => {
+            setEditJob({ company: j.companyName, role: j.jobTitle, source_url: j.url });
+            setTab('tracker');
+          }} />
         </div>
       )}
 

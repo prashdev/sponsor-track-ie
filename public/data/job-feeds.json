@@ -1,0 +1,16 @@
+[
+  {
+    "id": "remotive-security",
+    "name": "Remotive — Remote Security Jobs",
+    "url": "https://remotive.com/remote-jobs/feed?category=security",
+    "description": "Remote-friendly security roles at tech companies. Global but many accept Ireland-based candidates.",
+    "role_types": ["appsec", "ai-security", "infosec"]
+  },
+  {
+    "id": "remotive-devops",
+    "name": "Remotive — Remote DevSecOps",
+    "url": "https://remotive.com/remote-jobs/feed?category=devops",
+    "description": "DevOps and infrastructure roles that often include security responsibilities.",
+    "role_types": ["infosec", "soc"]
+  }
+]

@@ -1,0 +1,191 @@
+[
+  {
+    "id": "jb-appsec-linkedin",
+    "role_type": "appsec",
+    "role_label": "Application Security",
+    "board": "LinkedIn",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=application+security+engineer&location=Dublin%2C+Ireland&f_JT=F&f_TP=1%2C2%2C3",
+    "notes": "Full-time roles posted in the last month. Filter 'Easy Apply' to speed through volume.",
+    "icon": "linkedin"
+  },
+  {
+    "id": "jb-appsec-indeed",
+    "role_type": "appsec",
+    "role_label": "Application Security",
+    "board": "Indeed Ireland",
+    "url": "https://ie.indeed.com/jobs?q=application+security+engineer&l=Dublin%2C+Ireland&sort=date&fromage=30&radius=25",
+    "notes": "Sorted by date. Set up an email alert to get daily new listings.",
+    "icon": "indeed"
+  },
+  {
+    "id": "jb-appsec-irishjobs",
+    "role_type": "appsec",
+    "role_label": "Application Security",
+    "board": "IrishJobs.ie",
+    "url": "https://www.irishjobs.ie/ShowResults.aspx?Keywords=application+security&Location=101&RadiusFrom=30",
+    "notes": "Dublin (Location=101). Many roles here are direct employer posts.",
+    "icon": "irishjobs"
+  },
+  {
+    "id": "jb-appsec-glassdoor",
+    "role_type": "appsec",
+    "role_label": "Application Security",
+    "board": "Glassdoor",
+    "url": "https://www.glassdoor.ie/Job/ireland-application-security-engineer-jobs-SRCH_IL.0,7_IN192_KO8,37.htm",
+    "notes": "Includes salary data — useful for calibrating against GEP/CSEP thresholds.",
+    "icon": "glassdoor"
+  },
+  {
+    "id": "jb-pentest-linkedin",
+    "role_type": "pentest",
+    "role_label": "Penetration Tester",
+    "board": "LinkedIn",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=penetration+tester&location=Ireland&f_JT=F&f_TP=1%2C2%2C3",
+    "notes": "Broaden to all Ireland — many Dublin/remote hybrid roles.",
+    "icon": "linkedin"
+  },
+  {
+    "id": "jb-pentest-indeed",
+    "role_type": "pentest",
+    "role_label": "Penetration Tester",
+    "board": "Indeed Ireland",
+    "url": "https://ie.indeed.com/jobs?q=penetration+tester+OR+ethical+hacker&l=Ireland&sort=date&fromage=30",
+    "notes": "Combined search for pentest and ethical hacker job titles.",
+    "icon": "indeed"
+  },
+  {
+    "id": "jb-pentest-reed",
+    "role_type": "pentest",
+    "role_label": "Penetration Tester",
+    "board": "Reed.co.uk",
+    "url": "https://www.reed.co.uk/jobs/penetration-tester-jobs-in-ireland",
+    "notes": "Reed regularly lists Irish security roles including Dublin-based pentesting.",
+    "icon": "reed"
+  },
+  {
+    "id": "jb-aisec-linkedin",
+    "role_type": "ai-security",
+    "role_label": "AI / LLM Security",
+    "board": "LinkedIn",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=AI+security+engineer&location=Ireland&f_JT=F&f_TP=1%2C2%2C3",
+    "notes": "Emerging space — also try 'ML security', 'LLM security', 'AI red team'.",
+    "icon": "linkedin"
+  },
+  {
+    "id": "jb-aisec-indeed",
+    "role_type": "ai-security",
+    "role_label": "AI / LLM Security",
+    "board": "Indeed Ireland",
+    "url": "https://ie.indeed.com/jobs?q=AI+security+OR+LLM+security+OR+machine+learning+security&l=Ireland&sort=date",
+    "notes": "Broad search — AI security roles often have product security in the title.",
+    "icon": "indeed"
+  },
+  {
+    "id": "jb-aisec-remotive",
+    "role_type": "ai-security",
+    "role_label": "AI / LLM Security",
+    "board": "Remotive (Remote)",
+    "url": "https://remotive.com/remote-jobs?category=security&search=AI",
+    "notes": "Remote-only. Good for roles at AI-native companies open to Ireland-based candidates.",
+    "icon": "remotive"
+  },
+  {
+    "id": "jb-soc-linkedin",
+    "role_type": "soc",
+    "role_label": "SOC Analyst",
+    "board": "LinkedIn",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=SOC+analyst&location=Dublin%2C+Ireland&f_JT=F&f_TP=1%2C2%2C3",
+    "notes": "High volume. Filter by 'Entry level' for L1/L2 roles.",
+    "icon": "linkedin"
+  },
+  {
+    "id": "jb-soc-indeed",
+    "role_type": "soc",
+    "role_label": "SOC Analyst",
+    "board": "Indeed Ireland",
+    "url": "https://ie.indeed.com/jobs?q=SOC+analyst+OR+security+operations+analyst&l=Dublin&sort=date&fromage=30",
+    "notes": "Many MSSP roles here. Integrity360 and Smarttech247 post frequently.",
+    "icon": "indeed"
+  },
+  {
+    "id": "jb-soc-irishjobs",
+    "role_type": "soc",
+    "role_label": "SOC Analyst",
+    "board": "IrishJobs.ie",
+    "url": "https://www.irishjobs.ie/ShowResults.aspx?Keywords=SOC+analyst&Location=101&RadiusFrom=30",
+    "notes": "Dublin only. Good for Irish MSSP companies.",
+    "icon": "irishjobs"
+  },
+  {
+    "id": "jb-soc-cybercrime",
+    "role_type": "soc",
+    "role_label": "SOC Analyst",
+    "board": "CyberSecJobs.ie",
+    "url": "https://www.cybersecjobs.ie/",
+    "notes": "Ireland-specific cybersecurity job board. Smaller volume, higher signal.",
+    "icon": "external"
+  },
+  {
+    "id": "jb-infosec-linkedin",
+    "role_type": "infosec",
+    "role_label": "Information Security",
+    "board": "LinkedIn",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=information+security+analyst&location=Dublin%2C+Ireland&f_JT=F",
+    "notes": "Broad — includes GRC and analyst roles at financial services firms.",
+    "icon": "linkedin"
+  },
+  {
+    "id": "jb-infosec-indeed",
+    "role_type": "infosec",
+    "role_label": "Information Security",
+    "board": "Indeed Ireland",
+    "url": "https://ie.indeed.com/jobs?q=information+security+analyst+OR+cybersecurity+analyst&l=Dublin&sort=date&fromage=30",
+    "notes": "Big4 and banks post here regularly. Check for CSEP-eligible salary.",
+    "icon": "indeed"
+  },
+  {
+    "id": "jb-grc-linkedin",
+    "role_type": "grc",
+    "role_label": "GRC / ISO 27001 / DORA",
+    "board": "LinkedIn",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=GRC+ISO+27001+DORA+Ireland&location=Ireland&f_JT=F",
+    "notes": "Also search 'DORA compliance' and 'risk analyst' separately. DORA demand is high in 2026.",
+    "icon": "linkedin"
+  },
+  {
+    "id": "jb-grc-indeed",
+    "role_type": "grc",
+    "role_label": "GRC / ISO 27001 / DORA",
+    "board": "Indeed Ireland",
+    "url": "https://ie.indeed.com/jobs?q=GRC+OR+ISO+27001+OR+DORA+compliance&l=Dublin&sort=date&fromage=30",
+    "notes": "Financial services and consulting firms. Often not CSEP-eligible — verify salary.",
+    "icon": "indeed"
+  },
+  {
+    "id": "jb-sponsored-dete",
+    "role_type": "sponsored",
+    "role_label": "Visa Sponsorship Confirmed",
+    "board": "LinkedIn — Sponsor Filter",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=cybersecurity+engineer&location=Ireland&f_JT=F&f_SB2=6",
+    "notes": "f_SB2=6 attempts to filter for visa sponsorship. Not 100% reliable — always confirm with recruiter.",
+    "icon": "linkedin"
+  },
+  {
+    "id": "jb-sponsored-reed",
+    "role_type": "sponsored",
+    "role_label": "Visa Sponsorship Confirmed",
+    "board": "Reed.co.uk — Cyber Ireland",
+    "url": "https://www.reed.co.uk/jobs/cyber-security-jobs-in-ireland",
+    "notes": "Reed lists work permit sponsorship in job descriptions more explicitly than Irish boards.",
+    "icon": "reed"
+  },
+  {
+    "id": "jb-sponsored-careers",
+    "role_type": "sponsored",
+    "role_label": "Visa Sponsorship Confirmed",
+    "board": "Careers Portal (DETE Trusted Partners)",
+    "url": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/trusted-partner-initiative/",
+    "notes": "Cross-reference applicant companies against the DETE Trusted Partner list.",
+    "icon": "gov"
+  }
+]

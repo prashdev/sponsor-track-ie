@@ -1,0 +1,14 @@
+[
+  { "name": "The Hacker News",      "url": "https://feeds.feedburner.com/TheHackersNews", "topic": "cybersec",     "lang": "en" },
+  { "name": "Bleeping Computer",    "url": "https://www.bleepingcomputer.com/feed/",       "topic": "cybersec",     "lang": "en" },
+  { "name": "Krebs on Security",    "url": "https://krebsonsecurity.com/feed/",            "topic": "cybersec",     "lang": "en" },
+  { "name": "Dark Reading",         "url": "https://www.darkreading.com/rss.xml",          "topic": "cybersec",     "lang": "en" },
+  { "name": "Schneier on Security", "url": "https://www.schneier.com/feed/",               "topic": "cybersec",     "lang": "en" },
+  { "name": "Risky Biz News",       "url": "https://news.risky.biz/rss/",                 "topic": "cybersec",     "lang": "en" },
+  { "name": "MIT Technology Review — AI", "url": "https://www.technologyreview.com/feed/", "topic": "ai",          "lang": "en" },
+  { "name": "Google AI Blog",       "url": "https://blog.google/innovation-and-ai/technology/ai/rss/", "topic": "ai", "lang": "en" },
+  { "name": "Hugging Face Blog",    "url": "https://huggingface.co/blog/feed.xml",         "topic": "ai",           "lang": "en" },
+  { "name": "AI Weekly",            "url": "https://aiweekly.co/issues.rss",               "topic": "ai",           "lang": "en" },
+  { "name": "Silicon Republic",     "url": "https://www.siliconrepublic.com/feed/",        "topic": "ireland-tech", "lang": "en" },
+  { "name": "The Irish Times — Tech","url": "https://www.irishtimes.com/technology/rss.xml","topic": "ireland-tech", "lang": "en" }
+]

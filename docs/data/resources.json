@@ -1,0 +1,242 @@
+[
+  {
+    "id": "appsec-portswigger",
+    "track": "appsec",
+    "title": "PortSwigger Web Security Academy",
+    "url": "https://portswigger.net/web-security",
+    "type": "course",
+    "level": "beginner",
+    "free": true,
+    "notes": "Comprehensive web app security labs. Covers OWASP Top 10 hands-on."
+  },
+  {
+    "id": "appsec-owasp-top10",
+    "track": "appsec",
+    "title": "OWASP Top 10 (2021)",
+    "url": "https://owasp.org/www-project-top-ten/",
+    "type": "reference",
+    "level": "beginner",
+    "free": true,
+    "notes": "Essential reading. Know every category cold for interviews."
+  },
+  {
+    "id": "appsec-owasp-testing-guide",
+    "track": "appsec",
+    "title": "OWASP Web Security Testing Guide",
+    "url": "https://owasp.org/www-project-web-security-testing-guide/",
+    "type": "reference",
+    "level": "intermediate",
+    "free": true,
+    "notes": "Detailed methodology for web app security assessments."
+  },
+  {
+    "id": "appsec-htb-starter",
+    "track": "appsec",
+    "title": "HackTheBox — Free Starter Labs",
+    "url": "https://www.hackthebox.com",
+    "type": "lab",
+    "level": "intermediate",
+    "free": true,
+    "notes": "Free tier includes retired machines and starting point labs."
+  },
+  {
+    "id": "appsec-dvwa",
+    "track": "appsec",
+    "title": "DVWA — Damn Vulnerable Web Application",
+    "url": "https://github.com/digininja/DVWA",
+    "type": "lab",
+    "level": "beginner",
+    "free": true,
+    "notes": "Self-hosted vulnerable app for practice. You already use this."
+  },
+  {
+    "id": "appsec-juice-shop",
+    "track": "appsec",
+    "title": "OWASP Juice Shop",
+    "url": "https://owasp.org/www-project-juice-shop/",
+    "type": "lab",
+    "level": "beginner",
+    "free": true,
+    "notes": "Modern vulnerable web app with guided challenges."
+  },
+  {
+    "id": "ai-sec-owasp-llm",
+    "track": "ai-security",
+    "title": "OWASP LLM Top 10",
+    "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+    "type": "reference",
+    "level": "beginner",
+    "free": true,
+    "notes": "The standard reference for LLM security risks. You already know this — keep it as interview prep."
+  },
+  {
+    "id": "ai-sec-gandalf",
+    "track": "ai-security",
+    "title": "Gandalf — Lakera AI Prompt Injection Challenge",
+    "url": "https://gandalf.lakera.ai",
+    "type": "lab",
+    "level": "beginner",
+    "free": true,
+    "notes": "Hands-on prompt injection levels. Great for understanding LLM manipulation."
+  },
+  {
+    "id": "ai-sec-garak",
+    "track": "ai-security",
+    "title": "Garak — LLM Vulnerability Scanner",
+    "url": "https://github.com/NVIDIA/garak",
+    "type": "tool",
+    "level": "intermediate",
+    "free": true,
+    "notes": "Open-source LLM red-teaming tool by NVIDIA. Hands-on experience with automated LLM testing."
+  },
+  {
+    "id": "ai-sec-ms-learn",
+    "track": "ai-security",
+    "title": "Microsoft Learn — AI Security Fundamentals",
+    "url": "https://learn.microsoft.com/en-us/training/paths/ai-security/",
+    "type": "course",
+    "level": "beginner",
+    "free": true,
+    "notes": "Microsoft's free AI security learning path. Good for foundational concepts."
+  },
+  {
+    "id": "ai-sec-huggingface",
+    "track": "ai-security",
+    "title": "Hugging Face — NLP / LLM Course",
+    "url": "https://huggingface.co/learn",
+    "type": "course",
+    "level": "beginner",
+    "free": true,
+    "notes": "Understand LLMs at a technical level. Helps contextualize security risks."
+  },
+  {
+    "id": "llm-sec-promptfoo",
+    "track": "llm-security",
+    "title": "Promptfoo — LLM Red Teaming Framework",
+    "url": "https://github.com/promptfoo/promptfoo",
+    "type": "tool",
+    "level": "intermediate",
+    "free": true,
+    "notes": "Open-source tool for testing LLM applications. Eval-driven red teaming."
+  },
+  {
+    "id": "llm-sec-damn-vulnerable-llm",
+    "track": "llm-security",
+    "title": "Damn Vulnerable LLM Agent",
+    "url": "https://github.com/WithSecureLabs/damn-vulnerable-llm-agent",
+    "type": "lab",
+    "level": "beginner",
+    "free": true,
+    "notes": "Vulnerable LLM agent application for hands-on practice."
+  },
+  {
+    "id": "llm-sec-rebuff",
+    "track": "llm-security",
+    "title": "Rebuff — Prompt Injection Detection",
+    "url": "https://github.com/protectai/rebuff",
+    "type": "tool",
+    "level": "intermediate",
+    "free": true,
+    "notes": "Self-hosted prompt injection detection framework."
+  },
+  {
+    "id": "soc-thm-soc1",
+    "track": "soc",
+    "title": "TryHackMe — SOC Level 1 Path (Free Rooms)",
+    "url": "https://tryhackme.com/path/outline/soclevel1",
+    "type": "course",
+    "level": "beginner",
+    "free": true,
+    "notes": "Structured SOC analyst training. Many rooms free without subscription."
+  },
+  {
+    "id": "soc-btlo",
+    "track": "soc",
+    "title": "Blue Team Labs Online — Free Tier",
+    "url": "https://blueteamlabs.online",
+    "type": "lab",
+    "level": "beginner",
+    "free": true,
+    "notes": "Blue team investigation challenges. Free community tier available."
+  },
+  {
+    "id": "soc-letsdefend",
+    "track": "soc",
+    "title": "Let's Defend — Community Edition",
+    "url": "https://letsdefend.io",
+    "type": "lab",
+    "level": "beginner",
+    "free": true,
+    "notes": "SOC analyst simulator with free community access. Alert triage practice."
+  },
+  {
+    "id": "soc-splunk-fundamentals",
+    "track": "soc",
+    "title": "Splunk Fundamentals 1",
+    "url": "https://education.splunk.com/free",
+    "type": "course",
+    "level": "beginner",
+    "free": true,
+    "notes": "Free introductory Splunk course. Essential SIEM skill for SOC roles."
+  },
+  {
+    "id": "soc-elk-training",
+    "track": "soc",
+    "title": "Elastic Security Fundamentals (Free)",
+    "url": "https://www.elastic.co/training/free",
+    "type": "course",
+    "level": "beginner",
+    "free": true,
+    "notes": "Free ELK stack security training. Covers SIEM use cases."
+  },
+  {
+    "id": "soc-antisyphon",
+    "track": "soc",
+    "title": "Antisyphon Training — Pay-What-You-Can Courses",
+    "url": "https://www.antisyphontraining.com",
+    "type": "course",
+    "level": "intermediate",
+    "free": true,
+    "notes": "John Strand's courses. SOC Core Skills, Active Defense. Pay-what-you-can model."
+  },
+  {
+    "id": "soc-secplus-objectives",
+    "track": "soc",
+    "title": "CompTIA Security+ Exam Objectives PDF",
+    "url": "https://www.comptia.org/certifications/security",
+    "type": "reference",
+    "level": "beginner",
+    "free": true,
+    "notes": "Free objectives PDF as a SOC knowledge roadmap. Study guide for the cert."
+  },
+  {
+    "id": "cs-to-tech-google-it-support",
+    "track": "customer-support-to-tech",
+    "title": "Google IT Support Professional Certificate (Coursera audit)",
+    "url": "https://www.coursera.org/professional-certificates/google-it-support",
+    "type": "course",
+    "level": "beginner",
+    "free": true,
+    "notes": "Free to audit. Covers networking, security, troubleshooting fundamentals."
+  },
+  {
+    "id": "cs-to-tech-itil-foundation",
+    "track": "customer-support-to-tech",
+    "title": "ITIL 4 Foundation Overview (Free Resources)",
+    "url": "https://www.axelos.com/certifications/itil-service-management/itil-4-foundation",
+    "type": "reference",
+    "level": "beginner",
+    "free": true,
+    "notes": "ITIL overview and free prep materials. Useful for service desk → security transition."
+  },
+  {
+    "id": "cs-to-tech-ms-sc900",
+    "track": "customer-support-to-tech",
+    "title": "Microsoft SC-900 — Security Fundamentals (Free Learning Path)",
+    "url": "https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/",
+    "type": "course",
+    "level": "beginner",
+    "free": true,
+    "notes": "Free Microsoft Learn path. Bridges service desk knowledge to security concepts."
+  }
+]
