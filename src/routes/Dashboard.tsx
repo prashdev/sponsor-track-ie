@@ -1,8 +1,9 @@
 import { differenceInDays, format, parseISO, startOfWeek } from 'date-fns';
 import { Link } from 'react-router-dom';
-import { Briefcase, Clock, Building2, BookOpen, Plus } from 'lucide-react';
+import { Briefcase, Clock, Building2, BookOpen, Plus, ExternalLink } from 'lucide-react';
 import { useAppState } from '../hooks/useLocalStorage';
 import { VISA_EXPIRY } from '../lib/constants';
+import type { Job } from '../lib/types';
 
 const VISA_EXPIRY_DATE = parseISO(VISA_EXPIRY);
 
@@ -128,6 +129,67 @@ function WeeklyChecklist() {
   );
 }
 
+function NextActionTimeline() {
+  const [state] = useAppState();
+  const now = new Date();
+  const today = now.toISOString().slice(0, 10);
+  const in7Days = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
+  const withDue = state.jobs
+    .filter((j) => j.next_action_due && j.next_action)
+    .sort((a, b) => (a.next_action_due ?? '').localeCompare(b.next_action_due ?? ''));
+
+  if (withDue.length === 0) return null;
+
+  const overdue = withDue.filter((j) => j.next_action_due! < today);
+  const dueToday = withDue.filter((j) => j.next_action_due === today);
+  const upcoming = withDue.filter((j) => j.next_action_due! > today && j.next_action_due! <= in7Days);
+
+  function ActionItem({ job }: { job: Job }) {
+    const due = job.next_action_due!;
+    const isOv = due < today;
+    const isTod = due === today;
+    const daysLabel = isOv
+      ? `${differenceInDays(now, parseISO(due))}d overdue`
+      : isTod
+      ? 'Today'
+      : `in ${differenceInDays(parseISO(due), now)}d`;
+
+    return (
+      <div className={`flex items-center gap-3 rounded-lg border px-4 py-2.5 ${
+        isOv ? 'border-red-200 bg-red-50' : isTod ? 'border-amber-200 bg-amber-50' : 'border-zinc-200 bg-white'
+      }`}>
+        <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold tabular-nums ${
+          isOv ? 'bg-red-100 text-red-700' : isTod ? 'bg-amber-100 text-amber-700' : 'bg-zinc-100 text-zinc-600'
+        }`}>
+          {daysLabel}
+        </span>
+        <div className="flex-1 min-w-0">
+          <p className="truncate text-sm font-medium text-zinc-900">{job.company} — {job.role}</p>
+          <p className="truncate text-xs text-zinc-500">{job.next_action}</p>
+        </div>
+        <Link to="/jobs" className="shrink-0 text-zinc-400 hover:text-zinc-700">
+          <ExternalLink size={13} />
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <div className="rounded-lg border border-zinc-200 bg-white p-5">
+      <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Upcoming Actions</p>
+      <div className="mt-3 space-y-2">
+        {overdue.map((j) => <ActionItem key={j.id} job={j} />)}
+        {dueToday.map((j) => <ActionItem key={j.id} job={j} />)}
+        {upcoming.map((j) => <ActionItem key={j.id} job={j} />)}
+        {overdue.length === 0 && dueToday.length === 0 && upcoming.length === 0 && (
+          <p className="text-sm text-zinc-400">Nothing due in the next 7 days.</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function MetricCard({
   icon: Icon,
   label,
@@ -188,6 +250,10 @@ export default function Dashboard() {
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <VisaCountdown />
         <WeeklyChecklist />
+      </div>
+
+      <div className="mt-4">
+        <NextActionTimeline />
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">

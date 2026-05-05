@@ -24,6 +24,9 @@ export function createDefaultState(): AppState {
     readArticles: [],
     readLaterArticles: [],
     blogIdeas: [],
+    contacts: [],
+    interviewPreps: [],
+    starStories: [],
   };
 }
 
@@ -32,10 +35,22 @@ export function loadState(): AppState {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return createDefaultState();
     const parsed = JSON.parse(raw) as AppState;
-    return resetChecklistIfNewWeek(parsed);
+    const migrated = ensureNewFields(parsed);
+    return resetChecklistIfNewWeek(migrated);
   } catch {
     return createDefaultState();
   }
+}
+
+function ensureNewFields(state: AppState): AppState {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const s = state as any;
+  return {
+    ...state,
+    contacts: s.contacts ?? [],
+    interviewPreps: s.interviewPreps ?? [],
+    starStories: s.starStories ?? [],
+  };
 }
 
 export function saveState(state: AppState): void {

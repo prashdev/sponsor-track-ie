@@ -2,7 +2,9 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Dashboard from './routes/Dashboard';
 import Jobs from './routes/Jobs';
+import Contacts from './routes/Contacts';
 import Sponsors from './routes/Sponsors';
+import InterviewPrep from './routes/InterviewPrep';
 import Study from './routes/Study';
 import News from './routes/News';
 import Blog from './routes/Blog';
@@ -15,7 +17,9 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/jobs" element={<Jobs />} />
+          <Route path="/contacts" element={<Contacts />} />
           <Route path="/sponsors" element={<Sponsors />} />
+          <Route path="/interview" element={<InterviewPrep />} />
           <Route path="/study" element={<Study />} />
           <Route path="/news" element={<News />} />
           <Route path="/blog" element={<Blog />} />

@@ -45,6 +45,43 @@ export interface BlogIdeaState {
   hook: string;
 }
 
+export interface Contact {
+  id: string;
+  name: string;
+  company: string;
+  title: string;
+  platform: 'linkedin' | 'email' | 'phone' | 'other';
+  profile_url: string;
+  messaged_on: string;
+  reply_status: 'no_reply' | 'replied' | 'call_booked' | 'declined';
+  follow_up_due: string | null;
+  notes: string;
+}
+
+export interface InterviewRound {
+  id: string;
+  label: string;
+  date: string | null;
+  notes: string;
+  outcome: 'pending' | 'passed' | 'failed';
+}
+
+export interface InterviewPrep {
+  jobId: string;
+  rounds: InterviewRound[];
+  company_research: string;
+}
+
+export interface StarStory {
+  id: string;
+  title: string;
+  competencies: string[];
+  situation: string;
+  task: string;
+  action: string;
+  result: string;
+}
+
 export interface AppState {
   _version: 1;
   _exportedAt?: string;
@@ -58,6 +95,9 @@ export interface AppState {
   readArticles: string[];
   readLaterArticles: SavedArticle[];
   blogIdeas: BlogIdeaState[];
+  contacts: Contact[];
+  interviewPreps: InterviewPrep[];
+  starStories: StarStory[];
 }
 
 export interface Sponsor {
