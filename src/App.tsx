@@ -7,6 +7,7 @@ import Sponsors from './routes/Sponsors';
 import InterviewPrep from './routes/InterviewPrep';
 import JdAnalyzer from './routes/JdAnalyzer';
 import RetailSponsors from './routes/RetailSponsors';
+import Recruiters from './routes/Recruiters';
 import Study from './routes/Study';
 import News from './routes/News';
 import Blog from './routes/Blog';
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/jd-analyzer" element={<JdAnalyzer />} />
           <Route path="/fallback-roles" element={<RetailSponsors />} />
+          <Route path="/recruiters" element={<Recruiters />} />
           <Route path="/settings" element={<Settings />} />
         </Route>
       </Routes>
