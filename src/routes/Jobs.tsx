@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { format, parseISO } from 'date-fns';
 import {
   Plus, LayoutGrid, List, ExternalLink, Pencil, Trash2,
-  AlertTriangle, Search, Rss, RefreshCw, Briefcase,
+  AlertTriangle, Search, Rss, RefreshCw, Briefcase, Globe, MapPin, Sparkles,
 } from 'lucide-react';
 import { useAppState } from '../hooks/useLocalStorage';
 import { useStaticData } from '../hooks/useStaticData';
@@ -42,7 +42,7 @@ interface JobicyJob {
   pubDate: string;
 }
 
-function useJobicyJobs(tag: string) {
+function useJobicyJobs(tag: string, geo?: string) {
   const [jobs, setJobs] = useState<JobicyJob[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -50,14 +50,116 @@ function useJobicyJobs(tag: string) {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    fetch(`https://jobicy.com/api/v2/remote-jobs?tag=${encodeURIComponent(tag)}&count=20`)
+    const geoParam = geo ? `&geo=${encodeURIComponent(geo)}` : '';
+    fetch(`https://jobicy.com/api/v2/remote-jobs?tag=${encodeURIComponent(tag)}&count=20${geoParam}`)
       .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
       .then((d) => { if (!cancelled) { setJobs(d.jobs ?? []); setLoading(false); } })
       .catch((e) => { if (!cancelled) { setError(e.message); setLoading(false); } });
     return () => { cancelled = true; };
-  }, [tag]);
+  }, [tag, geo]);
 
   return { jobs, loading, error };
+}
+
+// ─── Aggregated multi-source job types/hooks ──────────────────────────────────
+
+interface UnifiedJob {
+  source: 'Jobicy' | 'Remotive' | 'Arbeitnow' | 'TheMuse';
+  id: string;
+  title: string;
+  company: string;
+  location: string;
+  url: string;
+  postedAt: string;     // ISO
+  excerpt: string;
+  tags: string[];
+}
+
+function useRemotiveJobs(category: string) {
+  const [jobs, setJobs] = useState<UnifiedJob[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    fetch(`https://remotive.com/api/remote-jobs?category=${encodeURIComponent(category)}&limit=30`)
+      .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then((d: any) => {
+        if (cancelled) return;
+        const list: UnifiedJob[] = (d.jobs ?? []).map((j: any) => ({
+          source: 'Remotive', id: `rmt-${j.id}`, title: j.title, company: j.company_name,
+          location: j.candidate_required_location || 'Remote', url: j.url,
+          postedAt: j.publication_date ?? '',
+          excerpt: (j.description ?? '').replace(/<[^>]+>/g, '').slice(0, 240),
+          tags: j.tags ?? [],
+        }));
+        setJobs(list); setLoading(false);
+      })
+      .catch((e) => { if (!cancelled) { setError(e.message); setLoading(false); } });
+    return () => { cancelled = true; };
+  }, [category]);
+  return { jobs, loading, error };
+}
+
+function useArbeitnowJobs() {
+  const [jobs, setJobs] = useState<UnifiedJob[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    fetch('https://www.arbeitnow.com/api/job-board-api')
+      .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then((d: any) => {
+        if (cancelled) return;
+        const list: UnifiedJob[] = (d.data ?? []).slice(0, 50).map((j: any) => ({
+          source: 'Arbeitnow', id: `arb-${j.slug}`, title: j.title, company: j.company_name,
+          location: j.location || (j.remote ? 'Remote' : ''), url: j.url,
+          postedAt: j.created_at ? new Date(j.created_at * 1000).toISOString() : '',
+          excerpt: (j.description ?? '').replace(/<[^>]+>/g, '').slice(0, 240),
+          tags: j.tags ?? [],
+        }));
+        setJobs(list); setLoading(false);
+      })
+      .catch((e) => { if (!cancelled) { setError(e.message); setLoading(false); } });
+    return () => { cancelled = true; };
+  }, []);
+  return { jobs, loading, error };
+}
+
+function useTheMuseJobs(category: string) {
+  const [jobs, setJobs] = useState<UnifiedJob[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    fetch(`https://www.themuse.com/api/public/jobs?category=${encodeURIComponent(category)}&page=1`)
+      .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then((d: any) => {
+        if (cancelled) return;
+        const list: UnifiedJob[] = (d.results ?? []).map((j: any) => ({
+          source: 'TheMuse', id: `muse-${j.id}`, title: j.name, company: j.company?.name ?? '',
+          location: (j.locations?.[0]?.name) ?? 'Remote',
+          url: j.refs?.landing_page ?? '', postedAt: j.publication_date ?? '',
+          excerpt: (j.contents ?? '').replace(/<[^>]+>/g, '').slice(0, 240),
+          tags: (j.categories ?? []).map((c: any) => c.name),
+        }));
+        setJobs(list); setLoading(false);
+      })
+      .catch((e) => { if (!cancelled) { setError(e.message); setLoading(false); } });
+    return () => { cancelled = true; };
+  }, [category]);
+  return { jobs, loading, error };
+}
+
+function jobicyToUnified(j: JobicyJob): UnifiedJob {
+  return {
+    source: 'Jobicy', id: `joby-${j.id}`, title: j.jobTitle, company: j.companyName,
+    location: j.jobGeo || 'Remote', url: j.url, postedAt: j.pubDate ?? '',
+    excerpt: (j.jobExcerpt ?? '').replace(/<[^>]+>/g, '').slice(0, 240),
+    tags: j.jobType ?? [],
+  };
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -587,11 +689,327 @@ function LiveJobs({ onAddToTracker }: { onAddToTracker: (j: JobicyJob) => void }
   );
 }
 
+// ─── Daily Feed (Multi-source aggregator) ─────────────────────────────────────
+
+interface HiddenBoard {
+  name: string;
+  url: string;
+  notes: string;
+}
+
+const HIDDEN_BOARDS: HiddenBoard[] = [
+  { name: 'Hiring Cafe', url: 'https://hiring.cafe/?searchState=%7B%22searchQuery%22%3A%22cybersecurity%22%7D', notes: 'Curated startup roles, often missed by aggregators. Filter by keyword and location.' },
+  { name: 'Trueup.io', url: 'https://www.trueup.io/jobs?role_l1=Security', notes: 'Tech-startup focused. Strong filters for role family, stage, and location.' },
+  { name: 'Otta (Welcome to the Jungle)', url: 'https://otta.com/jobs/security', notes: 'Modern tech startups across EU. Good for AppSec and Product Security roles.' },
+  { name: 'Wellfound (AngelList)', url: 'https://wellfound.com/role/security-engineer', notes: 'Startup-heavy. Equity-first compensation. Some sponsor visas.' },
+  { name: 'Built In', url: 'https://builtin.com/jobs/dev-engineering/search/security', notes: 'Tech-company aggregator. US-heavy but expanding into EU.' },
+  { name: 'Y Combinator Work List', url: 'https://www.ycombinator.com/jobs/role/security-engineer', notes: 'YC portfolio companies hiring. Often early-career-friendly roles.' },
+  { name: 'Welcome to the Jungle', url: 'https://www.welcometothejungle.com/en/jobs?query=cybersecurity', notes: 'EU-focused company-profile-rich job board. Strong on culture data.' },
+  { name: 'Layoffs.fyi (rebound)', url: 'https://layoffs.fyi/', notes: 'Track who is hiring vs cutting. Useful signal on company stability before applying.' },
+  { name: 'Key Values', url: 'https://www.keyvalues.com/?filter%5B0%5D=security', notes: 'Filter companies by engineering values. Smaller but high-signal.' },
+  { name: 'Tech Jobs for Good', url: 'https://techjobsforgood.com/jobs/?keywords=security', notes: 'Mission-driven tech roles. Smaller pool but distinctive employers.' },
+];
+
+function DailyFeed({ onAddToTracker }: { onAddToTracker: (u: UnifiedJob) => void }) {
+  const [sourceFilter, setSourceFilter] = useState<Record<UnifiedJob['source'], boolean>>({
+    Jobicy: true, Remotive: true, Arbeitnow: true, TheMuse: true,
+  });
+  const [search, setSearch] = useState('');
+
+  const jobicy = useJobicyJobs('security');
+  const remotive = useRemotiveJobs('software-dev');
+  const arbeitnow = useArbeitnowJobs();
+  const muse = useTheMuseJobs('Cybersecurity & Information Security');
+
+  const merged = useMemo(() => {
+    const all: UnifiedJob[] = [
+      ...(sourceFilter.Jobicy ? jobicy.jobs.map(jobicyToUnified) : []),
+      ...(sourceFilter.Remotive ? remotive.jobs : []),
+      ...(sourceFilter.Arbeitnow ? arbeitnow.jobs : []),
+      ...(sourceFilter.TheMuse ? muse.jobs : []),
+    ];
+    const seen = new Set<string>();
+    const deduped = all.filter((j) => {
+      if (!j.url) return false;
+      if (seen.has(j.url)) return false;
+      seen.add(j.url);
+      return true;
+    });
+    deduped.sort((a, b) => (b.postedAt || '').localeCompare(a.postedAt || ''));
+    if (search.trim()) {
+      const q = search.toLowerCase();
+      return deduped.filter((j) =>
+        j.title.toLowerCase().includes(q) ||
+        j.company.toLowerCase().includes(q) ||
+        j.location.toLowerCase().includes(q) ||
+        j.tags.some((t) => t.toLowerCase().includes(q))
+      );
+    }
+    return deduped;
+  }, [jobicy.jobs, remotive.jobs, arbeitnow.jobs, muse.jobs, sourceFilter, search]);
+
+  const anyLoading = jobicy.loading || remotive.loading || arbeitnow.loading || muse.loading;
+
+  const sourceColors: Record<UnifiedJob['source'], string> = {
+    Jobicy: 'bg-blue-50 text-blue-700',
+    Remotive: 'bg-emerald-50 text-emerald-700',
+    Arbeitnow: 'bg-purple-50 text-purple-700',
+    TheMuse: 'bg-rose-50 text-rose-700',
+  };
+
+  return (
+    <div className="max-w-4xl">
+      <div className="mb-4 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-xs text-emerald-800">
+        <strong>How this works:</strong> Live aggregation of 4 free job APIs (Jobicy, Remotive, Arbeitnow, The Muse) refreshed every page load.
+        Deduplicated by URL, sorted newest first. Hidden / underrated boards below the live feed.
+      </div>
+
+      {/* Source toggles + search */}
+      <div className="mb-4 flex flex-wrap items-center gap-3">
+        <div className="relative">
+          <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-zinc-400" />
+          <input
+            className="rounded-lg border border-zinc-200 bg-white pl-7 pr-3 py-1.5 text-sm focus:outline-none focus:ring-1 focus:ring-zinc-400 w-52"
+            placeholder="Filter title/company/tag…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+        <div className="flex flex-wrap gap-1.5">
+          {(Object.keys(sourceFilter) as UnifiedJob['source'][]).map((s) => (
+            <button
+              key={s}
+              onClick={() => setSourceFilter((prev) => ({ ...prev, [s]: !prev[s] }))}
+              className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                sourceFilter[s] ? 'bg-zinc-900 text-white' : 'bg-zinc-100 text-zinc-500 hover:bg-zinc-200'
+              }`}
+            >
+              {s}
+            </button>
+          ))}
+        </div>
+        <span className="ml-auto text-xs text-zinc-400">
+          {anyLoading ? 'Loading…' : `${merged.length} live jobs`}
+        </span>
+      </div>
+
+      {/* Errors */}
+      {[jobicy, remotive, arbeitnow, muse].some((s) => s.error) && (
+        <div className="mb-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
+          Some sources failed to load: {jobicy.error && 'Jobicy '} {remotive.error && 'Remotive '} {arbeitnow.error && 'Arbeitnow '} {muse.error && 'TheMuse'}
+          — others still shown.
+        </div>
+      )}
+
+      {/* Live job list */}
+      {anyLoading && merged.length === 0 ? (
+        <div className="flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-8 text-sm text-zinc-400">
+          <RefreshCw size={14} className="animate-spin" /> Fetching live jobs from 4 sources…
+        </div>
+      ) : merged.length === 0 ? (
+        <div className="rounded-lg border border-dashed border-zinc-200 px-4 py-8 text-center text-sm text-zinc-400">
+          No jobs match these filters.
+        </div>
+      ) : (
+        <div className="space-y-2">
+          {merged.slice(0, 80).map((job) => (
+            <div key={job.id}
+              className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-white p-4 hover:border-zinc-300 hover:shadow-sm transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="min-w-0">
+                    <a href={job.url} target="_blank" rel="noreferrer"
+                      className="text-sm font-semibold text-zinc-900 hover:underline">
+                      {job.title}
+                    </a>
+                    <p className="text-xs text-zinc-500 mt-0.5">
+                      {job.company} · {job.location}
+                    </p>
+                  </div>
+                  <div className="flex shrink-0 items-center gap-2">
+                    <button
+                      onClick={() => onAddToTracker(job)}
+                      className="flex items-center gap-1 rounded-md border border-zinc-200 bg-white px-2 py-1 text-xs text-zinc-600 hover:border-zinc-400 hover:text-zinc-900 transition-colors">
+                      <Plus size={11} /> Track
+                    </button>
+                    <a href={job.url} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-zinc-700">
+                      <ExternalLink size={14} />
+                    </a>
+                  </div>
+                </div>
+                <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                  <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${sourceColors[job.source]}`}>
+                    {job.source}
+                  </span>
+                  {job.tags.slice(0, 4).map((t) => (
+                    <span key={t} className="rounded bg-zinc-100 px-1.5 py-0.5 text-[10px] text-zinc-500">{t}</span>
+                  ))}
+                  {job.postedAt && <span className="text-[10px] text-zinc-400">{job.postedAt.slice(0, 10)}</span>}
+                </div>
+                {job.excerpt && (
+                  <p className="mt-1.5 text-xs text-zinc-500 line-clamp-2">{job.excerpt}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Hidden / underrated boards */}
+      <div className="mt-8">
+        <div className="mb-3 flex items-center gap-2">
+          <Sparkles size={13} className="text-zinc-500" />
+          <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
+            Hidden / Underrated Boards
+          </h3>
+        </div>
+        <p className="mb-3 text-xs text-zinc-400">
+          Curated job sites that miss the standard aggregators. Each opens pre-filtered for security where possible.
+        </p>
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          {HIDDEN_BOARDS.map((b) => (
+            <a key={b.name} href={b.url} target="_blank" rel="noreferrer"
+              className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-white p-4 hover:border-zinc-400 hover:shadow-sm transition-all">
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-zinc-900">{b.name}</p>
+                <p className="mt-0.5 text-xs text-zinc-500 line-clamp-2">{b.notes}</p>
+              </div>
+              <ExternalLink size={14} className="mt-0.5 shrink-0 text-zinc-400" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Ireland Jobs ─────────────────────────────────────────────────────────────
+
+interface IrishBoard {
+  id: string;
+  name: string;
+  category: 'general' | 'tech' | 'agency' | 'government';
+  url: string;
+  filter_applied: string;
+  notes: string;
+  sponsor_friendly: boolean;
+}
+
+const IRISH_CATEGORY_LABELS: Record<IrishBoard['category'], string> = {
+  general: 'General Boards',
+  tech: 'Tech-Specific',
+  agency: 'Recruitment Agencies',
+  government: 'Government / Public Sector',
+};
+
+function IrelandJobs({ onAddToTracker }: { onAddToTracker: (u: UnifiedJob) => void }) {
+  const jobicyIE = useJobicyJobs('security', 'ireland');
+  const { data: boards } = useStaticData<IrishBoard[]>('data/irish-job-boards.json');
+
+  const grouped = (boards ?? []).reduce<Record<IrishBoard['category'], IrishBoard[]>>(
+    (acc, b) => { (acc[b.category] = acc[b.category] || []).push(b); return acc; },
+    { general: [], tech: [], agency: [], government: [] }
+  );
+
+  return (
+    <div className="max-w-4xl">
+      <div className="mb-4 rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-xs text-blue-800">
+        <strong>Ireland-only:</strong> Live Jobicy roles filtered to Ireland geo, plus 20 curated Irish job boards
+        (general, tech-specific, recruitment agencies, public sector). Always cross-check sponsorship on the
+        {' '}<a href="https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/trusted-partner-initiative/" target="_blank" rel="noreferrer" className="underline">DETE Trusted Partner list</a>.
+      </div>
+
+      {/* Live Jobicy Ireland */}
+      <div className="mb-8">
+        <div className="mb-3 flex items-center justify-between">
+          <h3 className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+            <Briefcase size={12} /> Live — Jobicy (Ireland)
+          </h3>
+          <span className="text-xs text-zinc-400">Refreshes on page load</span>
+        </div>
+        {jobicyIE.loading && (
+          <div className="flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-6 text-sm text-zinc-400">
+            <RefreshCw size={14} className="animate-spin" /> Loading Ireland-geo jobs…
+          </div>
+        )}
+        {jobicyIE.error && (
+          <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">Failed: {jobicyIE.error}</div>
+        )}
+        {!jobicyIE.loading && jobicyIE.jobs.length === 0 && !jobicyIE.error && (
+          <div className="rounded-lg border border-dashed border-zinc-200 px-4 py-6 text-center text-sm text-zinc-400">
+            No Ireland-geo security roles in Jobicy right now. Try the curated boards below.
+          </div>
+        )}
+        {jobicyIE.jobs.length > 0 && (
+          <div className="space-y-2">
+            {jobicyIE.jobs.map((job) => (
+              <div key={job.id}
+                className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-white p-4 hover:border-zinc-300 hover:shadow-sm transition-all">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <a href={job.url} target="_blank" rel="noreferrer"
+                        className="text-sm font-semibold text-zinc-900 hover:underline">{job.jobTitle}</a>
+                      <p className="text-xs text-zinc-500 mt-0.5">{job.companyName} · {job.jobGeo}</p>
+                    </div>
+                    <div className="flex shrink-0 items-center gap-2">
+                      <button
+                        onClick={() => onAddToTracker(jobicyToUnified(job))}
+                        className="flex items-center gap-1 rounded-md border border-zinc-200 bg-white px-2 py-1 text-xs text-zinc-600 hover:border-zinc-400">
+                        <Plus size={11} /> Track
+                      </button>
+                      <a href={job.url} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-zinc-700">
+                        <ExternalLink size={14} />
+                      </a>
+                    </div>
+                  </div>
+                  <p className="mt-1.5 text-xs text-zinc-500 line-clamp-2">{job.jobExcerpt}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Curated Irish boards by category */}
+      <div className="space-y-6">
+        {(Object.keys(grouped) as IrishBoard['category'][]).map((cat) => (
+          grouped[cat].length > 0 && (
+            <div key={cat}>
+              <h3 className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+                <MapPin size={11} /> {IRISH_CATEGORY_LABELS[cat]} <span className="text-zinc-400 font-normal">({grouped[cat].length})</span>
+              </h3>
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                {grouped[cat].map((b) => (
+                  <a key={b.id} href={b.url} target="_blank" rel="noreferrer"
+                    className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-white p-4 hover:border-zinc-400 hover:shadow-sm transition-all">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5">
+                        <p className="text-sm font-medium text-zinc-900">{b.name}</p>
+                        {b.sponsor_friendly && (
+                          <span className="rounded-full bg-emerald-50 px-1.5 py-0.5 text-[9px] font-medium text-emerald-700">sponsor-aware</span>
+                        )}
+                      </div>
+                      <p className="mt-0.5 text-[10px] text-zinc-400">Filter: {b.filter_applied}</p>
+                      <p className="mt-1 text-xs text-zinc-500 line-clamp-2">{b.notes}</p>
+                    </div>
+                    <ExternalLink size={14} className="mt-0.5 shrink-0 text-zinc-400" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ─── Main Route ───────────────────────────────────────────────────────────────
 
 export default function Jobs() {
   const [state, setState] = useAppState();
-  const [tab, setTab] = useState<'tracker' | 'live'>('tracker');
+  const [tab, setTab] = useState<'tracker' | 'live' | 'daily' | 'ireland'>('tracker');
   const [view, setView] = useState<'table' | 'kanban'>('table');
   const [filterStatus, setFilterStatus] = useState<Job['status'] | 'all'>('all');
   const [sponsorOnly, setSponsorOnly] = useState(false);
@@ -638,13 +1056,18 @@ export default function Jobs() {
       </div>
 
       {/* Tab bar */}
-      <div className="mt-4 flex border-b border-zinc-200">
-        {(['tracker', 'live'] as const).map((t) => (
-          <button key={t} onClick={() => setTab(t)}
+      <div className="mt-4 flex flex-wrap border-b border-zinc-200">
+        {([
+          { id: 'tracker', label: 'My Tracker', icon: null },
+          { id: 'live', label: 'Find Jobs', icon: <Search size={13} className="inline mr-1" /> },
+          { id: 'daily', label: 'Daily Feed', icon: <Globe size={13} className="inline mr-1" /> },
+          { id: 'ireland', label: 'Ireland Jobs', icon: <MapPin size={13} className="inline mr-1" /> },
+        ] as const).map((t) => (
+          <button key={t.id} onClick={() => setTab(t.id)}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
-              tab === t ? 'border-zinc-900 text-zinc-900' : 'border-transparent text-zinc-500 hover:text-zinc-700'
+              tab === t.id ? 'border-zinc-900 text-zinc-900' : 'border-transparent text-zinc-500 hover:text-zinc-700'
             }`}>
-            {t === 'tracker' ? 'My Tracker' : '🔍 Find Jobs'}
+            {t.icon}{t.label}
           </button>
         ))}
       </div>
@@ -682,10 +1105,24 @@ export default function Jobs() {
               : <KanbanView jobs={filtered} onEdit={setEditJob} onDelete={deleteJob} />}
           </div>
         </>
-      ) : (
+      ) : tab === 'live' ? (
         <div className="mt-4">
           <LiveJobs onAddToTracker={(j) => {
             setEditJob({ company: j.companyName, role: j.jobTitle, source_url: j.url });
+            setTab('tracker');
+          }} />
+        </div>
+      ) : tab === 'daily' ? (
+        <div className="mt-4">
+          <DailyFeed onAddToTracker={(j) => {
+            setEditJob({ company: j.company, role: j.title, source_url: j.url });
+            setTab('tracker');
+          }} />
+        </div>
+      ) : (
+        <div className="mt-4">
+          <IrelandJobs onAddToTracker={(j) => {
+            setEditJob({ company: j.company, role: j.title, source_url: j.url });
             setTab('tracker');
           }} />
         </div>

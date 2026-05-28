@@ -1,7 +1,17 @@
 import { useState } from 'react';
-import { Search, BookOpen, HelpCircle, Tag, AlertCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { Search, BookOpen, HelpCircle, Tag, AlertCircle, ChevronDown, ChevronUp, FileDown, MessageSquare } from 'lucide-react';
+import jsPDF from 'jspdf';
 import { useStaticData } from '../hooks/useStaticData';
 import type { Resource } from '../lib/types';
+
+// ─── Answer types ─────────────────────────────────────────────────────────────
+
+interface AnswerEntry {
+  answer: string;
+  key_points: string[];
+  follow_ups: string[];
+}
+type AnswerMap = Record<string, AnswerEntry>;
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -118,13 +128,71 @@ const TYPE_COLORS = {
   situational: 'bg-rose-50 text-rose-700',
 };
 
+function QuestionRow({ q, i, answer }: { q: Question; i: number; answer?: AnswerEntry }) {
+  const [showAnswer, setShowAnswer] = useState(false);
+  return (
+    <div className="px-5 py-3">
+      <div className="flex items-start gap-3">
+        <span className="mt-0.5 shrink-0 text-xs font-bold tabular-nums text-zinc-300">
+          {String(i + 1).padStart(2, '0')}
+        </span>
+        <div className="flex-1">
+          <p className="text-sm text-zinc-800">{q.question}</p>
+          <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+            <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${DIFFICULTY_COLORS[q.difficulty]}`}>
+              {q.difficulty}
+            </span>
+            <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${TYPE_COLORS[q.type]}`}>
+              {q.type}
+            </span>
+            {answer ? (
+              <button
+                onClick={() => setShowAnswer((v) => !v)}
+                className="ml-1 flex items-center gap-1 rounded-full border border-zinc-200 bg-white px-2 py-0.5 text-[10px] font-medium text-zinc-600 hover:border-zinc-400 hover:text-zinc-900"
+              >
+                <MessageSquare size={10} />
+                {showAnswer ? 'Hide answer' : 'Show answer'}
+              </button>
+            ) : (
+              <span className="text-[10px] text-zinc-300">answer pending</span>
+            )}
+          </div>
+          {showAnswer && answer && (
+            <div className="mt-3 rounded-md border border-zinc-100 bg-zinc-50 p-4">
+              <p className="text-xs leading-relaxed text-zinc-700">{answer.answer}</p>
+              {answer.key_points.length > 0 && (
+                <>
+                  <p className="mt-3 text-[10px] font-semibold uppercase tracking-widest text-zinc-500">Key points to hit</p>
+                  <ul className="mt-1 list-disc list-inside space-y-0.5 text-xs text-zinc-700">
+                    {answer.key_points.map((kp, idx) => <li key={idx}>{kp}</li>)}
+                  </ul>
+                </>
+              )}
+              {answer.follow_ups.length > 0 && (
+                <>
+                  <p className="mt-3 text-[10px] font-semibold uppercase tracking-widest text-zinc-500">Likely follow-ups</p>
+                  <ul className="mt-1 space-y-0.5 text-xs italic text-zinc-600">
+                    {answer.follow_ups.map((fu, idx) => <li key={idx}>— {fu}</li>)}
+                  </ul>
+                </>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function QuestionSection({
   title,
   questions,
+  answers,
   defaultOpen = true,
 }: {
   title: string;
   questions: Question[];
+  answers: AnswerMap | null;
   defaultOpen?: boolean;
 }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -141,24 +209,7 @@ function QuestionSection({
       {open && (
         <div className="divide-y divide-zinc-100 border-t border-zinc-100">
           {questions.map((q, i) => (
-            <div key={q.id} className="px-5 py-3">
-              <div className="flex items-start gap-3">
-                <span className="mt-0.5 shrink-0 text-xs font-bold tabular-nums text-zinc-300">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <div className="flex-1">
-                  <p className="text-sm text-zinc-800">{q.question}</p>
-                  <div className="mt-1.5 flex gap-1.5">
-                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${DIFFICULTY_COLORS[q.difficulty]}`}>
-                      {q.difficulty}
-                    </span>
-                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${TYPE_COLORS[q.type]}`}>
-                      {q.type}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <QuestionRow key={q.id} q={q} i={i} answer={answers?.[q.id]} />
           ))}
         </div>
       )}
@@ -174,6 +225,7 @@ export default function JdAnalyzer() {
 
   const { data: allResources } = useStaticData<Resource[]>('data/resources.json');
   const { data: allQuestions } = useStaticData<Question[]>('data/interview-questions.json');
+  const { data: allAnswers } = useStaticData<AnswerMap>('data/interview-answers.json');
 
   function analyze() {
     if (!jdText.trim()) return;
@@ -311,30 +363,44 @@ export default function JdAnalyzer() {
 
           {/* Interview Questions */}
           <div className="mt-6">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-500">
-              <HelpCircle size={11} className="mr-1 inline" />
-              Interview Questions ({matchedQuestions.length} matched)
-            </p>
+            <div className="mb-3 flex items-center justify-between gap-3">
+              <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
+                <HelpCircle size={11} className="mr-1 inline" />
+                Interview Questions ({matchedQuestions.length} matched)
+              </p>
+              <button
+                onClick={() => generateQAPdf(matchedQuestions, allAnswers, results![0]?.label ?? 'Security')}
+                disabled={!allAnswers || matchedQuestions.length === 0}
+                className="flex items-center gap-1.5 rounded-md border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 hover:border-zinc-400 hover:text-zinc-900 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                title="Download Q&A study sheet as PDF"
+              >
+                <FileDown size={12} />
+                Download Q&amp;A PDF
+              </button>
+            </div>
             <div className="space-y-3">
               <QuestionSection
                 title="Technical Questions"
                 questions={technicalQs}
+                answers={allAnswers}
                 defaultOpen={true}
               />
               <QuestionSection
                 title="Situational Questions"
                 questions={situationalQs}
+                answers={allAnswers}
                 defaultOpen={true}
               />
               <QuestionSection
                 title="Behavioural Questions"
                 questions={behavioralQs}
+                answers={allAnswers}
                 defaultOpen={false}
               />
             </div>
             <p className="mt-3 text-xs text-zinc-400">
-              Questions are drawn from a static bank matched to detected role focus. Difficulty:
-              <span className="ml-1 text-emerald-600">junior</span> ·{' '}
+              Click "Show answer" on any question for an interview-grade model answer with key points and likely follow-ups.
+              Difficulty: <span className="ml-1 text-emerald-600">junior</span> ·{' '}
               <span className="text-blue-600">mid</span> ·{' '}
               <span className="text-purple-600">senior</span>
             </p>
@@ -343,4 +409,125 @@ export default function JdAnalyzer() {
       )}
     </div>
   );
+}
+
+// ─── PDF Generator ────────────────────────────────────────────────────────────
+
+function generateQAPdf(questions: Question[], answers: AnswerMap | null, topicLabel: string) {
+  if (!answers || questions.length === 0) return;
+
+  const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const margin = 48;
+  const usableWidth = pageWidth - margin * 2;
+  let y = margin;
+
+  function checkPageBreak(needed: number) {
+    if (y + needed > pageHeight - margin) {
+      doc.addPage();
+      y = margin;
+    }
+  }
+
+  function writeText(text: string, size: number, style: 'normal' | 'bold' | 'italic', indent = 0) {
+    doc.setFontSize(size);
+    doc.setFont('helvetica', style);
+    const lines = doc.splitTextToSize(text, usableWidth - indent);
+    const lineHeight = size * 1.35;
+    for (const line of lines) {
+      checkPageBreak(lineHeight);
+      doc.text(line, margin + indent, y);
+      y += lineHeight;
+    }
+  }
+
+  // Title page header
+  doc.setFontSize(20);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Interview Prep Study Sheet', margin, y);
+  y += 28;
+  doc.setFontSize(12);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(90);
+  doc.text(`Focus: ${topicLabel}`, margin, y);
+  y += 16;
+  doc.text(`Generated: ${new Date().toISOString().slice(0, 10)}`, margin, y);
+  y += 16;
+  doc.text(`Questions: ${questions.length}`, margin, y);
+  y += 24;
+  doc.setTextColor(0);
+
+  // Group by type
+  const groups = [
+    { label: 'Technical Questions', items: questions.filter((q) => q.type === 'technical') },
+    { label: 'Situational Questions', items: questions.filter((q) => q.type === 'situational') },
+    { label: 'Behavioural Questions', items: questions.filter((q) => q.type === 'behavioral') },
+  ];
+
+  let qNum = 0;
+  for (const group of groups) {
+    if (group.items.length === 0) continue;
+    checkPageBreak(40);
+    y += 8;
+    doc.setDrawColor(180);
+    doc.line(margin, y, pageWidth - margin, y);
+    y += 16;
+    writeText(group.label, 14, 'bold');
+    y += 6;
+
+    for (const q of group.items) {
+      qNum += 1;
+      const a = answers[q.id];
+      checkPageBreak(60);
+      y += 4;
+      writeText(`Q${qNum}. ${q.question}`, 11, 'bold');
+      doc.setTextColor(120);
+      writeText(`Difficulty: ${q.difficulty}`, 9, 'italic', 8);
+      doc.setTextColor(0);
+      y += 4;
+
+      if (a) {
+        writeText('Answer:', 10, 'bold');
+        writeText(a.answer, 10, 'normal', 8);
+
+        if (a.key_points && a.key_points.length > 0) {
+          y += 4;
+          writeText('Key points:', 10, 'bold');
+          for (const kp of a.key_points) {
+            writeText(`• ${kp}`, 10, 'normal', 12);
+          }
+        }
+
+        if (a.follow_ups && a.follow_ups.length > 0) {
+          y += 4;
+          writeText('Likely follow-ups:', 10, 'bold');
+          for (const fu of a.follow_ups) {
+            writeText(`— ${fu}`, 10, 'italic', 12);
+          }
+        }
+      } else {
+        doc.setTextColor(150);
+        writeText('(Answer pending — refer to the in-app source materials.)', 10, 'italic', 8);
+        doc.setTextColor(0);
+      }
+      y += 12;
+    }
+  }
+
+  // Footer on last page
+  checkPageBreak(20);
+  y += 8;
+  doc.setFontSize(8);
+  doc.setFont('helvetica', 'italic');
+  doc.setTextColor(140);
+  doc.text(
+    'Generated by sponsor-track-ie. Answers are study guidance — adapt to your own experience before the interview.',
+    margin,
+    y
+  );
+
+  const slug = topicLabel.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const filename = `interview-prep-${new Date().toISOString().slice(0, 10)}-${slug}.pdf`;
+  doc.save(filename);
 }

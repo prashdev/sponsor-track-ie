@@ -1,0 +1,182 @@
+[
+  {
+    "id": "ib-irishjobs",
+    "name": "IrishJobs.ie",
+    "category": "general",
+    "url": "https://www.irishjobs.ie/jobs/cybersecurity/in-dublin",
+    "filter_applied": "Cybersecurity in Dublin",
+    "notes": "Largest Irish general job board. Supports keyword + location + sponsorship filters. High volume of mid-senior tech roles.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-jobsie",
+    "name": "Jobs.ie",
+    "category": "general",
+    "url": "https://www.jobs.ie/jobs/security/in-dublin",
+    "filter_applied": "Security in Dublin",
+    "notes": "Second-largest Irish board. Strong on graduate and mid-level tech roles. Mix of direct employer and recruiter postings.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-recruitireland",
+    "name": "RecruitIreland.com",
+    "category": "general",
+    "url": "https://www.recruitireland.com/JobSearch.aspx?Keyword=cybersecurity",
+    "filter_applied": "Cybersecurity (any location)",
+    "notes": "Long-established Irish job board. Decent coverage of permanent IT and security roles. Many roles routed via agency.",
+    "sponsor_friendly": false
+  },
+  {
+    "id": "ib-headhunt",
+    "name": "Headhunt.ie",
+    "category": "tech",
+    "url": "https://www.headhunt.ie/jobs?q=security&l=dublin",
+    "filter_applied": "Security in Dublin",
+    "notes": "Niche Irish tech recruitment site. Curated mid-senior IT and security roles. Lower volume but better signal-to-noise.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-jobsireland-dete",
+    "name": "JobsIreland.ie (DETE)",
+    "category": "government",
+    "url": "https://www.jobsireland.ie/en-US/JobSearch?keyword=security",
+    "filter_applied": "Security keyword",
+    "notes": "Official DETE jobs portal. Includes public sector and employer-direct postings. Authoritative for permit-relevant roles.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-publicjobs",
+    "name": "Publicjobs.ie",
+    "category": "government",
+    "url": "https://www.publicjobs.ie/restapi/documents/Search_Open_Recruitment_Competitions",
+    "filter_applied": "Open civil service competitions",
+    "notes": "Irish public sector recruitment. Government cybersecurity and IT support roles via NCSC, OGCIO. Lengthy process but stable employment.",
+    "sponsor_friendly": false
+  },
+  {
+    "id": "ib-talent-ie",
+    "name": "Talent.com Ireland",
+    "category": "general",
+    "url": "https://ie.talent.com/jobs?k=cybersecurity&l=dublin",
+    "filter_applied": "Cybersecurity in Dublin",
+    "notes": "Aggregator pulling from many sources. Useful for breadth across direct and recruiter postings.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-indeed-ie",
+    "name": "Indeed Ireland",
+    "category": "general",
+    "url": "https://ie.indeed.com/jobs?q=cybersecurity+visa+sponsorship&l=Dublin",
+    "filter_applied": "Cybersecurity + visa sponsorship in Dublin",
+    "notes": "Largest aggregator. Pre-filtered to show roles mentioning visa sponsorship explicitly. Refresh daily.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-indeed-ie-appsec",
+    "name": "Indeed Ireland (AppSec)",
+    "category": "general",
+    "url": "https://ie.indeed.com/jobs?q=application+security+engineer&l=Dublin",
+    "filter_applied": "Application Security Engineer in Dublin",
+    "notes": "Indeed filtered for AppSec engineer roles in Dublin. Often shows CSEP-eligible positions.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-indeed-ie-pentest",
+    "name": "Indeed Ireland (Pentest)",
+    "category": "general",
+    "url": "https://ie.indeed.com/jobs?q=penetration+tester&l=Ireland",
+    "filter_applied": "Penetration Tester in Ireland",
+    "notes": "Indeed filtered for penetration tester roles anywhere in Ireland. CSEP-eligible specialist roles.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-linkedin-ie",
+    "name": "LinkedIn Ireland (CSEP)",
+    "category": "general",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=cybersecurity&location=Ireland&f_TPR=r604800",
+    "filter_applied": "Cybersecurity in Ireland, last 7 days",
+    "notes": "LinkedIn filtered to last 7 days for fresh roles. Use 'Easy Apply' filter for fastest applications. Cross-check sponsorship via recruiter message.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-linkedin-soc",
+    "name": "LinkedIn Ireland (SOC)",
+    "category": "general",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=SOC%20analyst&location=Ireland&f_TPR=r604800",
+    "filter_applied": "SOC Analyst in Ireland, last 7 days",
+    "notes": "L1/L2 SOC analyst openings refreshed weekly. Good fallback if CSEP-eligible AppSec roles are thin.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-itjobswatch-ie",
+    "name": "IT Jobs Watch Ireland",
+    "category": "tech",
+    "url": "https://www.itjobswatch.co.uk/jobs/ireland/cyber%20security.do",
+    "filter_applied": "Cyber security in Ireland",
+    "notes": "Salary benchmarking + active role listings. Useful for verifying CSEP threshold matches advertised salary bands.",
+    "sponsor_friendly": false
+  },
+  {
+    "id": "ib-cpl",
+    "name": "CPL Resources careers",
+    "category": "agency",
+    "url": "https://www.cpl.com/jobs?q=cybersecurity",
+    "filter_applied": "Cybersecurity",
+    "notes": "Largest Irish recruiter. Wide tech desk. Many roles unposted elsewhere — apply direct and follow up via dedicated recruiter.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-sigmar",
+    "name": "Sigmar Recruitment",
+    "category": "agency",
+    "url": "https://www.sigmar.ie/jobs?keywords=security",
+    "filter_applied": "Security",
+    "notes": "Major Irish agency. Strong in FS sector — relevant for SOC and GRC. Sponsor-aware recruiters.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-morganmckinley-ie",
+    "name": "Morgan McKinley Ireland",
+    "category": "agency",
+    "url": "https://www.morganmckinley.com/ie/jobs?keywords=cybersecurity",
+    "filter_applied": "Cybersecurity",
+    "notes": "Professional staffing firm with strong FS tech division. Good for GRC, risk, and compliance roles.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-hays-ie",
+    "name": "Hays Ireland",
+    "category": "agency",
+    "url": "https://www.hays.ie/job-search/cybersecurity-jobs",
+    "filter_applied": "Cybersecurity jobs",
+    "notes": "Global staffing giant, Dublin office. High volume of contract and perm tech roles.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-eolas",
+    "name": "Eolas Recruitment",
+    "category": "agency",
+    "url": "https://www.eolasrecruitment.com/jobs?keywords=security",
+    "filter_applied": "Security",
+    "notes": "Irish-owned IT specialist firm. Active in mid-large Irish tech companies. Lower volume but better recruiter access.",
+    "sponsor_friendly": true
+  },
+  {
+    "id": "ib-thejournal",
+    "name": "The Journal Jobs",
+    "category": "general",
+    "url": "https://jobs.thejournal.ie/jobs?utf8=%E2%9C%93&keywords=security",
+    "filter_applied": "Security",
+    "notes": "Irish media outlet's job board. Includes graduate + entry-level roles often missed elsewhere.",
+    "sponsor_friendly": false
+  },
+  {
+    "id": "ib-irishtimes-jobs",
+    "name": "Irish Times Jobs",
+    "category": "general",
+    "url": "https://jobs.irishtimes.com/jobs/cybersecurity",
+    "filter_applied": "Cybersecurity",
+    "notes": "Mid-senior corporate roles. Strong representation of larger Irish and multinational employers.",
+    "sponsor_friendly": false
+  }
+]
