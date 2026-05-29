@@ -1,0 +1,674 @@
+{
+  "appsec": {
+    "id": "appsec",
+    "title": "Application Security — 30 Day Interview Prep Roadmap",
+    "subtitle": "For entry-to-associate level AppSec interviews. Assumes prior security exposure. ~1.5–2 hours/day. All resources are free.",
+    "audience": "You already have AppSec experience. This roadmap fills the structured-revision and interview-pattern gaps.",
+    "project": {
+      "title": "Vulnerable REST API + AI-Assisted Code Review",
+      "tagline": "Build a deliberately vulnerable API, then use Claude Code to do a structured security review and publish the writeup.",
+      "stand_out": "Demonstrates offensive understanding + defensive code review + AI fluency in one artefact. Recruiters see all three on one GitHub repo.",
+      "steps": [
+        "Day 1–3: Build a Node.js (Express) or Python (FastAPI) REST API with auth, profile endpoints, file upload, search. Intentionally introduce: IDOR, SQL injection, JWT alg:none, SSRF in URL-fetch endpoint, mass assignment, missing rate limit on login, XXE in XML upload.",
+        "Day 4–6: Use Claude Code or any LLM to do a 'security code review' — prompt it to walk every endpoint and rate findings. Capture its output verbatim.",
+        "Day 7: Write a 'AI-assisted vs manual' comparison post: what the AI caught, what it missed, what it false-flagged. This is the differentiator — it shows judgement, not just output.",
+        "Day 8: Publish the repo with a README structured like a pentest report (executive summary + findings + fixes). Cross-post the writeup on Medium and LinkedIn.",
+        "Bonus: add a fix-PR for each finding so the same repo shows secure-coding patterns next to the vulnerable original."
+      ],
+      "deliverables": [
+        "Public GitHub repo: vuln-api-with-fixes",
+        "README written as a pentest report",
+        "Medium / LinkedIn post: 'I asked Claude Code to security-review my vulnerable API — here is what it caught and missed'",
+        "Linked from your CV under Projects"
+      ]
+    },
+    "weeks": [
+      {
+        "label": "Week 1 — Foundations refresher",
+        "focus": "Re-anchor on OWASP, HTTP fundamentals, the testing process. Light load, high coverage."
+      },
+      {
+        "label": "Week 2 — Core vulnerability classes",
+        "focus": "Injection, AuthN/AuthZ, XSS, CSRF, SSRF. Hands-on labs each day."
+      },
+      {
+        "label": "Week 3 — APIs, cloud-adjacent, advanced",
+        "focus": "API security, deserialisation, race conditions, JWTs, OAuth, GraphQL."
+      },
+      {
+        "label": "Week 4 — Interview drill + project polish",
+        "focus": "Mock interviews, behavioural answers, system design, project ship."
+      }
+    ],
+    "days": [
+      {
+        "day": 1, "week": 1,
+        "topic": "OWASP Top 10 (2021) — full re-read",
+        "outcome": "Be able to explain each of the 10, recall one test method and one mitigation per item from memory.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "OWASP Top 10 2021 — official", "url": "https://owasp.org/Top10/" },
+          { "label": "PortSwigger Web Security Academy — All topics overview", "url": "https://portswigger.net/web-security/all-topics" }
+        ]
+      },
+      {
+        "day": 2, "week": 1,
+        "topic": "HTTP fundamentals + request/response anatomy",
+        "outcome": "Confident with methods, status codes, headers, cookies, CORS, caching. Foundation for everything.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "MDN — HTTP overview", "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview" },
+          { "label": "PortSwigger — HTTP request smuggling intro (optional skim)", "url": "https://portswigger.net/web-security/request-smuggling" }
+        ]
+      },
+      {
+        "day": 3, "week": 1,
+        "topic": "OWASP Web Security Testing Guide — structure",
+        "outcome": "Know the WSTG categories and how to use it as an engagement checklist.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "OWASP WSTG (v4.2)", "url": "https://owasp.org/www-project-web-security-testing-guide/" },
+          { "label": "WSTG GitHub source", "url": "https://github.com/OWASP/wstg" }
+        ]
+      },
+      {
+        "day": 4, "week": 1,
+        "topic": "Burp Suite Community — set up + intercept first request",
+        "outcome": "Comfortable with proxy, repeater, intruder basics. Cert installed in Firefox.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PortSwigger — Getting started with Burp Suite", "url": "https://portswigger.net/burp/documentation/desktop/getting-started" },
+          { "label": "PortSwigger Web Academy — Burp Suite basics labs", "url": "https://portswigger.net/web-security/essential-skills" }
+        ]
+      },
+      {
+        "day": 5, "week": 1,
+        "topic": "OWASP API Security Top 10 (2023)",
+        "outcome": "Know BOLA vs BFLA. Understand how API risks differ from web risks.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "OWASP API Security Top 10 2023", "url": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/" },
+          { "label": "APISec University — Free API Security 101", "url": "https://www.apisecuniversity.com/courses/api-security-fundamentals" }
+        ]
+      },
+      {
+        "day": 6, "week": 1,
+        "topic": "Threat modelling with STRIDE",
+        "outcome": "Run a 30-minute STRIDE on a simple app (login + profile + file upload). Document threats.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "OWASP Threat Modeling Process", "url": "https://owasp.org/www-community/Threat_Modeling_Process" },
+          { "label": "Microsoft Threat Modeling Tool — free", "url": "https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool" }
+        ]
+      },
+      {
+        "day": 7, "week": 1,
+        "topic": "Catch-up + start the project (vulnerable API scaffold)",
+        "outcome": "Repo created, Express/FastAPI base running, first vulnerable endpoint committed.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "OWASP Cheat Sheet Index (bookmark)", "url": "https://cheatsheetseries.owasp.org/" },
+          { "label": "Damn Vulnerable RESTaurant (reference)", "url": "https://github.com/theowni/Damn-Vulnerable-RESTaurant-API-Game" }
+        ]
+      },
+      {
+        "day": 8, "week": 2,
+        "topic": "SQL Injection — theory + labs",
+        "outcome": "Complete 4 PortSwigger SQLi labs. Know union-based, blind boolean, blind time.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PortSwigger Academy — SQL injection (free labs)", "url": "https://portswigger.net/web-security/sql-injection" },
+          { "label": "OWASP SQL Injection Prevention Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html" }
+        ]
+      },
+      {
+        "day": 9, "week": 2,
+        "topic": "Cross-Site Scripting (Reflected, Stored, DOM)",
+        "outcome": "Complete 4 PortSwigger XSS labs across all three types.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PortSwigger Academy — XSS (free labs)", "url": "https://portswigger.net/web-security/cross-site-scripting" },
+          { "label": "OWASP XSS Prevention Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" }
+        ]
+      },
+      {
+        "day": 10, "week": 2,
+        "topic": "Authentication flaws + brute force",
+        "outcome": "Complete 3 PortSwigger Auth labs. Understand token-based vs cookie-based auth pitfalls.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PortSwigger Academy — Authentication", "url": "https://portswigger.net/web-security/authentication" },
+          { "label": "OWASP Authentication Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html" }
+        ]
+      },
+      {
+        "day": 11, "week": 2,
+        "topic": "Access control + IDOR (BOLA)",
+        "outcome": "Complete 4 PortSwigger Access Control labs. Practice horizontal + vertical escalation.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PortSwigger Academy — Access control vulnerabilities", "url": "https://portswigger.net/web-security/access-control" },
+          { "label": "OWASP Access Control Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html" }
+        ]
+      },
+      {
+        "day": 12, "week": 2,
+        "topic": "CSRF — exploitation + defences",
+        "outcome": "Complete 3 PortSwigger CSRF labs. Know SameSite Strict vs Lax behaviour.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "PortSwigger Academy — CSRF", "url": "https://portswigger.net/web-security/csrf" },
+          { "label": "OWASP CSRF Prevention Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" }
+        ]
+      },
+      {
+        "day": 13, "week": 2,
+        "topic": "SSRF + cloud metadata risk",
+        "outcome": "Complete 3 PortSwigger SSRF labs. Understand IMDSv1 vs v2 on AWS.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PortSwigger Academy — SSRF", "url": "https://portswigger.net/web-security/ssrf" },
+          { "label": "HackTricks — AWS Metadata SSRF", "url": "https://cloud.hacktricks.wiki/en/pentesting-cloud/aws-security/aws-services/aws-metadata.html" }
+        ]
+      },
+      {
+        "day": 14, "week": 2,
+        "topic": "Project work — add SQLi, XSS, IDOR, CSRF, SSRF to your vuln API",
+        "outcome": "Five vulnerability classes implemented. Commit each as a separate PR for clean git history.",
+        "time_hours": 2.5,
+        "resources": [
+          { "label": "OWASP Cheat Sheet Index (reference)", "url": "https://cheatsheetseries.owasp.org/" }
+        ]
+      },
+      {
+        "day": 15, "week": 3,
+        "topic": "JWT deep dive — alg:none, weak secret, alg confusion, kid injection",
+        "outcome": "Complete PortSwigger JWT labs. Use jwt_tool against your own API.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PortSwigger Academy — JWT", "url": "https://portswigger.net/web-security/jwt" },
+          { "label": "jwt_tool GitHub", "url": "https://github.com/ticarpi/jwt_tool" }
+        ]
+      },
+      {
+        "day": 16, "week": 3,
+        "topic": "OAuth 2.0 + OIDC — flows + common misconfigurations",
+        "outcome": "Be able to draw the Auth Code + PKCE flow. Spot redirect_uri / state / scope bugs.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "PortSwigger Academy — OAuth", "url": "https://portswigger.net/web-security/oauth" },
+          { "label": "OAuth 2.0 Simplified (Aaron Parecki)", "url": "https://www.oauth.com/" }
+        ]
+      },
+      {
+        "day": 17, "week": 3,
+        "topic": "XXE + insecure deserialization",
+        "outcome": "Complete PortSwigger XXE labs. Understand Java/Python deserialisation gadget chains conceptually.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PortSwigger Academy — XXE", "url": "https://portswigger.net/web-security/xxe" },
+          { "label": "PortSwigger Academy — Deserialization", "url": "https://portswigger.net/web-security/deserialization" }
+        ]
+      },
+      {
+        "day": 18, "week": 3,
+        "topic": "Race conditions + business logic flaws",
+        "outcome": "Complete PortSwigger Race Conditions labs. Run a single-packet attack with Burp Repeater group.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PortSwigger Academy — Race conditions", "url": "https://portswigger.net/web-security/race-conditions" },
+          { "label": "PortSwigger Academy — Business logic vulnerabilities", "url": "https://portswigger.net/web-security/logic-flaws" }
+        ]
+      },
+      {
+        "day": 19, "week": 3,
+        "topic": "GraphQL security testing",
+        "outcome": "Complete PortSwigger GraphQL labs. Use InQL or graphw00f against a test target.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "PortSwigger Academy — GraphQL", "url": "https://portswigger.net/web-security/graphql" },
+          { "label": "InQL Burp extension", "url": "https://github.com/doyensec/inql" }
+        ]
+      },
+      {
+        "day": 20, "week": 3,
+        "topic": "Secure code review — methodology",
+        "outcome": "Read OWASP Code Review Guide intro. Use Semgrep on a sample Node project.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "OWASP Code Review Guide v2", "url": "https://owasp.org/www-project-code-review-guide/" },
+          { "label": "Semgrep — Getting started (free)", "url": "https://semgrep.dev/docs/getting-started/" }
+        ]
+      },
+      {
+        "day": 21, "week": 3,
+        "topic": "Project — run Claude Code on your vuln API, capture the security review",
+        "outcome": "AI-generated review document. Compare to your own findings list. Note gaps and false flags.",
+        "time_hours": 2.5,
+        "resources": [
+          { "label": "Claude Code docs", "url": "https://docs.claude.com/en/docs/claude-code/overview" }
+        ]
+      },
+      {
+        "day": 22, "week": 4,
+        "topic": "Interview Q drill — Technical (round 1: AppSec fundamentals)",
+        "outcome": "Answer 10 technical questions out loud. Record yourself. Tighten weak spots.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PortSwigger — Web Academy revision notes", "url": "https://portswigger.net/web-security" },
+          { "label": "InfoSec Prep — Interview Q bank", "url": "https://github.com/PaperMtn/InfoSec-Interview-Questions" }
+        ]
+      },
+      {
+        "day": 23, "week": 4,
+        "topic": "Interview Q drill — Technical (round 2: APIs, JWT, OAuth, cloud)",
+        "outcome": "Answer 10 more technical questions. Use the JD Analyzer in this app to source them.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PayloadsAllTheThings", "url": "https://github.com/swisskyrepo/PayloadsAllTheThings" }
+        ]
+      },
+      {
+        "day": 24, "week": 4,
+        "topic": "Behavioural — STAR stories for 6 competencies",
+        "outcome": "Write 6 STAR stories: ownership, conflict, learning, mistake, stakeholder, leadership.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Levels.fyi behavioural prep guide", "url": "https://www.levels.fyi/blog/behavioral-interview-prep-guide.html" },
+          { "label": "STAR method — Indeed guide", "url": "https://www.indeed.com/career-advice/interviewing/how-to-use-the-star-interview-response-technique" }
+        ]
+      },
+      {
+        "day": 25, "week": 4,
+        "topic": "Mock interview — record yourself answering 5 mixed questions",
+        "outcome": "Identify filler words, vague answers, where you ramble. Re-record the weakest two.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Pramp — Free mock interviews", "url": "https://www.pramp.com/" },
+          { "label": "interviewing.io — security track (free attempts)", "url": "https://interviewing.io/" }
+        ]
+      },
+      {
+        "day": 26, "week": 4,
+        "topic": "Pentest report writing — both audiences",
+        "outcome": "Take one of your vuln-API findings and write it up two ways: CISO exec summary + dev fix.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PNPT report template (free)", "url": "https://github.com/hmaverickadams/TCM-Security-Sample-Pentest-Report" },
+          { "label": "OWASP Reporting Guide", "url": "https://github.com/OWASP/wstg/blob/master/document/5-Reporting/README.md" }
+        ]
+      },
+      {
+        "day": 27, "week": 4,
+        "topic": "Project ship — README polished, fix-PRs merged, Medium post drafted",
+        "outcome": "Repo public, README structured as pentest report, Medium post draft saved.",
+        "time_hours": 2.5,
+        "resources": [
+          { "label": "Sample README structure", "url": "https://github.com/othneildrew/Best-README-Template" }
+        ]
+      },
+      {
+        "day": 28, "week": 4,
+        "topic": "System design — secure design questions",
+        "outcome": "Walk through: 'How would you design auth for a multi-tenant SaaS?' out loud, with diagram.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "System Design Primer", "url": "https://github.com/donnemartin/system-design-primer" },
+          { "label": "OWASP ASVS (Application Security Verification Standard)", "url": "https://owasp.org/www-project-application-security-verification-standard/" }
+        ]
+      },
+      {
+        "day": 29, "week": 4,
+        "topic": "Publish — Medium post live, LinkedIn post live, CV updated",
+        "outcome": "All three live. Tag 2 recruiters / hiring managers in the LinkedIn post.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Medium — getting started", "url": "https://help.medium.com/hc/en-us/articles/115011962267" }
+        ]
+      },
+      {
+        "day": 30, "week": 4,
+        "topic": "Final review + book interviews",
+        "outcome": "Roadmap notes consolidated. Apply to 5 targeted roles using the Jobs tab. Reach out to 3 recruiters.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "Use the Recruiters tab in this app for direct contacts", "url": "#" }
+        ]
+      }
+    ]
+  },
+  "grc": {
+    "id": "grc",
+    "title": "Governance & ISO 27001 — 30 Day Interview Prep Roadmap",
+    "subtitle": "Entry-to-associate ISO 27001 + GRC roles. Targets DORA/GDPR-adjacent Irish FS market. ~1.5 hours/day. All resources free.",
+    "audience": "You have technical security background. This roadmap converts it into GRC vocabulary, frameworks, and interview confidence.",
+    "project": {
+      "title": "Mini ISMS for a Fictional SaaS — Built with AI",
+      "tagline": "A full starter ISMS for an imaginary Dublin-based fintech (gdpr + DORA in scope), drafted with AI assistance and hand-tailored.",
+      "stand_out": "Most GRC junior candidates can recite ISO 27001 clauses. Almost none can show a complete documented ISMS. This is your differentiator.",
+      "steps": [
+        "Day 1–3: Pick a fictional company. Define scope: 30-person SaaS in Dublin, processes EU customer data, sells to FS. Document the org context + interested parties (Clause 4).",
+        "Day 4–7: Use Claude Code to draft the core policy stack (information security policy, access control, asset management, supplier security, incident management, business continuity). Hand-edit every one — AI gets you 70% there, your judgement gets you the last 30%.",
+        "Day 8–12: Build the risk register: 20 risks with likelihood × impact, treatment decisions, owner, review date. Use the 5×5 matrix.",
+        "Day 13–16: Build the Statement of Applicability for all 93 Annex A controls (2022 edition). Mark applicable/not + justification.",
+        "Day 17–20: Add the operational artefacts: asset inventory template, incident response runbook, internal audit programme, management review template.",
+        "Day 21–23: Map your controls to DORA articles (Articles 5–15) so the same ISMS evidences DORA readiness too.",
+        "Day 24–28: Publish to a public GitHub repo with a clean README explaining how AI accelerated drafting and what you tailored manually.",
+        "Day 29–30: Write a Medium post: 'I built a full ISMS for a fictional fintech using AI — here is what I learned about GRC craft'."
+      ],
+      "deliverables": [
+        "GitHub repo: mini-isms-fintech-ie",
+        "Full policy stack (10+ documents) in Markdown",
+        "Risk register (CSV / Markdown table)",
+        "Statement of Applicability (Annex A 2022) as a spreadsheet",
+        "DORA mapping document",
+        "Medium / LinkedIn post explaining your approach"
+      ]
+    },
+    "weeks": [
+      {
+        "label": "Week 1 — ISO 27001 structure + management system literacy",
+        "focus": "Standard structure, ISMS concept, Annex A overview, PDCA cycle."
+      },
+      {
+        "label": "Week 2 — Risk management + Annex A controls deep dive",
+        "focus": "Risk methodology, control categories, evidence patterns."
+      },
+      {
+        "label": "Week 3 — Regulatory landscape (GDPR, DORA, NIS2) + audit",
+        "focus": "EU regulation, third-party risk, internal audit programme."
+      },
+      {
+        "label": "Week 4 — Interview drill + project ship",
+        "focus": "Behavioural answers, framework comparisons, project publication."
+      }
+    ],
+    "days": [
+      {
+        "day": 1, "week": 1,
+        "topic": "What is ISO 27001 (2022 edition) — high level",
+        "outcome": "Understand: management system vs control standard, structure (Clauses 4-10 + Annex A), why orgs certify.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "ISO.org — ISO/IEC 27001 official page", "url": "https://www.iso.org/standard/27001" },
+          { "label": "Advisera — Free ISO 27001 white paper", "url": "https://advisera.com/27001academy/free-downloads/" }
+        ]
+      },
+      {
+        "day": 2, "week": 1,
+        "topic": "ISO 27001:2022 Clauses 4–10 walkthrough",
+        "outcome": "Be able to summarise each clause in one sentence. Identify what evidence each requires.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "IT Governance — Free 27001:2022 webinar archive", "url": "https://www.itgovernance.co.uk/iso27001-webinars-en" },
+          { "label": "BSI — ISO 27001 free transition guide (2022)", "url": "https://www.bsigroup.com/en-GB/iso-27001-information-security/" }
+        ]
+      },
+      {
+        "day": 3, "week": 1,
+        "topic": "Annex A 2022 — 4 control themes (Org / People / Physical / Tech)",
+        "outcome": "Know that there are 93 controls in 2022 (vs 114 in 2013). Recall the 4 themes and roughly how many controls per theme.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Advisera — ISO 27001:2022 Annex A controls list (free)", "url": "https://advisera.com/27001academy/iso-27001-2022-revision/" },
+          { "label": "ISMS.online — Annex A controls explained", "url": "https://www.isms.online/iso-27001/annex-a/" }
+        ]
+      },
+      {
+        "day": 4, "week": 1,
+        "topic": "ISMS lifecycle + PDCA cycle",
+        "outcome": "Understand: Plan-Do-Check-Act applied to information security. Know what 'continual improvement' means in practice.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "ISO — PDCA and ISO management systems explained", "url": "https://www.iso.org/management-system-standards.html" },
+          { "label": "Advisera — What is an ISMS", "url": "https://advisera.com/27001academy/what-is-an-isms/" }
+        ]
+      },
+      {
+        "day": 5, "week": 1,
+        "topic": "Policy / Standard / Procedure / Guideline — the documentation hierarchy",
+        "outcome": "Be able to give one example of each from access control or incident response.",
+        "time_hours": 1,
+        "resources": [
+          { "label": "SANS — Information Security Policy Templates (free)", "url": "https://www.sans.org/information-security-policy/" },
+          { "label": "NIST — Glossary of definitions", "url": "https://csrc.nist.gov/glossary" }
+        ]
+      },
+      {
+        "day": 6, "week": 1,
+        "topic": "Start project — define the fictional company + Clause 4 (context)",
+        "outcome": "Repo created. README has org description, interested parties, ISMS scope statement.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "Advisera — Free ISMS scope template", "url": "https://advisera.com/27001academy/templates/" }
+        ]
+      },
+      {
+        "day": 7, "week": 1,
+        "topic": "Catch-up + read 2 case studies",
+        "outcome": "Skim two real-world ISO 27001 certification case studies for pattern recognition.",
+        "time_hours": 1,
+        "resources": [
+          { "label": "BSI case studies (free)", "url": "https://www.bsigroup.com/en-GB/our-services/certification/case-studies/" },
+          { "label": "ISMS.online customer stories", "url": "https://www.isms.online/customer-stories/" }
+        ]
+      },
+      {
+        "day": 8, "week": 2,
+        "topic": "Risk management — ISO 27005 fundamentals",
+        "outcome": "Understand: asset / threat / vulnerability / risk model. Know likelihood × impact scoring.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Advisera — Free ISO 27005 risk methodology paper", "url": "https://advisera.com/27001academy/blog/2014/01/27/iso-27001-risk-assessment-the-basics/" },
+          { "label": "NIST SP 800-30 — Guide for Conducting Risk Assessments", "url": "https://csrc.nist.gov/publications/detail/sp/800-30/rev-1/final" }
+        ]
+      },
+      {
+        "day": 9, "week": 2,
+        "topic": "Build a 5×5 risk matrix + 20 risk register entries (project)",
+        "outcome": "20 risks documented with likelihood, impact, current controls, residual score, treatment, owner.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "Advisera — Free risk register template", "url": "https://advisera.com/27001academy/templates/" }
+        ]
+      },
+      {
+        "day": 10, "week": 2,
+        "topic": "4 risk treatment options — Avoid / Mitigate / Transfer / Accept",
+        "outcome": "Apply each option to one of your registered risks with documented rationale.",
+        "time_hours": 1,
+        "resources": [
+          { "label": "ISACA Journal — risk treatment overview (free article)", "url": "https://www.isaca.org/resources/isaca-journal" }
+        ]
+      },
+      {
+        "day": 11, "week": 2,
+        "topic": "Annex A — Organisational controls (37 controls)",
+        "outcome": "Walk through each. Identify which apply to your fictional company.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "ISMS.online — Annex A.5 Organisational controls", "url": "https://www.isms.online/iso-27001/annex-a-5-organisational-controls/" },
+          { "label": "Advisera — Annex A control summaries", "url": "https://advisera.com/27001academy/iso-27001-2022-revision/" }
+        ]
+      },
+      {
+        "day": 12, "week": 2,
+        "topic": "Annex A — People (8) + Physical (14) controls",
+        "outcome": "Identify applicable controls. Note evidence types: training records, access logs, visitor logs.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "ISMS.online — Annex A.6 People controls", "url": "https://www.isms.online/iso-27001/annex-a-6-people-controls/" },
+          { "label": "ISMS.online — Annex A.7 Physical controls", "url": "https://www.isms.online/iso-27001/annex-a-7-physical-controls/" }
+        ]
+      },
+      {
+        "day": 13, "week": 2,
+        "topic": "Annex A — Technological controls (34)",
+        "outcome": "Heaviest set. Map at least 10 to existing tech stacks you know (Okta, AWS IAM, EDR, MFA, etc.).",
+        "time_hours": 2,
+        "resources": [
+          { "label": "ISMS.online — Annex A.8 Technological controls", "url": "https://www.isms.online/iso-27001/annex-a-8-technological-controls/" }
+        ]
+      },
+      {
+        "day": 14, "week": 2,
+        "topic": "Project — draft Statement of Applicability across all 93 controls",
+        "outcome": "Spreadsheet committed: control / applicable Y/N / justification / implementation status.",
+        "time_hours": 2.5,
+        "resources": [
+          { "label": "Advisera — SoA free template", "url": "https://advisera.com/27001academy/templates/" }
+        ]
+      },
+      {
+        "day": 15, "week": 3,
+        "topic": "GDPR — the basics that come up in interviews",
+        "outcome": "Confident on: lawful bases, data subject rights, Article 33 (72-hour breach), Article 30 (records).",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Irish DPC — GDPR guidance (free)", "url": "https://www.dataprotection.ie/en/organisations/know-your-obligations" },
+          { "label": "GDPR full text (EUR-Lex)", "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj" }
+        ]
+      },
+      {
+        "day": 16, "week": 3,
+        "topic": "DORA — what every Irish FS interview will ask",
+        "outcome": "Articles 5–15 high level. Know: ICT risk framework, incident reporting timelines, TLPT, third-party register.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "DORA full text (EUR-Lex)", "url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj" },
+          { "label": "Central Bank of Ireland — DORA hub", "url": "https://www.centralbank.ie/regulation/digital-operational-resilience-act-dora" }
+        ]
+      },
+      {
+        "day": 17, "week": 3,
+        "topic": "NIS2 — scope + key obligations",
+        "outcome": "Know: essential vs important entities, 24/72-hour incident reporting, management accountability.",
+        "time_hours": 1,
+        "resources": [
+          { "label": "NCSC Ireland — NIS2 guidance", "url": "https://www.ncsc.gov.ie/" },
+          { "label": "NIS2 full text (EUR-Lex)", "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj" }
+        ]
+      },
+      {
+        "day": 18, "week": 3,
+        "topic": "Third-party / vendor risk management",
+        "outcome": "Understand tiering by data sensitivity. Know SIG / CAIQ / SOC 2 evidence patterns.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Shared Assessments — Free SIG Lite", "url": "https://sharedassessments.org/sig/" },
+          { "label": "Cloud Security Alliance — CAIQ (free)", "url": "https://cloudsecurityalliance.org/research/cloud-controls-matrix" }
+        ]
+      },
+      {
+        "day": 19, "week": 3,
+        "topic": "Internal audit — programme + evidence",
+        "outcome": "Draft your fictional company's internal audit calendar + 1 sample audit checklist.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Advisera — Internal audit checklist template (free)", "url": "https://advisera.com/27001academy/templates/" },
+          { "label": "ISO 19011 (free abstract)", "url": "https://www.iso.org/standard/70017.html" }
+        ]
+      },
+      {
+        "day": 20, "week": 3,
+        "topic": "ISO 27001 vs SOC 2 — when each applies",
+        "outcome": "Be able to recommend one over the other given a customer profile.",
+        "time_hours": 1,
+        "resources": [
+          { "label": "AICPA — SOC 2 basics (free)", "url": "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc" },
+          { "label": "Vanta blog — ISO 27001 vs SOC 2 comparison", "url": "https://www.vanta.com/resources/iso-27001-vs-soc-2" }
+        ]
+      },
+      {
+        "day": 21, "week": 3,
+        "topic": "Project — DORA mapping document",
+        "outcome": "Spreadsheet mapping your ISMS controls to DORA Articles 5–15.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "EBA — DORA Regulatory Technical Standards (free)", "url": "https://www.eba.europa.eu/regulation-and-policy/digital-operational-resilience-act-dora" }
+        ]
+      },
+      {
+        "day": 22, "week": 4,
+        "topic": "Interview Q drill — Technical (frameworks)",
+        "outcome": "Answer 10 GRC questions out loud. Use the JD Analyzer in this app for fresh question set.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "ISACA Free Resources", "url": "https://www.isaca.org/resources" }
+        ]
+      },
+      {
+        "day": 23, "week": 4,
+        "topic": "Interview Q drill — Behavioural (stakeholder + board)",
+        "outcome": "Write 6 STAR stories targeted at GRC competencies: communication, persuasion, audit pushback, risk acceptance.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "STAR method — Indeed guide", "url": "https://www.indeed.com/career-advice/interviewing/how-to-use-the-star-interview-response-technique" }
+        ]
+      },
+      {
+        "day": 24, "week": 4,
+        "topic": "Mock — explain a high-severity risk to a non-technical board",
+        "outcome": "Record yourself doing the 'board summary' from question iq-grc-07 in this app. Tighten to 90 seconds.",
+        "time_hours": 1,
+        "resources": [
+          { "label": "Harvard Business Review — Speaking to executives", "url": "https://hbr.org/2014/07/how-to-tell-a-great-story" }
+        ]
+      },
+      {
+        "day": 25, "week": 4,
+        "topic": "GDPR 72-hour breach simulation",
+        "outcome": "Walk a mock breach scenario through Article 33 + 34 step-by-step on a whiteboard.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Irish DPC — Breach notification guidance", "url": "https://www.dataprotection.ie/en/organisations/personal-data-breaches" }
+        ]
+      },
+      {
+        "day": 26, "week": 4,
+        "topic": "ISO 27001 audit terminology",
+        "outcome": "Know: Stage 1 vs Stage 2, surveillance, recertification, non-conformity (major vs minor), corrective action.",
+        "time_hours": 1,
+        "resources": [
+          { "label": "IT Governance — Audit terms glossary", "url": "https://www.itgovernance.eu/blog/en/iso-27001-the-14-step-roadmap-for-iso-27001-certification" }
+        ]
+      },
+      {
+        "day": 27, "week": 4,
+        "topic": "Project ship — README polish, repo public",
+        "outcome": "Repo live with all artefacts. README explains scope, structure, AI usage transparently.",
+        "time_hours": 2.5,
+        "resources": [
+          { "label": "Best README template", "url": "https://github.com/othneildrew/Best-README-Template" }
+        ]
+      },
+      {
+        "day": 28, "week": 4,
+        "topic": "Mock interview — full 45-min run",
+        "outcome": "Use Pramp or a friend. Get specific feedback on 3 weakest answers.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "Pramp", "url": "https://www.pramp.com/" }
+        ]
+      },
+      {
+        "day": 29, "week": 4,
+        "topic": "Publish — Medium post + LinkedIn announce",
+        "outcome": "Post live: 'Building a starter ISMS with AI — what GRC craft actually requires'. Tag 3 GRC recruiters.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Medium — getting started", "url": "https://help.medium.com/hc/en-us/articles/115011962267" }
+        ]
+      },
+      {
+        "day": 30, "week": 4,
+        "topic": "Apply + outreach",
+        "outcome": "Apply to 5 GRC / ISMS roles via the Jobs tab. Email 3 recruiters from the Recruiters tab.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Use the Recruiters tab in this app for direct GRC contacts", "url": "#" }
+        ]
+      }
+    ]
+  }
+}
