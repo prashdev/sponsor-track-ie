@@ -45,7 +45,10 @@ interface Roadmap {
 interface RoadmapData {
   appsec: Roadmap;
   grc: Roadmap;
+  ai_security: Roadmap;
 }
+
+type TrackId = 'appsec' | 'grc' | 'ai_security';
 
 // ─── Day card ─────────────────────────────────────────────────────────────────
 
@@ -123,7 +126,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Roadmaps() {
   const { data, loading, error } = useStaticData<RoadmapData>('data/roadmaps.json');
-  const [track, setTrack] = useState<'appsec' | 'grc'>('appsec');
+  const [track, setTrack] = useState<TrackId>('appsec');
 
   if (loading) return <div className="text-sm text-zinc-400">Loading roadmaps…</div>;
   if (error || !data) return <div className="text-sm text-red-500">Failed to load: {error}</div>;
@@ -150,10 +153,11 @@ export default function Roadmaps() {
       </div>
 
       {/* Track tabs */}
-      <div className="mt-5 flex border-b border-zinc-200">
+      <div className="mt-5 flex flex-wrap border-b border-zinc-200">
         {([
           { id: 'appsec', label: 'Application Security' },
           { id: 'grc', label: 'Governance & ISO 27001' },
+          { id: 'ai_security', label: 'AI / LLM Security' },
         ] as const).map((t) => (
           <button key={t.id} onClick={() => setTrack(t.id)}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${

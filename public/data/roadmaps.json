@@ -670,5 +670,351 @@
         ]
       }
     ]
+  },
+  "ai_security": {
+    "id": "ai_security",
+    "title": "AI / LLM Security — 30 Day Interview Prep Roadmap",
+    "subtitle": "For AI/LLM Security and AI Red Team roles. Fastest-growing security niche. ~1.5–2 hours/day. All resources free.",
+    "audience": "You have AppSec background. This roadmap bridges into AI-specific threats — the field where supply is thin and demand is exploding.",
+    "project": {
+      "title": "Vulnerable LLM Agent + Multi-Tool Red Team Writeup",
+      "tagline": "Build a RAG-powered LLM agent with realistic tools, then red-team it with Garak + PyRIT + promptfoo + manual probing. Ship the kill chains.",
+      "stand_out": "AI security candidates rarely have hands-on artefacts — most can recite OWASP LLM Top 10 but cannot demonstrate exploitation or defence. A working repo with documented attack chains, automated tooling, and proposed fixes puts you in the top 5%.",
+      "steps": [
+        "Day 1–4: Build a Python LLM agent using LangChain or LlamaIndex with: (a) a RAG index of fake company docs, (b) a fake email-send tool, (c) a fake SQL query tool, (d) a fake HTTP fetch tool. Use a free model (Llama 3 via Groq free tier, Gemini free tier, or Claude API free credits).",
+        "Day 5–8: Seed indirect prompt injection by adding a poisoned doc to the RAG index. Demonstrate the agent calling the email tool to exfiltrate other docs based on the injection. Record the full conversation.",
+        "Day 9–12: Run Garak against your agent's exposed prompt endpoint. Capture all probe results. Pick the 3 most interesting and write deep writeups.",
+        "Day 13–15: Run PyRIT for multi-turn attack orchestration. Document where automated red teaming beats manual and vice versa.",
+        "Day 16–18: Use promptfoo to write 20 declarative security regression tests that any future fix should pass.",
+        "Day 19–22: Implement defences: input/output guardrails (LlamaGuard or simple regex), least-privilege tool scoping, human-in-the-loop on high-impact tools, RAG retrieval-layer authZ. Re-run all tools, show before/after.",
+        "Day 23–26: Write the whitepaper-style README: threat model diagram, 5 documented attack chains, defence implementation, residual risks, automated regression test suite.",
+        "Day 27–28: Cross-post on Medium and LinkedIn. Submit as a talk proposal to BSides Dublin or OWASP Dublin chapter."
+      ],
+      "deliverables": [
+        "Public GitHub repo: vulnerable-llm-agent-redteam",
+        "5+ documented prompt injection / agent-abuse kill chains",
+        "Garak + PyRIT scan output committed",
+        "promptfoo regression test suite (20+ assertions)",
+        "Before/after defence demonstration",
+        "Medium whitepaper post + LinkedIn announce",
+        "BSides / OWASP chapter talk proposal submitted"
+      ]
+    },
+    "weeks": [
+      {
+        "label": "Week 1 — LLM fundamentals + threat landscape",
+        "focus": "How LLMs work, where their security boundaries differ from web apps, OWASP LLM Top 10, MITRE ATLAS."
+      },
+      {
+        "label": "Week 2 — Prompt injection + jailbreaks deep dive",
+        "focus": "Direct + indirect injection, jailbreak techniques, multi-modal attacks, hands-on with Gandalf and Garak."
+      },
+      {
+        "label": "Week 3 — Agents, RAG, supply chain, training-data attacks",
+        "focus": "Agent abuse, excessive agency, RAG-specific risks, model supply chain, training data poisoning."
+      },
+      {
+        "label": "Week 4 — Governance + interview drill + project ship",
+        "focus": "NIST AI RMF, EU AI Act, responsible scaling, behavioural answers, publish project."
+      }
+    ],
+    "days": [
+      {
+        "day": 1, "week": 1,
+        "topic": "How LLMs work (just enough to talk security)",
+        "outcome": "Be able to explain: tokens, context window, temperature, system vs user prompts, function calling, RAG vs fine-tuning. No ML maths needed.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Andrej Karpathy — Intro to Large Language Models (1h video)", "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g" },
+          { "label": "Anthropic — Prompt engineering overview (free)", "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview" }
+        ]
+      },
+      {
+        "day": 2, "week": 1,
+        "topic": "OWASP LLM Top 10 (2025) — full read",
+        "outcome": "Recite each of the 10 risks. Give one attack and one mitigation per item from memory.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "OWASP Top 10 for LLM Applications 2025", "url": "https://genai.owasp.org/llm-top-10/" },
+          { "label": "OWASP GenAI Security Project hub", "url": "https://genai.owasp.org/" }
+        ]
+      },
+      {
+        "day": 3, "week": 1,
+        "topic": "MITRE ATLAS — adversarial ML threat matrix",
+        "outcome": "Know the ATLAS structure (similar to ATT&CK). Identify 5 techniques relevant to LLM apps.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "MITRE ATLAS official", "url": "https://atlas.mitre.org/" },
+          { "label": "MITRE ATLAS — Case studies", "url": "https://atlas.mitre.org/studies" }
+        ]
+      },
+      {
+        "day": 4, "week": 1,
+        "topic": "LLM threat modelling — how it differs from web apps",
+        "outcome": "Draw a threat model of a simple RAG chatbot. Mark all untrusted inputs (user, retrieved docs, plugin output).",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Microsoft — Threat modelling AI/ML systems and dependencies", "url": "https://learn.microsoft.com/en-us/security/engineering/threat-modeling-aiml" },
+          { "label": "Embracing the Red — Indirect prompt injection threat models", "url": "https://embracethered.com/blog/" }
+        ]
+      },
+      {
+        "day": 5, "week": 1,
+        "topic": "Read the seminal indirect prompt injection paper",
+        "outcome": "Read 'Not What You've Signed Up For' (Greshake et al.). Understand the threat model and 6 attack categories.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Greshake et al. — Indirect Prompt Injection paper (arXiv)", "url": "https://arxiv.org/abs/2302.12173" },
+          { "label": "Simon Willison — Prompt injection explained, with examples", "url": "https://simonwillison.net/2022/Sep/12/prompt-injection/" }
+        ]
+      },
+      {
+        "day": 6, "week": 1,
+        "topic": "Project — scaffold the vulnerable LLM agent",
+        "outcome": "Repo created. LangChain or LlamaIndex agent running locally with one tool (email send) and a stub RAG index. First commit pushed.",
+        "time_hours": 2.5,
+        "resources": [
+          { "label": "LangChain — Build an Agent tutorial", "url": "https://python.langchain.com/docs/tutorials/agents/" },
+          { "label": "Groq — Free Llama 3 inference API", "url": "https://console.groq.com/docs/quickstart" }
+        ]
+      },
+      {
+        "day": 7, "week": 1,
+        "topic": "Catch-up + read 3 recent LLM security incident reports",
+        "outcome": "Read 3 real-world cases (Microsoft Copilot, Slack AI, ChatGPT plugin issues). Note common patterns.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Embracing the Red — Real-world LLM attack writeups", "url": "https://embracethered.com/blog/posts/" },
+          { "label": "HiddenLayer Research", "url": "https://hiddenlayer.com/research/" }
+        ]
+      },
+      {
+        "day": 8, "week": 2,
+        "topic": "Direct prompt injection — patterns + free hands-on",
+        "outcome": "Complete all 7 levels of Lakera Gandalf. Document the technique that broke each level.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Lakera Gandalf — interactive prompt injection challenge", "url": "https://gandalf.lakera.ai/" },
+          { "label": "LearnPrompting.org — Prompt Injection chapter (free)", "url": "https://learnprompting.org/docs/prompt_hacking/injection" }
+        ]
+      },
+      {
+        "day": 9, "week": 2,
+        "topic": "Jailbreak techniques — DAN, roleplay, encoding, multilingual",
+        "outcome": "Know the major jailbreak families. Test 3 against a sandbox model (Ollama local or Gemini free tier).",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "LearnPrompting.org — Jailbreaking chapter", "url": "https://learnprompting.org/docs/prompt_hacking/jailbreaking" },
+          { "label": "Jailbreak Chat — community catalogue", "url": "https://www.jailbreakchat.com/" }
+        ]
+      },
+      {
+        "day": 10, "week": 2,
+        "topic": "Indirect prompt injection — payload design",
+        "outcome": "Craft 5 different indirect injection payloads that would work via: email, web page, PDF, calendar invite, GitHub README.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Simon Willison's prompt injection archive", "url": "https://simonwillison.net/tags/prompt-injection/" },
+          { "label": "Embracing the Red — Indirect injection examples", "url": "https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/" }
+        ]
+      },
+      {
+        "day": 11, "week": 2,
+        "topic": "PortSwigger LLM labs — hands-on exploitation",
+        "outcome": "Complete all 4 PortSwigger Web Academy LLM attack labs.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PortSwigger — Web LLM attacks (free labs)", "url": "https://portswigger.net/web-security/llm-attacks" }
+        ]
+      },
+      {
+        "day": 12, "week": 2,
+        "topic": "Multi-modal injection — images, audio, hidden text",
+        "outcome": "Understand image-based injection (text in screenshots, invisible Unicode, steganographic prompts).",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Riley Goodside — Multi-modal prompt injection demos", "url": "https://twitter.com/goodside" },
+          { "label": "ArXiv — Are aligned neural networks adversarially aligned?", "url": "https://arxiv.org/abs/2306.15447" }
+        ]
+      },
+      {
+        "day": 13, "week": 2,
+        "topic": "Project — seed indirect injection into your RAG index",
+        "outcome": "Add a poisoned doc to your agent's RAG. Demonstrate the agent calling email-send to exfiltrate other docs based on the injection. Record the chat.",
+        "time_hours": 2.5,
+        "resources": [
+          { "label": "LangChain — RAG tutorial", "url": "https://python.langchain.com/docs/tutorials/rag/" }
+        ]
+      },
+      {
+        "day": 14, "week": 2,
+        "topic": "Catch-up + read AI Village / DEF CON GRT writeups",
+        "outcome": "Skim DEF CON Generative Red Team writeups from 2023/2024 for attack pattern library.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "AI Village @ DEF CON archive", "url": "https://aivillage.org/generative%20red%20team/generative-red-team/" },
+          { "label": "DEF CON GRT report (Humane Intelligence)", "url": "https://www.humane-intelligence.org/" }
+        ]
+      },
+      {
+        "day": 15, "week": 3,
+        "topic": "LLM agents — excessive agency + tool abuse",
+        "outcome": "Understand LLM06 Excessive Agency in depth. List 5 tool-design anti-patterns.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "OWASP LLM08 — Excessive Agency (2025)", "url": "https://genai.owasp.org/llmrisk/llm082025-excessive-agency/" },
+          { "label": "Anthropic — Tool use best practices", "url": "https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview" }
+        ]
+      },
+      {
+        "day": 16, "week": 3,
+        "topic": "RAG-specific security risks",
+        "outcome": "Understand: retrieval-layer authZ, cross-tenant leakage, embedding inversion, indirect injection via index. Implement per-user retrieval scoping in your agent.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "NCC Group — Practical attacks against RAG systems", "url": "https://www.nccgroup.com/research-blog/" },
+          { "label": "Trail of Bits — AI/ML security research", "url": "https://blog.trailofbits.com/category/machine-learning/" }
+        ]
+      },
+      {
+        "day": 17, "week": 3,
+        "topic": "Garak — install + run against your project",
+        "outcome": "Garak running against your agent. All probes executed. Capture and triage results.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "Garak GitHub (NVIDIA)", "url": "https://github.com/leondz/garak" },
+          { "label": "Garak documentation", "url": "https://reference.garak.ai/" }
+        ]
+      },
+      {
+        "day": 18, "week": 3,
+        "topic": "PyRIT — Microsoft AI red team toolkit",
+        "outcome": "PyRIT running against your agent. Configure multi-turn attack orchestration. Document one chain.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "PyRIT GitHub (Microsoft)", "url": "https://github.com/Azure/PyRIT" },
+          { "label": "PyRIT — Getting started notebooks", "url": "https://azure.github.io/PyRIT/" }
+        ]
+      },
+      {
+        "day": 19, "week": 3,
+        "topic": "promptfoo — declarative LLM testing",
+        "outcome": "promptfoo configured with 10 security assertions for your agent. Tests pass/fail visible in CLI.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "promptfoo docs — Red teaming", "url": "https://www.promptfoo.dev/docs/red-team/" },
+          { "label": "promptfoo GitHub", "url": "https://github.com/promptfoo/promptfoo" }
+        ]
+      },
+      {
+        "day": 20, "week": 3,
+        "topic": "Training data poisoning + supply chain",
+        "outcome": "Understand BadNets, RLHF poisoning, malicious Hugging Face models, pickle deserialisation in model files.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Trail of Bits — Hugging Face model security", "url": "https://blog.trailofbits.com/2024/02/05/picklescan/" },
+          { "label": "OWASP LLM03 — Supply Chain (2025)", "url": "https://genai.owasp.org/llmrisk/llm032025-supply-chain/" }
+        ]
+      },
+      {
+        "day": 21, "week": 3,
+        "topic": "Project — implement defences, re-run all tooling",
+        "outcome": "Add: LlamaGuard input/output filter, tool scoping, human-in-loop for email tool, per-user RAG authZ. Re-run Garak/PyRIT/promptfoo. Capture before/after deltas.",
+        "time_hours": 2.5,
+        "resources": [
+          { "label": "Meta LlamaGuard 3 (free)", "url": "https://huggingface.co/meta-llama/Llama-Guard-3-8B" },
+          { "label": "NeMo Guardrails (free, NVIDIA)", "url": "https://github.com/NVIDIA/NeMo-Guardrails" }
+        ]
+      },
+      {
+        "day": 22, "week": 4,
+        "topic": "AI governance — NIST AI Risk Management Framework",
+        "outcome": "Know NIST AI RMF structure: Govern / Map / Measure / Manage. Map 3 functions to your project.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "NIST AI RMF 1.0 (free)", "url": "https://www.nist.gov/itl/ai-risk-management-framework" },
+          { "label": "NIST Generative AI Profile (AI 600-1)", "url": "https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook" }
+        ]
+      },
+      {
+        "day": 23, "week": 4,
+        "topic": "EU AI Act — what every EU-based AI security role asks",
+        "outcome": "Know: risk categories, high-risk system obligations, prohibited practices, GPAI rules, timelines.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "EU AI Act — official text (EUR-Lex)", "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj" },
+          { "label": "Artificial Intelligence Act EU — explorer (free)", "url": "https://artificialintelligenceact.eu/" }
+        ]
+      },
+      {
+        "day": 24, "week": 4,
+        "topic": "Responsible scaling + frontier AI safety",
+        "outcome": "Read Anthropic's RSP + read a frontier model card. Be able to discuss capability evaluations.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Anthropic — Responsible Scaling Policy", "url": "https://www.anthropic.com/news/anthropics-responsible-scaling-policy" },
+          { "label": "Anthropic — Claude system cards", "url": "https://www.anthropic.com/news" }
+        ]
+      },
+      {
+        "day": 25, "week": 4,
+        "topic": "Interview Q drill — Technical (LLM attacks)",
+        "outcome": "Answer 10 technical AI security questions out loud. Use the JD Analyzer in this app for fresh question set.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Use JD Analyzer with an AI security JD pasted", "url": "#" },
+          { "label": "OWASP GenAI cheat sheets", "url": "https://genai.owasp.org/resources/" }
+        ]
+      },
+      {
+        "day": 26, "week": 4,
+        "topic": "Interview Q drill — Architecture + defence",
+        "outcome": "Answer: 'How would you secure an LLM-powered customer support chatbot?' end-to-end with a diagram.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Anthropic — Building with Claude security guide", "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/system-prompts" }
+        ]
+      },
+      {
+        "day": 27, "week": 4,
+        "topic": "Behavioural — STAR stories for AI-specific competencies",
+        "outcome": "Write 4 STAR stories: novel research, non-deterministic debugging, communicating AI risk to non-technical leadership, ethical pushback.",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "STAR method — Indeed guide", "url": "https://www.indeed.com/career-advice/interviewing/how-to-use-the-star-interview-response-technique" }
+        ]
+      },
+      {
+        "day": 28, "week": 4,
+        "topic": "Project ship — README, threat model diagram, attack chains",
+        "outcome": "Repo public. README has threat model diagram, 5 documented attack chains with PoC, defence implementation, residual risks, regression test suite.",
+        "time_hours": 2.5,
+        "resources": [
+          { "label": "Best README template", "url": "https://github.com/othneildrew/Best-README-Template" },
+          { "label": "Excalidraw — free threat model diagrams", "url": "https://excalidraw.com/" }
+        ]
+      },
+      {
+        "day": 29, "week": 4,
+        "topic": "Publish — Medium whitepaper + LinkedIn announce + conference proposal",
+        "outcome": "Medium post live. LinkedIn post tags 3 AI security people / recruiters. Talk proposal submitted to BSides Dublin or OWASP Dublin chapter.",
+        "time_hours": 2,
+        "resources": [
+          { "label": "BSides Dublin — CFP page (check current edition)", "url": "https://bsidesdub.ie/" },
+          { "label": "OWASP Dublin chapter", "url": "https://owasp.org/www-chapter-dublin/" }
+        ]
+      },
+      {
+        "day": 30, "week": 4,
+        "topic": "Apply + outreach",
+        "outcome": "Apply to 5 AI/LLM security roles via the Jobs tab. Email 3 recruiters (filter by AI Security specialism in the Recruiters tab).",
+        "time_hours": 1.5,
+        "resources": [
+          { "label": "Use the Recruiters tab — filter by Cybersecurity + AI", "url": "#" },
+          { "label": "Use the Daily Feed in Jobs — search 'LLM' or 'AI security'", "url": "#" }
+        ]
+      }
+    ]
   }
 }
