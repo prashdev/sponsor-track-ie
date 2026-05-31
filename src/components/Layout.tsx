@@ -13,6 +13,7 @@ import {
   ShoppingBag,
   PhoneCall,
   Target,
+  Megaphone,
 } from 'lucide-react';
 import { useAppState } from '../hooks/useLocalStorage';
 
@@ -79,6 +80,7 @@ export default function Layout() {
           <NavItem to="/fallback-roles" icon={ShoppingBag} label="Fallback Roles" />
           <NavItem to="/recruiters" icon={PhoneCall} label="Recruiters" />
           <NavItem to="/roadmaps" icon={Target} label="30-Day Roadmaps" />
+          <NavItem to="/linkedin" icon={Megaphone} label="LinkedIn Posts" />
           <NavItem to="/study" icon={BookOpen} label="Study" />
           <NavItem to="/news" icon={Newspaper} label="News" />
           <NavItem to="/blog" icon={Lightbulb} label="Blog Ideas" />

@@ -1,0 +1,245 @@
+{
+  "intro": "24 LinkedIn post drafts (12 weeks × 2 posts/week). Tied to your background: AppSec engineer at Cubic Telecom + Indusface, Government of India and Nokia Hall of Fame, MSc Cybersecurity NCI, AI/LLM security interest, ISO 27001 + DORA study, Ireland visa journey. Post Tuesday + Thursday for best reach.",
+  "posts": [
+    {
+      "id": "lp-w01-p1",
+      "week": 1, "slot": 1, "best_day": "Tuesday",
+      "category": "Career story",
+      "title": "Why I doubled down on AppSec instead of switching tracks",
+      "hook": "I had a choice last year: stay in AppSec, or pivot to something hotter.",
+      "body": "I had a choice last year: stay in AppSec, or pivot to something hotter.\n\nSecurity-adjacent ML engineering was tempting. AI red teaming was the loudest noise in the room. Sales engineering paid more.\n\nI doubled down on AppSec instead. Three reasons:\n\n1. The fundamentals compound. Three years of pentesting web apps and APIs gave me intuition I'm still building on. Throwing that away to chase a trend is starting from zero, twice.\n\n2. AI security IS AppSec with new payloads. Indirect prompt injection is just XSS where the sanitiser is a probability distribution. The mental model transfers — the tooling changes.\n\n3. The companies that actually pay for security in 2026 are the ones building products. Product security needs people who can read code, threat model a feature in a sprint, and ship a fix-PR — not just write a report.\n\nIf you're early-career and confused about specialisation: pick the thing where you've already done 1,000 reps and go deeper. The depth is the moat.\n\n#AppSec #Cybersecurity #CareerAdvice",
+      "hashtags": ["#AppSec", "#Cybersecurity", "#CareerAdvice", "#ProductSecurity"],
+      "image_suggestion": "Screenshot of Burp Suite with annotations, OR a clean photo of yourself"
+    },
+    {
+      "id": "lp-w01-p2",
+      "week": 1, "slot": 2, "best_day": "Thursday",
+      "category": "Pentest war story",
+      "title": "The JWT that taught me to always test the obvious",
+      "hook": "The most critical finding of my career came from typing 'none' into a header.",
+      "body": "The most critical finding of my career came from typing 'none' into a header.\n\nI was assessing an API gateway for a telematics platform. JWT auth between services. By 2024 alg:none should be dead — every modern library rejects it. So I almost skipped the test.\n\nI tested it anyway. Took 90 seconds.\n\nThe service accepted it. The reason: someone had upgraded the JWT library, then disabled signature verification temporarily during a debugging session 18 months earlier, then forgot. The feature flag stayed off in production.\n\nI forged a service-account token. Demonstrated provisioning of fictitious devices. Reachable PII. Reportable as critical. Fix shipped in 48 hours.\n\nThe lesson isn't 'always test alg:none'. The lesson is: when you assume a class of bug is dead, that's exactly where it survives. Test the obvious. Document the negative result. Move on in 5 minutes.\n\nThe 5 minutes I almost skipped became the headline finding of the engagement.\n\n#AppSec #Pentesting #JWT",
+      "hashtags": ["#AppSec", "#Pentesting", "#JWT", "#APISecurity"],
+      "image_suggestion": "Code snippet showing alg:none JWT header decoded"
+    },
+    {
+      "id": "lp-w02-p1",
+      "week": 2, "slot": 1, "best_day": "Tuesday",
+      "category": "AI security take",
+      "title": "Prompt injection is XSS with extra steps",
+      "hook": "Every AppSec engineer already knows how to think about prompt injection. They just don't realise it yet.",
+      "body": "Every AppSec engineer already knows how to think about prompt injection. They just don't realise it yet.\n\nXSS: untrusted user input gets rendered in a trusted context (HTML), and the parser can't tell instructions from data.\n\nPrompt injection: untrusted text (user input, retrieved document, plugin output) gets rendered in a trusted context (the model's context window), and the model can't tell instructions from data.\n\nSame shape. Different parser.\n\nWhat's different:\n- The 'parser' is a probability distribution, not a deterministic grammar. So you can't whitelist your way out.\n- The output isn't HTML — it's an action (call this tool, send this email, write this SQL). Excessive agency turns indirect prompt injection into RCE-equivalent.\n- Sanitisation is statistical: LlamaGuard, NeMo Guardrails, regex. They help, but they're never sufficient.\n\nThe defence pattern that actually works: assume the model will be subverted, and make sure the worst possible model output can't cause unacceptable damage. Least privilege on tools. Human-in-the-loop on consequential actions. Authorisation at the retrieval layer, not in the prompt.\n\nIt's defence-in-depth, just with a different layer being unreliable.\n\n#AISecurity #AppSec #LLM #PromptInjection",
+      "hashtags": ["#AISecurity", "#AppSec", "#LLM", "#PromptInjection", "#OWASP"],
+      "image_suggestion": "Side-by-side diagram: XSS attack flow vs prompt injection attack flow"
+    },
+    {
+      "id": "lp-w02-p2",
+      "week": 2, "slot": 2, "best_day": "Thursday",
+      "category": "ISO 27001 myth-busting",
+      "title": "ISO 27001 isn't a security framework — and that's why it works",
+      "hook": "People keep telling me ISO 27001 is a security framework. It isn't.",
+      "body": "People keep telling me ISO 27001 is a security framework. It isn't.\n\nISO 27001 is a management system standard that happens to be about security. The distinction matters.\n\nA security framework (NIST CSF, CIS Controls) tells you what controls to implement.\n\nISO 27001 tells you how to run a programme that decides which controls to implement, operates them, audits them, and continuously improves them. The controls themselves live in Annex A, but they're not the standard — the management system (Clauses 4-10) is.\n\nThis is why ISO 27001 certification doesn't mean 'secure'. It means 'has a working management system'. Two certified companies can have wildly different security postures based on their risk appetite, scope, and treatment decisions.\n\nIt's also why a startup with 50 controls implemented well can pass ISO 27001, while an enterprise with 200 controls badly documented can fail.\n\nIf you're studying for GRC interviews: stop memorising Annex A controls. Spend that time understanding what the ISMS is, what evidence the auditor wants, and how risk treatment decisions get documented.\n\nThe auditor doesn't care that you 'have MFA'. They care that you chose to have MFA based on a documented risk decision, and that you can prove it operates.\n\n#ISO27001 #GRC #InformationSecurity",
+      "hashtags": ["#ISO27001", "#GRC", "#InformationSecurity", "#Compliance"],
+      "image_suggestion": "Whiteboard sketch showing ISMS as a wrapper around Annex A controls"
+    },
+    {
+      "id": "lp-w03-p1",
+      "week": 3, "slot": 1, "best_day": "Tuesday",
+      "category": "API security tip",
+      "title": "The 60-second BOLA test that finds the bug 80% of the time",
+      "hook": "Most BOLA (IDOR) vulnerabilities die to a single Burp Repeater request. Here's the pattern.",
+      "body": "Most BOLA (IDOR) vulnerabilities die to a single Burp Repeater request. Here's the pattern.\n\nSetup:\n- Account A, Account B (two test accounts in the same app)\n- Any endpoint that takes an object ID — invoices, orders, profile pictures, tickets\n\nThe 60-second test:\n\n1. As Account A, perform the normal action: GET /api/invoices/12345\n2. Capture the request in Burp\n3. Send to Repeater\n4. Identify Account A's session token in the Cookie or Authorization header\n5. Swap it for Account B's token\n6. Re-send\n\nThree outcomes:\n- 200 with Account A's invoice → critical BOLA, fix-it-this-sprint\n- 403/404 → authorisation enforced (good)\n- 200 but it returned an empty stub → check what fields actually leaked\n\nThe failure mode that catches most teams: the server returns 403 on GET but doesn't enforce it on PATCH or DELETE for the same object. Test every verb on the same endpoint with the swapped token.\n\nOWASP API Security Top 10 lists BOLA as risk #1 for a reason. It's the single highest-yield test in API pentesting and it takes a minute per endpoint.\n\n#APISecurity #AppSec #Pentesting #OWASP",
+      "hashtags": ["#APISecurity", "#AppSec", "#Pentesting", "#OWASP", "#BugBounty"],
+      "image_suggestion": "Annotated Burp Repeater screenshot showing the token swap"
+    },
+    {
+      "id": "lp-w03-p2",
+      "week": 3, "slot": 2, "best_day": "Thursday",
+      "category": "Responsible disclosure",
+      "title": "What being in two government Halls of Fame actually taught me",
+      "hook": "I've been listed in the Government of India Hall of Fame and Nokia's. Here's what almost nobody tells you about responsible disclosure.",
+      "body": "I've been listed in the Government of India Hall of Fame and Nokia's. Here's what almost nobody tells you about responsible disclosure.\n\nThe technical part is the easy part.\n\nFinding the bug — that's the part everyone talks about. Recon, payloads, exploit chains. Public PoCs and YouTube channels everywhere.\n\nWhat actually matters for getting credited:\n\n1. Find the right contact. Most disclosure programs have a dedicated security email. Many don't. Try security@, then look for security.txt at the domain root, then LinkedIn-search the head of security. A great bug sent to support@ goes nowhere.\n\n2. Write the report in their voice. Title, severity, summary, reproduction steps with exact requests, impact in business terms, suggested mitigation. Triagers see hundreds. Yours has to be skimmable.\n\n3. Be patient. Some programs respond in 24 hours. Others take 3 months. Don't chase after a week. Don't publicly disclose to apply pressure. Industry memory is long.\n\n4. The thank-you is the prize, not the swag. Hall of Fame credit on a CV opens conversations recruiters wouldn't have otherwise.\n\nIf you're starting out and want to build a track record: pick programs with a public scope, target one class of bug, and write 5 high-quality reports. Quality beats volume every time.\n\n#BugBounty #ResponsibleDisclosure #Cybersecurity",
+      "hashtags": ["#BugBounty", "#ResponsibleDisclosure", "#Cybersecurity", "#Infosec"],
+      "image_suggestion": "Photo of a Hall of Fame certificate OR a screenshot of a redacted disclosure email"
+    },
+    {
+      "id": "lp-w04-p1",
+      "week": 4, "slot": 1, "best_day": "Tuesday",
+      "category": "AI security project",
+      "title": "I asked Claude Code to security-review my vulnerable API. Here's the receipt.",
+      "hook": "I built a deliberately vulnerable REST API. Then I asked Claude Code to audit it. Then I checked its work.",
+      "body": "I built a deliberately vulnerable REST API. Then I asked Claude Code to audit it. Then I checked its work.\n\nThe API had 7 intentional vulnerabilities: IDOR, SQLi, JWT alg:none, SSRF, mass assignment, no rate limit on login, XXE in XML upload.\n\nClaude Code caught 5 of 7 on the first pass. Specifically:\n\nCAUGHT (5/7):\n- SQLi — flagged the raw string concatenation immediately\n- JWT alg:none — spotted the missing algorithm pinning\n- Mass assignment — saw the unfiltered req.body spread\n- IDOR — flagged missing ownership check on the invoice endpoint\n- No rate limit — noted the missing middleware on login\n\nMISSED (2/7):\n- SSRF — the URL fetch was via a library it didn't trace into\n- XXE — the parser was configured in a helper file it didn't open\n\nFALSE POSITIVES (3):\n- Flagged 'use of MD5' in a non-security hash function\n- Flagged 'eval' in a comment\n- Suggested a CSP that conflicted with the app's actual needs\n\nThe takeaway: AI code review is genuinely good at pattern-matching obvious vulnerability classes in single files. It's bad at cross-file reasoning, dependency analysis, and context. Use it as a force multiplier, not a replacement.\n\nFull writeup + repo in the comments.\n\n#AISecurity #AppSec #ClaudeCode #SecurityEngineering",
+      "hashtags": ["#AISecurity", "#AppSec", "#ClaudeCode", "#SecurityEngineering", "#CodeReview"],
+      "image_suggestion": "Table screenshot: caught vs missed vs false positives"
+    },
+    {
+      "id": "lp-w04-p2",
+      "week": 4, "slot": 2, "best_day": "Thursday",
+      "category": "DORA explainer",
+      "title": "DORA is here. Most Irish FS firms still aren't ready.",
+      "hook": "DORA came into force in January 2025. Sixteen months in, the gap between 'compliant on paper' and 'operationally resilient' is widening.",
+      "body": "DORA came into force in January 2025. Sixteen months in, the gap between 'compliant on paper' and 'operationally resilient' is widening.\n\nWhat DORA actually requires for an Irish financial entity:\n\n1. ICT risk management framework — board-approved, comprehensive, documented. Most have it. Most also have it as a Word doc nobody reads.\n\n2. Incident classification and reporting — strict timelines: initial notification within 4 hours of classification, intermediate in 72 hours, final in 1 month. This is where firms get caught — the classification process itself isn't operational.\n\n3. Digital operational resilience testing — including TLPT (Threat-Led Penetration Testing) every 3 years for significant entities, aligned with TIBER-EU. The vendor market for this is still maturing in Ireland.\n\n4. ICT third-party risk — register every ICT provider, contractual controls, exit strategies. The third-party register is the easy part. The exit strategy clauses are where contracts get blocked.\n\n5. Information sharing — encouraged threat intel sharing across the sector. Few firms actually do this.\n\nThe firms doing DORA well aren't treating it as a compliance project. They're using it as cover for the operational resilience work they wanted to do anyway.\n\nIf you're in an FS security or GRC role in Dublin: DORA fluency is now a baseline expectation, not a differentiator. The differentiator is being able to translate it into engineering work.\n\n#DORA #GRC #FinancialServices #Cybersecurity",
+      "hashtags": ["#DORA", "#GRC", "#FinancialServices", "#Cybersecurity", "#Ireland"],
+      "image_suggestion": "Clean diagram of the 5 DORA pillars"
+    },
+    {
+      "id": "lp-w05-p1",
+      "week": 5, "slot": 1, "best_day": "Tuesday",
+      "category": "Pentest methodology",
+      "title": "Why I always start a pentest with the boring stuff",
+      "hook": "New pentesters skip recon to get to the exploitation. Senior pentesters spend half the engagement on recon.",
+      "body": "New pentesters skip recon to get to the exploitation. Senior pentesters spend half the engagement on recon.\n\nThere's a reason.\n\nThe critical findings rarely come from clever payloads. They come from finding the endpoint that wasn't on the scope document. The subdomain that wasn't decommissioned. The legacy auth that's still accepting tokens from a system that was retired in 2022.\n\nMy recon order, every engagement:\n\n1. Passive — certificate transparency logs, archive.org, GitHub for leaked credentials, Shodan for exposed services, LinkedIn for org structure (tells you what tech stack and who owns it)\n\n2. Subdomain enumeration with Amass + Subfinder + crt.sh. Resolve all of them. Note any dangling CNAMEs.\n\n3. Content discovery on every live host with feroxbuster — backup files, admin panels, exposed configs, .git folders, swagger docs.\n\n4. Tech stack fingerprinting with Wappalyzer + manual inspection. Outdated CMS, exposed CI metadata, internal hostnames in headers.\n\n5. Only then do I open Burp.\n\nThe boring stuff is where the gold is. The exploitation is where the photos are.\n\n#Pentesting #AppSec #Cybersecurity",
+      "hashtags": ["#Pentesting", "#AppSec", "#Cybersecurity", "#Recon", "#BugBounty"],
+      "image_suggestion": "Terminal screenshot of subdomain enumeration output"
+    },
+    {
+      "id": "lp-w05-p2",
+      "week": 5, "slot": 2, "best_day": "Thursday",
+      "category": "Career advice",
+      "title": "Three years of AppSec — what I'd tell someone breaking in",
+      "hook": "I get DMs every week asking how to break into AppSec. Here's the answer I wish someone had given me in 2022.",
+      "body": "I get DMs every week asking how to break into AppSec. Here's the answer I wish someone had given me in 2022.\n\nThe market doesn't reward certificates as much as people think. It rewards proof of work.\n\nMinimum viable AppSec portfolio:\n\n1. A GitHub with at least one substantive project — a vulnerable app you built and documented, a Burp extension, a Semgrep rule pack, a writeup of a CTF or HTB box solved end-to-end. Not just dotfiles.\n\n2. Three blog posts that show your thinking — not 'how to install Burp' tutorials, but writeups that demonstrate you understood the why, not just the what.\n\n3. One responsible disclosure or bug bounty submission, accepted. Doesn't have to be famous. Has to be real.\n\n4. PortSwigger Web Academy completed, lab certificates visible. Free, structured, recognised. Far more useful than CEH at the early-career stage.\n\n5. One concrete opinion. Pick a niche — API security, AI security, mobile, cloud — and have a strong, defensible take on it. People hire opinions, not generalists.\n\nCertificates are signals. The portfolio is evidence. Hiring managers skim certs and read the GitHub.\n\nIf you're 18 months in and stuck: stop adding certs. Ship a project this month.\n\n#CareerAdvice #AppSec #Cybersecurity #Mentoring",
+      "hashtags": ["#CareerAdvice", "#AppSec", "#Cybersecurity", "#Mentoring", "#CyberCareers"],
+      "image_suggestion": "Photo of your GitHub profile contribution graph"
+    },
+    {
+      "id": "lp-w06-p1",
+      "week": 6, "slot": 1, "best_day": "Tuesday",
+      "category": "Cloud security",
+      "title": "The cloud breach pattern nobody talks about",
+      "hook": "Almost every cloud breach you read about traces back to one of three patterns. The third is the one that gets missed.",
+      "body": "Almost every cloud breach you read about traces back to one of three patterns. The third is the one that gets missed.\n\n1. Public S3 bucket — well-known, well-documented, increasingly caught by default policies and Block Public Access at the org level.\n\n2. Leaked AWS keys in a public repo — old story, still happening. GitHub secret scanning catches a lot of it now, but rotation discipline is still weak.\n\n3. The one that gets missed: SSRF + IMDSv1 chained to IAM credential theft.\n\nThe attack: any web app feature that fetches a URL on behalf of the user (PDF generator, image proxy, webhook validator, OAuth redirect handler). Attacker supplies http://169.254.169.254/latest/meta-data/iam/security-credentials/. Server fetches the AWS metadata service, returns temporary credentials with the EC2 instance's IAM role. Attacker uses those credentials against the AWS API from anywhere.\n\nThe fix is one config change: enforce IMDSv2 (which requires a session token via PUT). AWS has supported it since 2019. EC2 still defaults to IMDSv1 unless you opt in.\n\nMost teams I've assessed in the last 18 months still have IMDSv1 enabled on at least some workloads. Often the workload doesn't even need the IAM role.\n\nAudit it this week. Takes 10 minutes with `aws ec2 describe-instances --query 'Reservations[*].Instances[*].MetadataOptions'`.\n\n#CloudSecurity #AWS #AppSec #SSRF",
+      "hashtags": ["#CloudSecurity", "#AWS", "#AppSec", "#SSRF", "#DevSecOps"],
+      "image_suggestion": "Diagram of SSRF → IMDS → IAM credential exfiltration"
+    },
+    {
+      "id": "lp-w06-p2",
+      "week": 6, "slot": 2, "best_day": "Thursday",
+      "category": "ISO 27001 study",
+      "title": "I read all 93 Annex A controls. Here are the 7 most asked about in interviews.",
+      "hook": "ISO 27001:2022 has 93 Annex A controls. GRC interviews ask about the same 7.",
+      "body": "ISO 27001:2022 has 93 Annex A controls. GRC interviews ask about the same 7.\n\nIf you're prepping for a GRC junior or analyst role, focus your reading here:\n\n1. A.5.1 — Information security policies. The top-of-stack document. Be able to explain what 'management commitment' looks like in practice.\n\n2. A.5.7 — Threat intelligence. New in 2022. Interviewers love it because it tests whether you've read the 2022 update or are still on 2013.\n\n3. A.5.23 — Information security for cloud services. Another 2022 addition. Tests whether you can apply ISO thinking to modern stacks.\n\n4. A.6.3 — Information security awareness, education and training. Easy to underestimate. Auditors live on this evidence.\n\n5. A.8.7 — Protection against malware. Pure technical bridge for candidates with technical backgrounds.\n\n6. A.8.10 — Information deletion. Specifically because GDPR Article 17 (right to erasure) lives here.\n\n7. A.8.23 — Web filtering. New in 2022. Often the easiest 'what's new in the 2022 edition' answer.\n\nKnow what evidence each requires. Know one anti-pattern for each. Don't memorise the entire 93-control matrix — interviewers don't.\n\nIf you can speak fluently to these 7, you'll pass the controls-knowledge part of any ISO 27001 screening.\n\n#ISO27001 #GRC #Compliance #InformationSecurity",
+      "hashtags": ["#ISO27001", "#GRC", "#Compliance", "#InformationSecurity", "#InfoSec"],
+      "image_suggestion": "Annotated list of the 7 controls with one-line explainers"
+    },
+    {
+      "id": "lp-w07-p1",
+      "week": 7, "slot": 1, "best_day": "Tuesday",
+      "category": "Telecom security observation",
+      "title": "What working in telecom security taught me about every other industry",
+      "hook": "Telecom security is what every other industry's security will look like in 5 years.",
+      "body": "Telecom security is what every other industry's security will look like in 5 years.\n\nTwo years assessing telematics platforms and connected-device backends taught me three things that apply far outside telecom:\n\n1. Your trust boundary isn't where you think it is. In a connected vehicle, the 'edge' isn't the customer's phone — it's the SIM in the car, in countries you don't operate in, with cellular protocols you don't fully control. Every product team eventually discovers their edge is further out than the architecture diagram suggested.\n\n2. The supply chain attack surface is bigger than the product surface. A telematics platform integrates with chipset vendors, MNOs, mapping providers, payment gateways. Each is a trust relationship. Each is a CVE waiting. Most teams don't keep their dependency graph up to date.\n\n3. Scale changes the threat model. A bug that affects 100 users is a ticket. A bug that affects 100,000 connected devices in 12 countries is a regulatory event. Severity must include reach, not just impact.\n\nIf you're building any product that talks to the internet at scale, the telecom security playbook applies. The terminology is different. The patterns aren't.\n\n#Telecom #ProductSecurity #AppSec #IoT",
+      "hashtags": ["#Telecom", "#ProductSecurity", "#AppSec", "#IoT", "#Cybersecurity"],
+      "image_suggestion": "Photo of a connected device or telematics dashboard (generic, no client identifiers)"
+    },
+    {
+      "id": "lp-w07-p2",
+      "week": 7, "slot": 2, "best_day": "Thursday",
+      "category": "Tooling review",
+      "title": "Three tools that pay back the hour you spend learning them",
+      "hook": "Every AppSec engineer should be fluent in these three. They each return 100x the learning investment.",
+      "body": "Every AppSec engineer should be fluent in these three. They each return 100x the learning investment.\n\n1. Semgrep\n\nWhy: writing custom security rules used to require a PhD in compiler theory. Semgrep made it three lines of YAML. Free tier covers more than most teams need. Once you can write a Semgrep rule for the bug you just found, you've turned a one-off finding into a permanent guard. Time to first useful rule: 30 minutes.\n\n2. Burp Suite Repeater (yes, just Repeater)\n\nWhy: most engineers use Burp passively — proxy on, click through the app, look at the history. The shift to active testing happens in Repeater. Master the keyboard shortcuts. Learn the Hackvertor extension for inline encoding. Learn to use Repeater groups for race condition testing. The Pro features are nice. Repeater is where the work gets done.\n\n3. trufflehog\n\nWhy: it scans for secrets in git history, S3, Docker images, JIRA, Confluence, anywhere. Run it weekly across your org's GitHub. You will find something. It will be embarrassing. That embarrassment shipping as a finding to the dev team beats it shipping as a breach to the press.\n\nNo affiliate links. All free.\n\n#AppSec #SecurityTools #DevSecOps",
+      "hashtags": ["#AppSec", "#SecurityTools", "#DevSecOps", "#Semgrep", "#Cybersecurity"],
+      "image_suggestion": "Three-panel screenshot: Semgrep rule, Burp Repeater, trufflehog terminal output"
+    },
+    {
+      "id": "lp-w08-p1",
+      "week": 8, "slot": 1, "best_day": "Tuesday",
+      "category": "AI security deep dive",
+      "title": "I red-teamed an LLM agent with three tools. Here's what each one found.",
+      "hook": "I ran Garak, PyRIT, and promptfoo against the same vulnerable LLM agent. Each found bugs the others missed.",
+      "body": "I ran Garak, PyRIT, and promptfoo against the same vulnerable LLM agent. Each found bugs the others missed.\n\nThe agent: LangChain + Llama 3 + RAG over fake company docs + an email-send tool.\n\nGARAK (NVIDIA) — strongest on probe breadth.\nFound: prompt injection bypasses on basic system-prompt protections, jailbreaks via roleplay, training data leakage probes. Weak on: multi-turn attacks, application-specific logic.\n\nPYRIT (Microsoft) — strongest on multi-turn orchestration.\nFound: a 4-turn social engineering attack where each prompt was harmless in isolation but the chain extracted the agent's system instructions. Garak's single-turn probes never reached this.\n\nPROMPTFOO — strongest on regression discipline.\nFound: nothing new. But once I'd documented an attack manually, promptfoo let me encode it as a test case that runs in CI. Catches regressions when I update the model, the prompt, or the guardrails.\n\nThe takeaway: AI red team is not 'pick the best tool'. It's a layered programme.\n- Garak for breadth scanning\n- PyRIT for multi-turn depth\n- promptfoo for regression in CI\n- Manual probing for the creative attacks none of them will find\n\nFull repo with all three tools' output committed in the comments.\n\n#AISecurity #LLM #RedTeam #PromptInjection",
+      "hashtags": ["#AISecurity", "#LLM", "#RedTeam", "#PromptInjection", "#Garak", "#PyRIT"],
+      "image_suggestion": "Three-panel comparison: Garak output, PyRIT output, promptfoo CLI"
+    },
+    {
+      "id": "lp-w08-p2",
+      "week": 8, "slot": 2, "best_day": "Thursday",
+      "category": "Career advice",
+      "title": "Job-hunting on a visa clock: what actually works",
+      "hook": "When you have a visa expiry date, the standard job-hunt advice doesn't apply. Here's what does.",
+      "body": "When you have a visa expiry date, the standard job-hunt advice doesn't apply. Here's what does.\n\nI'm 7 months out from my own visa expiry. I've been heads-down on a focused job hunt for a sponsored cybersecurity role in Ireland. A few things I'm doing that aren't in the standard playbook:\n\n1. Track everything. Sponsor confirmed Y/N. Permit type. Salary vs CSEP threshold. Days since application. Without a tracker you forget which roles need follow-up, which recruiters ghosted, which companies you already pinged.\n\n2. Sponsor-aware search, not just keyword search. I built a directory of every Irish company on the DETE Trusted Partner list, cross-referenced with which ones hire in cybersecurity. The list is shorter than you'd think, which is useful — it means I can target deeply rather than spray-and-pray.\n\n3. Two posts a week on LinkedIn. Same domain, technical depth, not corporate fluff. Recruiters watch for activity even when you're not actively job-hunting. The compounding effect is real.\n\n4. Cold outreach to recruiters by name, not via the company contact form. Three sentences: who I am, what I'm looking for, CSEP eligibility. Specific enough to be skimmed, short enough to be replied to.\n\n5. A project ships every 30 days. Recruiters see receipts, not promises.\n\nIf you're job-hunting on any time pressure: optimise for visibility and tracking. Talent gets you the interview. Discipline gets you the offer.\n\n#JobSearch #Cybersecurity #Ireland #VisaSponsorship",
+      "hashtags": ["#JobSearch", "#Cybersecurity", "#Ireland", "#VisaSponsorship", "#OpenToWork"],
+      "image_suggestion": "Screenshot of your tracker (with PII blurred) showing a clean pipeline view"
+    },
+    {
+      "id": "lp-w09-p1",
+      "week": 9, "slot": 1, "best_day": "Tuesday",
+      "category": "Mobile security",
+      "title": "Mobile pentesting is the most underrated AppSec skill in 2026",
+      "hook": "Everyone's racing into AI security. Meanwhile, mobile app security is quietly the most under-supplied skill in the market.",
+      "body": "Everyone's racing into AI security. Meanwhile, mobile app security is quietly the most under-supplied skill in the market.\n\nWhy mobile is undervalued by candidates:\n- Setup friction is real. You need a jailbroken iOS device or a rooted Android, Frida working, Objection installed, Burp's CA on the device, certificate pinning bypassed.\n- It's not as Instagram-friendly as web pentesting. No flashy XSS popups for the demo reel.\n- iOS in particular keeps moving — every major iOS release breaks your Frida scripts.\n\nWhy mobile is undervalued by the market:\n- Every fintech, every super-app, every banking product ships a mobile app. The attack surface is huge.\n- Mobile-specific bugs (keychain misuse, IPC abuse, insecure deeplinks, missing certificate pinning, debuggable production builds) don't show up in web pentests.\n- OWASP MASTG is the gold standard methodology but most generalists haven't read it.\n\nThe gap: a candidate who can credibly say 'I've used Frida, I've bypassed pinning, I've read MASTG, I've found IDOR via deeplink' is rarer than one who can claim the same in web/API.\n\nIf you're an early-career AppSec engineer choosing where to invest 100 hours of upskilling: mobile pays back faster than most alternatives right now. The friction is the moat.\n\n#MobileSecurity #AppSec #Frida #OWASP",
+      "hashtags": ["#MobileSecurity", "#AppSec", "#Frida", "#OWASP", "#Cybersecurity"],
+      "image_suggestion": "Photo of a phone with Objection / Frida output visible on a laptop next to it"
+    },
+    {
+      "id": "lp-w09-p2",
+      "week": 9, "slot": 2, "best_day": "Thursday",
+      "category": "GRC tactical",
+      "title": "Risk registers go stale because nobody owns the entry",
+      "hook": "Every risk register I've audited had the same failure mode. It's not the methodology — it's the ownership.",
+      "body": "Every risk register I've audited had the same failure mode. It's not the methodology — it's the ownership.\n\nThe entries get created during the risk assessment. Likelihood × impact is scored. A treatment is chosen. A residual risk is calculated.\n\nAnd then they sit.\n\nSix months later the register is a snapshot of what the org used to be worried about. New risks aren't getting added. Closed risks aren't getting marked closed. Re-confirmations on accepted risks are overdue.\n\nThe fix isn't a better tool. It's three small process changes:\n\n1. Every risk has a named owner — a person, not a team. The person reviews and re-confirms quarterly.\n\n2. Risks are linked to engineering tickets. The risk doesn't close until the ticket does. Engineering teams already work in Jira, so embed the risk lifecycle in the workflow they already use.\n\n3. Accepted risks have a mandatory re-confirmation date. Anything older than 6 months auto-escalates to the risk committee. Acceptance isn't ignoring — it's deferring with a calendar.\n\nMost organisations don't need a better risk methodology. They need a working operational rhythm around the methodology they already have.\n\n#GRC #RiskManagement #ISO27001 #InfoSec",
+      "hashtags": ["#GRC", "#RiskManagement", "#ISO27001", "#InfoSec", "#Cybersecurity"],
+      "image_suggestion": "Mock-up of a risk register row showing the 'owner + due date' columns highlighted"
+    },
+    {
+      "id": "lp-w10-p1",
+      "week": 10, "slot": 1, "best_day": "Tuesday",
+      "category": "Hot take",
+      "title": "The CISA Known Exploited Vulnerabilities catalog is the most useful list nobody uses",
+      "hook": "Patch what's being exploited in the wild, not what scored 10 on CVSS in theory. CISA's KEV catalog tells you which is which.",
+      "body": "Patch what's being exploited in the wild, not what scored 10 on CVSS in theory. CISA's KEV catalog tells you which is which.\n\nThe Known Exploited Vulnerabilities catalog is a free, public list of CVEs that are being actively exploited. Maintained by CISA. Updated continuously.\n\nIf you're triaging a stack of 200 open CVEs and don't know where to start:\n\n1. Filter to ones present in your environment\n2. Cross-reference against KEV\n3. The ones in both = drop everything and patch this week\n\nA CVE with a CVSS of 9.8 that's never been exploited is theoretically scary. A CVE with a CVSS of 7.5 that's been weaponised and is in active campaigns is a fire.\n\nCISA also publishes the EPSS score (Exploit Prediction Scoring System) — probability that a CVE will be exploited in the next 30 days. Use EPSS for predictive triage, KEV for current-fire triage.\n\nFree, government-maintained, updated daily, integrates with most vulnerability scanners. No vendor lock-in. No cost.\n\nIf your vulnerability programme isn't already wired into KEV, that's the easiest win you'll have this quarter.\n\nLink in the comments.\n\n#VulnerabilityManagement #CISA #Cybersecurity",
+      "hashtags": ["#VulnerabilityManagement", "#CISA", "#Cybersecurity", "#InfoSec", "#PatchManagement"],
+      "image_suggestion": "Screenshot of the CISA KEV catalog page"
+    },
+    {
+      "id": "lp-w10-p2",
+      "week": 10, "slot": 2, "best_day": "Thursday",
+      "category": "AI security observation",
+      "title": "Most AI security tooling is solving the wrong problem",
+      "hook": "Most of the AI security tooling I've evaluated is trying to detect prompt injection. The actual problem is excessive agency.",
+      "body": "Most of the AI security tooling I've evaluated is trying to detect prompt injection. The actual problem is excessive agency.\n\nThe industry obsession with prompt injection detection makes sense — it's a clean, measurable, demonstrable attack. Vendors can ship detection rates. Researchers can publish papers.\n\nBut detection is a losing arms race. Every new guardrail gets evaded within weeks. Multilingual, encoding, paraphrase — pick one. The classifier loses.\n\nThe attacks that actually cause damage in the wild don't depend on the LLM being subverted in a sophisticated way. They depend on the LLM having access to tools and data it shouldn't have.\n\nThe Microsoft Copilot data exfiltration demo. The Slack AI prompt injection. The ChatGPT plugin issues from 2023. None of these needed a clever jailbreak. They needed the LLM to have unscoped tool access.\n\nThe defence that actually works is boring: least privilege on tools, scoped retrieval, human-in-the-loop on consequential actions. Make sure the worst possible model output can't cause unacceptable damage.\n\nIf you're evaluating AI security vendors: ask them what their product does after the prompt injection succeeds, not before. The answers will sort the serious vendors from the marketing ones.\n\n#AISecurity #LLM #ProductSecurity",
+      "hashtags": ["#AISecurity", "#LLM", "#ProductSecurity", "#AppSec", "#Cybersecurity"],
+      "image_suggestion": "Conceptual diagram: 'prompt injection' as input vs 'excessive agency' as output, with damage radius"
+    },
+    {
+      "id": "lp-w11-p1",
+      "week": 11, "slot": 1, "best_day": "Tuesday",
+      "category": "Career story",
+      "title": "From defender to AppSec to building a tracker for my own job hunt",
+      "hook": "I built a job-hunt tracker for myself when none of the off-the-shelf ones fit. Three months later, it's the thing recruiters comment on most.",
+      "body": "I built a job-hunt tracker for myself when none of the off-the-shelf ones fit. Three months later, it's the thing recruiters comment on most.\n\nThe problem: I'm job-hunting for a sponsored cybersecurity role in Ireland on a visa clock. Existing tools (Huntr, Teal, generic CRM) all assume the same thing — that you just need to track applications. They don't model the things that actually matter on a visa-constrained search:\n\n- CSEP vs GEP eligibility per role (21 vs 57 months to Stamp 4)\n- Salary thresholds tied to permit type\n- Sponsor confirmation status\n- The Irish-specific recruiter network\n\nSo I built one. Vite + React + TypeScript, static site on GitHub Pages, all data in localStorage. No backend, no login, no privacy compromise.\n\nAlong the way it grew: live job aggregator across 4 free APIs, recruitment agency directory with direct contacts, JD analyzer with matched interview questions and PDF study sheet, 30-day study roadmaps for AppSec / GRC / AI security, LinkedIn post drafts (like this one — yes, generated by the tool).\n\nThe meta-lesson: when you can't find the tool you need, the build itself becomes a portfolio piece. Recruiters click 'live site' before they click 'CV'.\n\nLink in comments. Open source. Fork it if you're in the same boat.\n\n#CareerAdvice #SideProject #Cybersecurity #VisaSponsorship",
+      "hashtags": ["#CareerAdvice", "#SideProject", "#Cybersecurity", "#VisaSponsorship", "#OpenToWork"],
+      "image_suggestion": "Clean screenshot of your sponsor-track-ie dashboard"
+    },
+    {
+      "id": "lp-w11-p2",
+      "week": 11, "slot": 2, "best_day": "Thursday",
+      "category": "GraphQL security",
+      "title": "GraphQL introspection is the gift that keeps on giving",
+      "hook": "If you're pentesting a GraphQL endpoint and introspection is enabled, you've already won.",
+      "body": "If you're pentesting a GraphQL endpoint and introspection is enabled, you've already won.\n\nGraphQL has a feature called introspection — a special query that returns the entire schema: every type, every field, every query, every mutation, every argument. It exists so client tools can build UIs and validate queries.\n\nIn production, it's a gift to attackers.\n\nWith the schema you can:\n- Map every operation, including hidden mutations no UI exposes\n- Find sensitive fields on shared types (payment_token, internal_notes, debug_info) that the frontend never displays but the resolver returns\n- Identify admin operations exposed via the same endpoint as user queries\n- Generate exhaustive test suites for batching attacks, depth attacks, and authorisation bypasses\n\nQuick test: send {__schema{queryType{name}}} as a POST to /graphql. If you get a schema reference back, introspection is on.\n\nMitigations (in order of preference):\n1. Disable introspection in production (graphql-js: introspection: false in the config)\n2. If you need it for internal tooling, gate it behind authentication\n3. If you can't disable it, at least scope authorisation per field at the resolver level — never assume an undocumented field is hidden\n\nUse InQL (Burp extension) or graphw00f to automate the discovery + scope mapping.\n\n#GraphQL #APISecurity #AppSec #Pentesting",
+      "hashtags": ["#GraphQL", "#APISecurity", "#AppSec", "#Pentesting", "#OWASP"],
+      "image_suggestion": "Code snippet of an introspection query + response excerpt"
+    },
+    {
+      "id": "lp-w12-p1",
+      "week": 12, "slot": 1, "best_day": "Tuesday",
+      "category": "Industry observation",
+      "title": "Security is a cost centre — until you do this one thing",
+      "hook": "Every security team complains they're treated as a cost centre. Most don't do the one thing that changes the conversation.",
+      "body": "Every security team complains they're treated as a cost centre. Most don't do the one thing that changes the conversation.\n\nThey don't measure prevented loss.\n\nThe finance team has a number for every dollar spent. The product team has a number for every dollar earned. The security team has 'we prevented breaches' — unfalsifiable, unmeasurable, easy to cut.\n\nThe shift is small. Pick three categories of incident your programme prevents:\n- Account takeover attempts caught by MFA (× cost per ATO event)\n- Phishing emails blocked by gateway (× hit rate × average cost per successful phish)\n- Vulnerabilities remediated before exploitation (× CVSS-weighted likelihood × impact)\n\nThe numbers will be imperfect. That's fine. The CFO doesn't expect perfect — they expect a number with an audit trail. A 70% confidence estimate beats no estimate.\n\nReport it quarterly. Tie it to the security budget. The conversation changes from 'why are we spending this' to 'are we spending enough'.\n\nI've seen security programmes get budget increases by doing this. I've never seen one get a cut after starting.\n\nMeasure prevented loss. Make security legible to the people who control the budget.\n\n#Cybersecurity #SecurityLeadership #GRC",
+      "hashtags": ["#Cybersecurity", "#SecurityLeadership", "#GRC", "#CISO", "#InfoSec"],
+      "image_suggestion": "Simple chart showing 'cost of security' vs 'estimated prevented loss' over 4 quarters"
+    },
+    {
+      "id": "lp-w12-p2",
+      "week": 12, "slot": 2, "best_day": "Thursday",
+      "category": "Personal close",
+      "title": "What I learned shipping a project every 30 days while job-hunting",
+      "hook": "I've been shipping a substantive project every 30 days since January. Here's what changed.",
+      "body": "I've been shipping a substantive project every 30 days since January. Here's what changed.\n\nThe projects:\n- A vulnerable REST API with AI-assisted security review writeup\n- A starter ISMS for a fictional Dublin fintech with DORA mapping\n- A vulnerable LLM agent red-teamed with Garak + PyRIT + promptfoo\n- A sponsor-aware job tracker (sponsor-track-ie) — now used by other people on visa clocks\n- This very LinkedIn cadence, drafted in the tool I built\n\nWhat changed:\n\n1. Recruiter response rate went from ~5% to ~25%. The variable that moved wasn't the CV — it was having a live link to send.\n\n2. I stopped over-preparing for interviews. Each project IS interview preparation. When the interviewer asks 'tell me about a time you...', I have receipts, not memories.\n\n3. The compounding effect on technical depth is real. Reading about prompt injection is one thing. Building a vulnerable agent and watching Garak find what you missed is another.\n\n4. The discipline is the differentiator. Most candidates have a side project. Few have five in five months with a public commit graph.\n\nIf you're job-hunting and can spare an hour a day: pick one project. Ship it in 30 days. Don't perfectionism your way out of shipping. The version that's live on day 30 beats the version that's still in your head on day 60.\n\nNext month's project is starting Monday. Open to suggestions in the comments.\n\n#CareerAdvice #Cybersecurity #SideProject #BuildInPublic",
+      "hashtags": ["#CareerAdvice", "#Cybersecurity", "#SideProject", "#BuildInPublic", "#OpenToWork"],
+      "image_suggestion": "5-panel grid of screenshots from each of the 5 projects"
+    }
+  ]
+}
