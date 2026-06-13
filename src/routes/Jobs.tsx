@@ -1231,11 +1231,163 @@ function GermanyJobs({ onAddToTracker }: { onAddToTracker: (u: UnifiedJob) => vo
   );
 }
 
+// ─── Germany Sponsored (curated companies) ────────────────────────────────────
+
+interface GermanSponsor {
+  id: string;
+  company: string;
+  locations: string[];
+  english_workplace: boolean;
+  sponsor_confidence: 'high' | 'medium' | 'low';
+  roles_hiring: string[];
+  careers_url: string;
+  notes: string;
+  level_fit: string;
+  salary_band: string;
+}
+
+const SPONSOR_CONFIDENCE_STYLES: Record<GermanSponsor['sponsor_confidence'], string> = {
+  high: 'bg-emerald-100 text-emerald-700',
+  medium: 'bg-amber-100 text-amber-700',
+  low: 'bg-red-100 text-red-600',
+};
+const SPONSOR_CONFIDENCE_LABELS: Record<GermanSponsor['sponsor_confidence'], string> = {
+  high: 'Sponsors regularly',
+  medium: 'Has sponsored — verify',
+  low: 'Unconfirmed',
+};
+
+function GermanSponsored() {
+  const { data: sponsors, loading, error } = useStaticData<GermanSponsor[]>('data/german-sponsors.json');
+  const [roleFilter, setRoleFilter] = useState<string>('all');
+  const [englishOnly, setEnglishOnly] = useState(true);
+  const [confFilter, setConfFilter] = useState<'all' | 'high'>('all');
+
+  const allRoles = Array.from(new Set((sponsors ?? []).flatMap((s) => s.roles_hiring))).sort();
+
+  const filtered = (sponsors ?? []).filter((s) => {
+    if (englishOnly && !s.english_workplace) return false;
+    if (confFilter === 'high' && s.sponsor_confidence !== 'high') return false;
+    if (roleFilter !== 'all' && !s.roles_hiring.some((r) => r.toLowerCase().includes(roleFilter.toLowerCase()))) return false;
+    return true;
+  });
+
+  const highCount = (sponsors ?? []).filter((s) => s.sponsor_confidence === 'high').length;
+
+  return (
+    <div className="max-w-4xl">
+      <div className="mb-4 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-xs text-emerald-900">
+        <strong>Germany — Visa-sponsoring companies, English workplace, entry/associate level only.</strong>
+        Curated list of {sponsors?.length ?? 0} employers known to sponsor Blue Card for cybersecurity roles.
+        Roles in focus: Information Security Analyst, Penetration Tester, Security Engineer, SOC Analyst, Red Team.
+        Apply directly via the careers link — recruiters move faster than agency-routed candidates here.
+      </div>
+
+      {/* Filters */}
+      <div className="mb-4 flex flex-wrap items-center gap-3">
+        <select
+          value={roleFilter}
+          onChange={(e) => setRoleFilter(e.target.value)}
+          className="rounded-lg border border-zinc-200 bg-white px-3 py-1.5 text-sm text-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-400"
+        >
+          <option value="all">All target roles</option>
+          {allRoles.map((r) => <option key={r} value={r}>{r}</option>)}
+        </select>
+
+        <div className="flex gap-1.5">
+          {(['all', 'high'] as const).map((v) => (
+            <button key={v} onClick={() => setConfFilter(v)}
+              className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                confFilter === v ? 'bg-zinc-900 text-white' : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
+              }`}>
+              {v === 'all' ? 'All confidence' : `High only (${highCount})`}
+            </button>
+          ))}
+        </div>
+
+        <label className="flex items-center gap-2 text-sm text-zinc-600">
+          <input
+            type="checkbox"
+            checked={englishOnly}
+            onChange={(e) => setEnglishOnly(e.target.checked)}
+            className="h-4 w-4 rounded border-zinc-300 accent-zinc-800"
+          />
+          English workplace only
+        </label>
+
+        <span className="ml-auto text-xs text-zinc-400">{filtered.length} companies</span>
+      </div>
+
+      {loading && <p className="text-sm text-zinc-400">Loading…</p>}
+      {error && <p className="text-sm text-red-500">Failed to load: {error}</p>}
+
+      {!loading && !error && (
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {filtered.map((s) => (
+            <div key={s.id} className="flex flex-col gap-3 rounded-lg border border-zinc-200 bg-white p-5 hover:border-zinc-300 transition-colors">
+              <div className="flex items-start justify-between gap-2">
+                <div>
+                  <p className="text-sm font-semibold text-zinc-900">{s.company}</p>
+                  <p className="text-xs text-zinc-500">{s.locations.join(' · ')}</p>
+                </div>
+                <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-[10px] font-medium ${SPONSOR_CONFIDENCE_STYLES[s.sponsor_confidence]}`}>
+                  {SPONSOR_CONFIDENCE_LABELS[s.sponsor_confidence]}
+                </span>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-1.5">
+                {s.english_workplace && (
+                  <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-medium text-blue-700">English workplace</span>
+                )}
+                <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-[10px] font-medium text-zinc-600">
+                  {s.level_fit}
+                </span>
+                <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-[10px] tabular-nums text-zinc-600">
+                  {s.salary_band}
+                </span>
+              </div>
+
+              <div className="flex flex-wrap gap-1">
+                {s.roles_hiring.map((r) => (
+                  <span key={r} className="rounded bg-zinc-100 px-2 py-0.5 text-[10px] text-zinc-600">{r}</span>
+                ))}
+              </div>
+
+              <p className="text-xs text-zinc-500 leading-relaxed">{s.notes}</p>
+
+              <a
+                href={s.careers_url}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-auto flex items-center gap-1 text-xs font-medium text-zinc-700 hover:text-zinc-900"
+              >
+                Open careers page <ExternalLink size={11} />
+              </a>
+            </div>
+          ))}
+
+          {filtered.length === 0 && (
+            <div className="col-span-2 rounded-lg border border-dashed border-zinc-300 px-6 py-10 text-center text-sm text-zinc-500">
+              No companies match these filters. Widen the role filter or untick "English workplace only" to see more.
+            </div>
+          )}
+        </div>
+      )}
+
+      <p className="mt-5 text-xs text-zinc-400">
+        Visa note: Germany's <strong>EU Blue Card</strong> requires €45,300+ for IT/cybersecurity shortage occupations (2025).
+        All entry salary bands above meet this threshold. Cross-check the actual offer before signing.
+        Companies marked "Has sponsored — verify" have sponsored in the past but it's not a default — confirm with the recruiter on the first call.
+      </p>
+    </div>
+  );
+}
+
 // ─── Main Route ───────────────────────────────────────────────────────────────
 
 export default function Jobs() {
   const [state, setState] = useAppState();
-  const [tab, setTab] = useState<'tracker' | 'live' | 'daily' | 'ireland' | 'germany'>('tracker');
+  const [tab, setTab] = useState<'tracker' | 'live' | 'daily' | 'ireland' | 'germany' | 'germany-sponsored'>('tracker');
   const [view, setView] = useState<'table' | 'kanban'>('table');
   const [filterStatus, setFilterStatus] = useState<Job['status'] | 'all'>('all');
   const [sponsorOnly, setSponsorOnly] = useState(false);
@@ -1289,6 +1441,7 @@ export default function Jobs() {
           { id: 'daily', label: 'Daily Feed', icon: <Globe size={13} className="inline mr-1" /> },
           { id: 'ireland', label: 'Ireland Jobs', icon: <MapPin size={13} className="inline mr-1" /> },
           { id: 'germany', label: 'Germany Jobs', icon: <MapPin size={13} className="inline mr-1" /> },
+          { id: 'germany-sponsored', label: 'Germany Sponsored', icon: <Sparkles size={13} className="inline mr-1" /> },
         ] as const).map((t) => (
           <button key={t.id} onClick={() => setTab(t.id)}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
@@ -1353,12 +1506,16 @@ export default function Jobs() {
             setTab('tracker');
           }} />
         </div>
-      ) : (
+      ) : tab === 'germany' ? (
         <div className="mt-4">
           <GermanyJobs onAddToTracker={(j) => {
             setEditJob({ company: j.company, role: j.title, source_url: j.url });
             setTab('tracker');
           }} />
+        </div>
+      ) : (
+        <div className="mt-4">
+          <GermanSponsored />
         </div>
       )}
 
