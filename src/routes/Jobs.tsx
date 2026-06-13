@@ -1005,11 +1005,237 @@ function IrelandJobs({ onAddToTracker }: { onAddToTracker: (u: UnifiedJob) => vo
   );
 }
 
+// ─── Germany Jobs ─────────────────────────────────────────────────────────────
+
+interface GermanBoard {
+  id: string;
+  name: string;
+  category: 'english-friendly' | 'general' | 'specialist' | 'agency' | 'government';
+  url: string;
+  filter_applied: string;
+  notes: string;
+  english_only: boolean;
+  sponsor_friendly: boolean;
+}
+
+const GERMAN_CATEGORY_LABELS: Record<GermanBoard['category'], string> = {
+  'english-friendly': 'English-First Boards (zero noise)',
+  general: 'Major German Boards (filter for English)',
+  specialist: 'Tech / Specialist Boards',
+  agency: 'Recruitment Agencies (DACH)',
+  government: 'Government / Official Portals',
+};
+
+const GERMAN_ROLE_QUERIES = [
+  { tag: 'security engineer', label: 'Security Engineer' },
+  { tag: 'penetration tester', label: 'Penetration Tester' },
+  { tag: 'information security analyst', label: 'InfoSec Analyst' },
+  { tag: 'soc analyst', label: 'SOC Analyst' },
+  { tag: 'red team', label: 'Red Team' },
+];
+
+function GermanyJobs({ onAddToTracker }: { onAddToTracker: (u: UnifiedJob) => void }) {
+  const [activeRole, setActiveRole] = useState('security engineer');
+  const jobicyDE = useJobicyJobs(activeRole, 'germany');
+  const arbeitnow = useArbeitnowJobs();
+  const muse = useTheMuseJobs('Cybersecurity & Information Security');
+  const { data: boards } = useStaticData<GermanBoard[]>('data/german-job-boards.json');
+
+  // Filter Arbeitnow + Muse to Germany + matching role keyword
+  const filteredArbeitnow = arbeitnow.jobs.filter((j) => {
+    const loc = (j.location || '').toLowerCase();
+    const isGermany = loc.includes('german') || loc.includes('berlin') || loc.includes('munich') ||
+      loc.includes('münchen') || loc.includes('hamburg') || loc.includes('frankfurt') ||
+      loc.includes('cologne') || loc.includes('köln') || loc.includes('düsseldorf') ||
+      loc.includes('stuttgart') || j.tags.some((t) => t.toLowerCase().includes('german'));
+    const matchesRole = j.title.toLowerCase().includes(activeRole.split(' ')[0]) ||
+      j.tags.some((t) => t.toLowerCase().includes('security') || t.toLowerCase().includes('cyber'));
+    return isGermany && matchesRole;
+  });
+
+  const filteredMuse = muse.jobs.filter((j) => {
+    const loc = (j.location || '').toLowerCase();
+    return loc.includes('german') || loc.includes('berlin') || loc.includes('munich') || loc.includes('frankfurt');
+  });
+
+  const grouped = (boards ?? []).reduce<Record<GermanBoard['category'], GermanBoard[]>>(
+    (acc, b) => { (acc[b.category] = acc[b.category] || []).push(b); return acc; },
+    { 'english-friendly': [], general: [], specialist: [], agency: [], government: [] }
+  );
+
+  const totalLive = jobicyDE.jobs.length + filteredArbeitnow.length + filteredMuse.length;
+
+  return (
+    <div className="max-w-4xl">
+      <div className="mb-4 rounded-lg border border-yellow-200 bg-yellow-50 px-4 py-3 text-xs text-yellow-900">
+        <strong>Germany — English-speaking cybersecurity roles only.</strong> Live aggregation across Jobicy (geo=germany) + Arbeitnow (DE-focused) + The Muse (Germany filter),
+        plus 29 curated boards. Targeted at: Information Security Analyst, Penetration Tester, Security Engineer, SOC Analyst, Red Team — entry to associate level.
+        For visa-sponsorship clarity: prefer <strong>Make-it-in-Germany</strong> and <strong>English-first boards</strong> below.
+      </div>
+
+      {/* Role tag selector for live API */}
+      <div className="mb-4">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-zinc-500">Live API — Role Focus</p>
+        <div className="flex flex-wrap gap-1.5">
+          {GERMAN_ROLE_QUERIES.map(({ tag, label }) => (
+            <button key={tag} onClick={() => setActiveRole(tag)}
+              className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                activeRole === tag ? 'bg-zinc-900 text-white' : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
+              }`}>
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Live Jobicy DE */}
+      <div className="mb-8">
+        <div className="mb-3 flex items-center justify-between">
+          <h3 className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+            <Briefcase size={12} /> Live — Germany ({totalLive} matched)
+          </h3>
+          <span className="text-xs text-zinc-400">Refreshes on page load</span>
+        </div>
+        {jobicyDE.loading && (
+          <div className="flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-6 text-sm text-zinc-400">
+            <RefreshCw size={14} className="animate-spin" /> Loading…
+          </div>
+        )}
+        {!jobicyDE.loading && totalLive === 0 && (
+          <div className="rounded-lg border border-dashed border-zinc-200 px-4 py-6 text-center text-sm text-zinc-400">
+            No live Germany-geo roles matching "{activeRole}" right now. Try the curated boards below — they cover the gaps.
+          </div>
+        )}
+        {totalLive > 0 && (
+          <div className="space-y-2">
+            {jobicyDE.jobs.map((job) => (
+              <div key={job.id}
+                className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-white p-4 hover:border-zinc-300 hover:shadow-sm transition-all">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <a href={job.url} target="_blank" rel="noreferrer"
+                        className="text-sm font-semibold text-zinc-900 hover:underline">{job.jobTitle}</a>
+                      <p className="text-xs text-zinc-500 mt-0.5">{job.companyName} · {job.jobGeo}</p>
+                    </div>
+                    <div className="flex shrink-0 items-center gap-2">
+                      <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-medium text-blue-700">Jobicy</span>
+                      <button
+                        onClick={() => onAddToTracker(jobicyToUnified(job))}
+                        className="flex items-center gap-1 rounded-md border border-zinc-200 bg-white px-2 py-1 text-xs text-zinc-600 hover:border-zinc-400">
+                        <Plus size={11} /> Track
+                      </button>
+                      <a href={job.url} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-zinc-700">
+                        <ExternalLink size={14} />
+                      </a>
+                    </div>
+                  </div>
+                  <p className="mt-1.5 text-xs text-zinc-500 line-clamp-2">{job.jobExcerpt}</p>
+                </div>
+              </div>
+            ))}
+            {filteredArbeitnow.slice(0, 10).map((job) => (
+              <div key={job.id}
+                className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-white p-4 hover:border-zinc-300 hover:shadow-sm transition-all">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <a href={job.url} target="_blank" rel="noreferrer"
+                        className="text-sm font-semibold text-zinc-900 hover:underline">{job.title}</a>
+                      <p className="text-xs text-zinc-500 mt-0.5">{job.company} · {job.location}</p>
+                    </div>
+                    <div className="flex shrink-0 items-center gap-2">
+                      <span className="rounded-full bg-purple-50 px-2 py-0.5 text-[10px] font-medium text-purple-700">Arbeitnow</span>
+                      <button
+                        onClick={() => onAddToTracker(job)}
+                        className="flex items-center gap-1 rounded-md border border-zinc-200 bg-white px-2 py-1 text-xs text-zinc-600 hover:border-zinc-400">
+                        <Plus size={11} /> Track
+                      </button>
+                      <a href={job.url} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-zinc-700">
+                        <ExternalLink size={14} />
+                      </a>
+                    </div>
+                  </div>
+                  {job.excerpt && <p className="mt-1.5 text-xs text-zinc-500 line-clamp-2">{job.excerpt}</p>}
+                </div>
+              </div>
+            ))}
+            {filteredMuse.map((job) => (
+              <div key={job.id}
+                className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-white p-4 hover:border-zinc-300 hover:shadow-sm transition-all">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <a href={job.url} target="_blank" rel="noreferrer"
+                        className="text-sm font-semibold text-zinc-900 hover:underline">{job.title}</a>
+                      <p className="text-xs text-zinc-500 mt-0.5">{job.company} · {job.location}</p>
+                    </div>
+                    <div className="flex shrink-0 items-center gap-2">
+                      <span className="rounded-full bg-rose-50 px-2 py-0.5 text-[10px] font-medium text-rose-700">TheMuse</span>
+                      <button
+                        onClick={() => onAddToTracker(job)}
+                        className="flex items-center gap-1 rounded-md border border-zinc-200 bg-white px-2 py-1 text-xs text-zinc-600 hover:border-zinc-400">
+                        <Plus size={11} /> Track
+                      </button>
+                      <a href={job.url} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-zinc-700">
+                        <ExternalLink size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Curated German boards by category */}
+      <div className="space-y-6">
+        {(Object.keys(grouped) as GermanBoard['category'][]).map((cat) => (
+          grouped[cat].length > 0 && (
+            <div key={cat}>
+              <h3 className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+                <MapPin size={11} /> {GERMAN_CATEGORY_LABELS[cat]} <span className="text-zinc-400 font-normal">({grouped[cat].length})</span>
+              </h3>
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                {grouped[cat].map((b) => (
+                  <a key={b.id} href={b.url} target="_blank" rel="noreferrer"
+                    className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-white p-4 hover:border-zinc-400 hover:shadow-sm transition-all">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        <p className="text-sm font-medium text-zinc-900">{b.name}</p>
+                        {b.english_only && (
+                          <span className="rounded-full bg-blue-50 px-1.5 py-0.5 text-[9px] font-medium text-blue-700">English-only</span>
+                        )}
+                        {b.sponsor_friendly && (
+                          <span className="rounded-full bg-emerald-50 px-1.5 py-0.5 text-[9px] font-medium text-emerald-700">sponsor-aware</span>
+                        )}
+                      </div>
+                      <p className="mt-0.5 text-[10px] text-zinc-400">Filter: {b.filter_applied}</p>
+                      <p className="mt-1 text-xs text-zinc-500 line-clamp-2">{b.notes}</p>
+                    </div>
+                    <ExternalLink size={14} className="mt-0.5 shrink-0 text-zinc-400" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )
+        ))}
+      </div>
+
+      <p className="mt-6 text-xs text-zinc-400">
+        Visa note: Germany's <strong>Blue Card</strong> requires €45,300+ for shortage occupations (IT/cybersecurity qualifies) or €48,300+ general for 2025.
+        Verify each role's salary against the threshold. The <em>Chancenkarte</em> (Opportunity Card) also opens a path for skilled migrants from non-EU countries.
+      </p>
+    </div>
+  );
+}
+
 // ─── Main Route ───────────────────────────────────────────────────────────────
 
 export default function Jobs() {
   const [state, setState] = useAppState();
-  const [tab, setTab] = useState<'tracker' | 'live' | 'daily' | 'ireland'>('tracker');
+  const [tab, setTab] = useState<'tracker' | 'live' | 'daily' | 'ireland' | 'germany'>('tracker');
   const [view, setView] = useState<'table' | 'kanban'>('table');
   const [filterStatus, setFilterStatus] = useState<Job['status'] | 'all'>('all');
   const [sponsorOnly, setSponsorOnly] = useState(false);
@@ -1062,6 +1288,7 @@ export default function Jobs() {
           { id: 'live', label: 'Find Jobs', icon: <Search size={13} className="inline mr-1" /> },
           { id: 'daily', label: 'Daily Feed', icon: <Globe size={13} className="inline mr-1" /> },
           { id: 'ireland', label: 'Ireland Jobs', icon: <MapPin size={13} className="inline mr-1" /> },
+          { id: 'germany', label: 'Germany Jobs', icon: <MapPin size={13} className="inline mr-1" /> },
         ] as const).map((t) => (
           <button key={t.id} onClick={() => setTab(t.id)}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
@@ -1119,9 +1346,16 @@ export default function Jobs() {
             setTab('tracker');
           }} />
         </div>
-      ) : (
+      ) : tab === 'ireland' ? (
         <div className="mt-4">
           <IrelandJobs onAddToTracker={(j) => {
+            setEditJob({ company: j.company, role: j.title, source_url: j.url });
+            setTab('tracker');
+          }} />
+        </div>
+      ) : (
+        <div className="mt-4">
+          <GermanyJobs onAddToTracker={(j) => {
             setEditJob({ company: j.company, role: j.title, source_url: j.url });
             setTab('tracker');
           }} />

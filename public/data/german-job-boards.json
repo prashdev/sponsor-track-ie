@@ -1,0 +1,292 @@
+[
+  {
+    "id": "de-honeypot",
+    "name": "Honeypot.io",
+    "category": "english-friendly",
+    "url": "https://www.honeypot.io/companies?role_types%5B%5D=Security+Engineer",
+    "filter_applied": "Security Engineer roles, English-only",
+    "notes": "Tech-only marketplace where companies apply to YOU. English-first, DE/AT focus. Strong for Security Engineer + Pentester roles. Berlin / Munich / Hamburg / remote.",
+    "english_only": true,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-germantechjobs",
+    "name": "GermanTechJobs.de",
+    "category": "english-friendly",
+    "url": "https://germantechjobs.de/jobs/it-security",
+    "filter_applied": "IT Security category",
+    "notes": "English-language tech jobs in Germany only. Every listing explicitly confirms English-OK. Smaller volume but zero noise.",
+    "english_only": true,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-englishjobs",
+    "name": "English-Jobs.de",
+    "category": "english-friendly",
+    "url": "https://english-jobs.de/jobs/it-tech",
+    "filter_applied": "IT & Tech category",
+    "notes": "Dedicated to English-speaking jobs in Germany. Wide coverage including security analyst and engineer roles.",
+    "english_only": true,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-berlinstartup-sec",
+    "name": "Berlin Startup Jobs — Security",
+    "category": "english-friendly",
+    "url": "https://berlinstartupjobs.com/skill-areas/cyber-security/",
+    "filter_applied": "Cybersecurity skill area",
+    "notes": "Berlin tech startups — almost all English-language. Strong for Security Engineer and AppSec entry-level roles.",
+    "english_only": true,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-jobsinberlin",
+    "name": "JobsInBerlin.eu",
+    "category": "english-friendly",
+    "url": "https://jobsinberlin.eu/jobs/?keyword=security",
+    "filter_applied": "Security keyword",
+    "notes": "Berlin-focused English jobs. Tech and security strongly represented. Sponsor visa friendly listings flagged.",
+    "english_only": true,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-arbeitnow",
+    "name": "Arbeitnow — Cyber Security",
+    "category": "english-friendly",
+    "url": "https://www.arbeitnow.com/?tags=cyber-security",
+    "filter_applied": "Cyber Security tag",
+    "notes": "Germany-focused job board with a free API (already wired into the Daily Feed tab). English-language toggle available. Strong for Berlin / Munich.",
+    "english_only": true,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-linkedin-secengineer",
+    "name": "LinkedIn DE — Security Engineer",
+    "category": "general",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=Security%20Engineer&location=Germany&f_TPR=r604800",
+    "filter_applied": "Security Engineer in Germany, last 7 days",
+    "notes": "Fresh listings only (7-day window). Use LinkedIn's 'English' filter under 'All filters → Language' to drop German-only postings.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-linkedin-pentester",
+    "name": "LinkedIn DE — Penetration Tester",
+    "category": "general",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=Penetration%20Tester&location=Germany&f_TPR=r604800",
+    "filter_applied": "Penetration Tester in Germany, last 7 days",
+    "notes": "Pentester / Red Team roles in Germany. Apply LinkedIn language filter for English-only.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-linkedin-soc",
+    "name": "LinkedIn DE — SOC Analyst",
+    "category": "general",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=SOC%20Analyst&location=Germany&f_TPR=r604800&f_E=1%2C2",
+    "filter_applied": "SOC Analyst, entry + associate, Germany, last 7 days",
+    "notes": "Pre-filtered to entry + associate experience levels (f_E=1,2). L1/L2 SOC roles. Apply English language filter.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-linkedin-redteam",
+    "name": "LinkedIn DE — Red Team",
+    "category": "general",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=Red%20Team&location=Germany&f_TPR=r604800",
+    "filter_applied": "Red Team in Germany, last 7 days",
+    "notes": "Smaller market — most red team roles in Germany sit in larger consultancies and FS firms. Worth weekly check.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-linkedin-infosec",
+    "name": "LinkedIn DE — Information Security Analyst",
+    "category": "general",
+    "url": "https://www.linkedin.com/jobs/search/?keywords=Information%20Security%20Analyst&location=Germany&f_TPR=r604800&f_E=1%2C2",
+    "filter_applied": "Information Security Analyst, entry/associate, Germany, last 7 days",
+    "notes": "Entry/associate filter applied. Good first-stop search for your target role profile.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-indeed-pentester",
+    "name": "Indeed DE — Penetration Tester (English)",
+    "category": "general",
+    "url": "https://de.indeed.com/jobs?q=penetration+tester+english&l=Deutschland",
+    "filter_applied": "Penetration Tester + 'english' keyword, all Germany",
+    "notes": "Adding 'english' to the query filters most German-only listings. Penetration Tester / Red Team roles.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-indeed-soc",
+    "name": "Indeed DE — SOC Analyst (English)",
+    "category": "general",
+    "url": "https://de.indeed.com/jobs?q=SOC+analyst+english&l=Deutschland",
+    "filter_applied": "SOC Analyst + 'english' keyword",
+    "notes": "SOC L1/L2 entry-level. Add 'visa sponsorship' to the search bar for sponsorship-explicit listings.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-indeed-secengineer",
+    "name": "Indeed DE — Security Engineer (English)",
+    "category": "general",
+    "url": "https://de.indeed.com/jobs?q=security+engineer+english&l=Deutschland",
+    "filter_applied": "Security Engineer + 'english' keyword",
+    "notes": "Largest aggregator in Germany. Use Indeed's salary filter (€55k+) to focus on associate-level roles.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-stepstone-sec",
+    "name": "Stepstone DE — Cybersecurity",
+    "category": "general",
+    "url": "https://www.stepstone.de/jobs/cybersecurity",
+    "filter_applied": "Cybersecurity",
+    "notes": "One of Germany's largest job boards. Heavily German-language; filter postings carefully or paste into translate.",
+    "english_only": false,
+    "sponsor_friendly": false
+  },
+  {
+    "id": "de-xing-pentest",
+    "name": "XING DE — Penetration Tester",
+    "category": "general",
+    "url": "https://www.xing.com/jobs/search?keywords=Penetration%20Tester&location=Germany",
+    "filter_applied": "Penetration Tester in Germany",
+    "notes": "DACH region's LinkedIn equivalent. Heavily German-language but used by every DE tech recruiter. Worth a profile + monthly check.",
+    "english_only": false,
+    "sponsor_friendly": false
+  },
+  {
+    "id": "de-glassdoor-sec",
+    "name": "Glassdoor Germany — Cybersecurity",
+    "category": "general",
+    "url": "https://www.glassdoor.com/Job/germany-cyber-security-jobs-SRCH_IL.0,7_IN96_KO8,22.htm",
+    "filter_applied": "Cybersecurity in Germany",
+    "notes": "Cross-reference for company reviews + salary ranges before applying. Useful for vetting smaller German employers.",
+    "english_only": false,
+    "sponsor_friendly": false
+  },
+  {
+    "id": "de-getinit",
+    "name": "Get-in-IT — Cybersecurity",
+    "category": "specialist",
+    "url": "https://www.get-in-it.de/jobsuche?keyword=cybersecurity",
+    "filter_applied": "Cybersecurity",
+    "notes": "Targets graduates and early-career IT professionals in Germany. Strong for first-job placements. Mixed German/English.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-t3n-sec",
+    "name": "t3n Jobs — Security",
+    "category": "specialist",
+    "url": "https://t3n.de/jobs/?query=security",
+    "filter_applied": "Security keyword",
+    "notes": "German digital industry magazine's job board. Modern startups + scale-ups, often English-friendly.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-heisejobs",
+    "name": "Heise Jobs",
+    "category": "specialist",
+    "url": "https://jobs.heise.de/?search=security",
+    "filter_applied": "Security keyword",
+    "notes": "Major German tech publisher. Job board heavily used by traditional German IT employers. German-language but high quality.",
+    "english_only": false,
+    "sponsor_friendly": false
+  },
+  {
+    "id": "de-jobmesh",
+    "name": "JobMESH",
+    "category": "specialist",
+    "url": "https://jobmesh.de/jobs?q=security+engineer",
+    "filter_applied": "Security Engineer",
+    "notes": "Tech-focused aggregator. Mix of remote and on-site DE roles.",
+    "english_only": false,
+    "sponsor_friendly": false
+  },
+  {
+    "id": "de-wtj",
+    "name": "Welcome to the Jungle — Germany",
+    "category": "specialist",
+    "url": "https://www.welcometothejungle.com/en/jobs?query=cybersecurity&refinementList%5Boffices.country_code%5D%5B%5D=DE",
+    "filter_applied": "Cybersecurity, Germany country filter",
+    "notes": "Modern, company-profile-rich. English-first interface. Strong on culture and product info per employer.",
+    "english_only": true,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-wellfound",
+    "name": "Wellfound — Germany Security",
+    "category": "specialist",
+    "url": "https://wellfound.com/role-l/security-engineer/germany",
+    "filter_applied": "Security Engineer in Germany",
+    "notes": "Formerly AngelList. Startup-heavy, equity-first comp. Some sponsor visas. English-language by default.",
+    "english_only": true,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-makeit",
+    "name": "Make-it-in-Germany (official)",
+    "category": "government",
+    "url": "https://www.make-it-in-germany.com/en/looking-for-foreign-professionals/jobs",
+    "filter_applied": "Official jobs portal for skilled migrants",
+    "notes": "Official German government portal for non-EU skilled migrants. Pre-screened for visa-sponsorship potential. English interface.",
+    "english_only": true,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-bsi",
+    "name": "BSI Careers (Federal Office for IT Security)",
+    "category": "government",
+    "url": "https://www.bsi.bund.de/EN/Career/career_node.html",
+    "filter_applied": "BSI career pages",
+    "notes": "German federal cyber agency. Public-sector security roles. Lengthy process. Some English-friendly intern + dual-language posts.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-bundesagentur",
+    "name": "Bundesagentur für Arbeit — IT Security",
+    "category": "government",
+    "url": "https://www.arbeitsagentur.de/jobsuche/suche?angebotsart=1&was=IT-Security",
+    "filter_applied": "IT Security",
+    "notes": "Official federal labour agency database. Authoritative for visa-relevant roles. German-language interface.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-cpl-de",
+    "name": "Hays Germany — Cybersecurity",
+    "category": "agency",
+    "url": "https://www.hays.de/jobsuche?searchTerm=cybersecurity",
+    "filter_applied": "Cybersecurity",
+    "notes": "Global recruiter, large Germany office. Strong contract + perm pipeline for security roles.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-michaelpage",
+    "name": "Michael Page DE — Cybersecurity",
+    "category": "agency",
+    "url": "https://www.michaelpage.de/jobs/cyber-security",
+    "filter_applied": "Cyber Security",
+    "notes": "Professional staffing firm. Mid-senior security roles in Frankfurt, Munich, Berlin. Sponsor-aware recruiters.",
+    "english_only": false,
+    "sponsor_friendly": true
+  },
+  {
+    "id": "de-roberthalf",
+    "name": "Robert Half DE — Cybersecurity",
+    "category": "agency",
+    "url": "https://www.roberthalf.com/de/de/jobs/it-cybersecurity",
+    "filter_applied": "IT & Cybersecurity",
+    "notes": "Global staffing firm with strong DACH presence. Good for SOC and Security Analyst roles.",
+    "english_only": false,
+    "sponsor_friendly": true
+  }
+]
