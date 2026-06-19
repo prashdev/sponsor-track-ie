@@ -14,6 +14,7 @@ import {
   PhoneCall,
   Target,
   Megaphone,
+  Rocket,
 } from 'lucide-react';
 import { useAppState } from '../hooks/useLocalStorage';
 
@@ -75,6 +76,7 @@ export default function Layout() {
           <NavItem to="/jobs" icon={Briefcase} label="Jobs" />
           <NavItem to="/contacts" icon={Users} label="Contacts" badge={overdueContacts || undefined} />
           <NavItem to="/sponsors" icon={Building2} label="Sponsors" />
+          <NavItem to="/irish-cyber" icon={Rocket} label="Irish Cyber Cos" />
           <NavItem to="/interview" icon={ClipboardList} label="Interview" />
           <NavItem to="/jd-analyzer" icon={FileSearch} label="JD Analyzer" />
           <NavItem to="/fallback-roles" icon={ShoppingBag} label="Fallback Roles" />
