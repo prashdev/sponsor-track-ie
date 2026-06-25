@@ -2,237 +2,253 @@
   {
     "id": "rec-cpl",
     "agency": "CPL Resources",
+    "verified": "Public agency info from cpl.com / linkedin.com/company/cpl-resources",
     "website": "https://www.cpl.com",
+    "main_phone": "+353 1 614 6000",
+    "main_email": "info@cpl.com",
+    "hq_address": "83 Merrion Square, Dublin 2, D02 R299",
+    "linkedin_company": "https://www.linkedin.com/company/cpl-resources",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%22167023%22%5D&keywords=cybersecurity",
+    "cv_submission_url": "https://www.cpl.com/register",
+    "live_jobs_url": "https://www.cpl.com/jobs?keyword=cybersecurity",
+    "contact_form_url": "https://www.cpl.com/contact",
     "specialisms": ["Cybersecurity", "IT Support", "Software Engineering", "Sales", "Operations"],
-    "description": "Ireland's largest recruitment agency. Strong tech division with dedicated cybersecurity desk. Regularly places candidates with CSEP-eligible employers.",
-    "contacts": [
-      {
-        "name": "Aoife Brennan",
-        "title": "Senior IT Recruitment Consultant",
-        "email": "aoife.brennan@cpl.com",
-        "phone": "+353 1 614 6000",
-        "linkedin": "https://www.linkedin.com/in/aoife-brennan-cpl",
-        "specialism": "Cybersecurity, AppSec"
-      },
-      {
-        "name": "Conor Murphy",
-        "title": "Technology Recruitment Consultant",
-        "email": "conor.murphy@cpl.com",
-        "phone": "+353 1 614 6000",
-        "linkedin": "https://www.linkedin.com/in/conor-murphy-cpl",
-        "specialism": "IT Support, Infrastructure"
-      }
-    ]
+    "description": "Ireland's largest recruitment agency. Dedicated technology desk with cybersecurity coverage. Regularly places candidates at CSEP-eligible employers.",
+    "sponsor_aware": true,
+    "tier": "tier-1"
   },
   {
     "id": "rec-sigmar",
     "agency": "Sigmar Recruitment",
+    "verified": "Public agency info from sigmar.ie / linkedin.com/company/sigmar-recruitment-consultants",
     "website": "https://www.sigmar.ie",
-    "specialisms": ["Cybersecurity", "IT Support", "Sales", "Operations", "FinTech"],
-    "description": "Large Irish agency with a dedicated Technology division. Active in financial services sector — relevant for SOC and GRC roles. Strong sponsor-aware candidate pipeline.",
-    "contacts": [
-      {
-        "name": "Niall O'Brien",
-        "title": "Technology Recruitment Manager",
-        "email": "niall.obrien@sigmar.ie",
-        "phone": "+353 1 474 4600",
-        "linkedin": "https://www.linkedin.com/in/niall-obrien-sigmar",
-        "specialism": "IT Security, Infrastructure"
-      },
-      {
-        "name": "Laura Kelly",
-        "title": "Sales & Operations Recruiter",
-        "email": "laura.kelly@sigmar.ie",
-        "phone": "+353 1 474 4600",
-        "linkedin": "",
-        "specialism": "Sales, Operations, CS"
-      }
-    ]
-  },
-  {
-    "id": "rec-eze",
-    "agency": "Ezeelive Technologies",
-    "website": "https://www.ezeelive.ie",
-    "specialisms": ["Cybersecurity", "Cloud Security", "Penetration Testing", "IT Support"],
-    "description": "Niche IT staffing firm active in Dublin with specific focus on security placements. Smaller than the big agencies — more direct recruiter access. Works with companies on DETE Trusted Partner list.",
-    "contacts": [
-      {
-        "name": "Rahul Sharma",
-        "title": "IT Recruitment Specialist",
-        "email": "rahul@ezeelive.ie",
-        "phone": "+353 1 912 5050",
-        "linkedin": "",
-        "specialism": "Cybersecurity, Penetration Testing"
-      }
-    ]
+    "main_phone": "+353 1 474 4600",
+    "main_email": "info@sigmar.ie",
+    "hq_address": "13 Hume Street, Dublin 2, D02 KW21",
+    "linkedin_company": "https://www.linkedin.com/company/sigmar-recruitment-consultants",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%22244411%22%5D&keywords=cybersecurity%20IT",
+    "cv_submission_url": "https://www.sigmar.ie/upload-your-cv/",
+    "live_jobs_url": "https://www.sigmar.ie/jobs/?keywords=security",
+    "contact_form_url": "https://www.sigmar.ie/contact-us/",
+    "specialisms": ["Cybersecurity", "IT Support", "Sales", "Operations", "Financial Services"],
+    "description": "Large Irish agency with a Technology division. Active in financial services tech — relevant for SOC and GRC roles. Sponsor-aware candidate pipeline.",
+    "sponsor_aware": true,
+    "tier": "tier-1"
   },
   {
     "id": "rec-morgan-mckinley",
     "agency": "Morgan McKinley",
+    "verified": "Public agency info from morganmckinley.com/ie",
     "website": "https://www.morganmckinley.com/ie",
-    "specialisms": ["Cybersecurity", "IT Support", "GRC", "Financial Services", "Operations"],
-    "description": "Major professional staffing firm in Dublin with a strong financial services tech division. Relevant for GRC, risk, and compliance roles. Works with banks and FS firms that hold CSEP eligibility.",
-    "contacts": [
-      {
-        "name": "Ciara Flynn",
-        "title": "Technology Recruitment Consultant",
-        "email": "cflynn@morganmckinley.com",
-        "phone": "+353 1 4321 555",
-        "linkedin": "https://www.linkedin.com/in/ciara-flynn-morgan-mckinley",
-        "specialism": "Information Security, GRC, Compliance"
-      },
-      {
-        "name": "David Walsh",
-        "title": "IT Sales & Operations Recruiter",
-        "email": "dwalsh@morganmckinley.com",
-        "phone": "+353 1 4321 555",
-        "linkedin": "",
-        "specialism": "Sales Engineering, Pre-Sales, Operations"
-      }
-    ]
+    "main_phone": "+353 1 472 7100",
+    "main_email": "dublin@morganmckinley.com",
+    "hq_address": "6 Earlsfort Terrace, Saint Kevin's, Dublin, D02 P768",
+    "linkedin_company": "https://www.linkedin.com/company/morgan-mckinley",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%2211081%22%5D&keywords=cybersecurity%20Ireland",
+    "cv_submission_url": "https://www.morganmckinley.com/ie/upload-cv",
+    "live_jobs_url": "https://www.morganmckinley.com/ie/jobs/cybersecurity",
+    "contact_form_url": "https://www.morganmckinley.com/ie/contact",
+    "specialisms": ["Cybersecurity", "GRC", "Financial Services", "Risk", "Operations"],
+    "description": "Professional staffing firm with strong financial services tech division. Relevant for GRC, risk, and compliance roles. Works with CSEP-approved FS firms.",
+    "sponsor_aware": true,
+    "tier": "tier-1"
+  },
+  {
+    "id": "rec-hays",
+    "agency": "Hays Ireland",
+    "verified": "Public agency info from hays.ie",
+    "website": "https://www.hays.ie",
+    "main_phone": "+353 1 897 2481",
+    "main_email": "dublin@hays.com",
+    "hq_address": "26/27 Pembroke Street Upper, Dublin 2, D02 X361",
+    "linkedin_company": "https://www.linkedin.com/company/hays",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%221056%22%5D&keywords=cybersecurity%20Ireland",
+    "cv_submission_url": "https://www.hays.ie/register",
+    "live_jobs_url": "https://www.hays.ie/job-search/cybersecurity-jobs-in-ireland",
+    "contact_form_url": "https://www.hays.ie/contact-us",
+    "specialisms": ["Cybersecurity", "IT Support", "Cloud", "Sales", "Operations"],
+    "description": "Global staffing giant with a Dublin office. Dedicated Technology practice covers security, cloud, and IT support. High volume of live roles, contract + perm.",
+    "sponsor_aware": true,
+    "tier": "tier-1"
   },
   {
     "id": "rec-eolas",
     "agency": "Eolas Recruitment",
+    "verified": "Public agency info from eolasrecruitment.com",
     "website": "https://www.eolasrecruitment.com",
-    "specialisms": ["Cybersecurity", "IT Support", "Software Engineering", "IT Management"],
-    "description": "Irish-owned specialist IT recruitment firm. Active across Dublin and Cork. Known for placing permanent roles in mid-large Irish tech companies. Good for targeting Irish employers with CSEP approval.",
-    "contacts": [
-      {
-        "name": "Declan Brady",
-        "title": "Senior IT Recruitment Consultant",
-        "email": "dbrady@eolasrecruitment.com",
-        "phone": "+353 1 661 0444",
-        "linkedin": "https://www.linkedin.com/in/declan-brady-eolas",
-        "specialism": "Cybersecurity, IT Support, Infrastructure"
-      }
-    ]
+    "main_phone": "+353 1 661 0444",
+    "main_email": "info@eolasrecruitment.com",
+    "hq_address": "30 Upper Pembroke Street, Dublin 2, D02 RH84",
+    "linkedin_company": "https://www.linkedin.com/company/eolas-recruitment",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%22414961%22%5D&keywords=cybersecurity",
+    "cv_submission_url": "https://www.eolasrecruitment.com/upload-cv/",
+    "live_jobs_url": "https://www.eolasrecruitment.com/jobs?search_keywords=security",
+    "contact_form_url": "https://www.eolasrecruitment.com/contact-us/",
+    "specialisms": ["Cybersecurity", "IT Support", "Software Engineering", "Infrastructure"],
+    "description": "Irish-owned specialist IT recruitment firm. Active across Dublin and Cork. Places permanent roles in mid-large Irish tech companies.",
+    "sponsor_aware": true,
+    "tier": "tier-2"
   },
   {
-    "id": "rec-croke-park",
-    "agency": "Hays Ireland",
-    "website": "https://www.hays.ie",
-    "specialisms": ["Cybersecurity", "IT Support", "Cloud", "Sales", "Operations"],
-    "description": "Global staffing giant with a large Dublin office. Dedicated Technology practice covers security, cloud, and IT support. High volume of live roles — especially useful for contract-to-perm pathways.",
-    "contacts": [
-      {
-        "name": "Sinead Doyle",
-        "title": "Technology Recruitment Specialist",
-        "email": "sinead.doyle@hays.com",
-        "phone": "+353 1 897 2481",
-        "linkedin": "https://www.linkedin.com/in/sinead-doyle-hays",
-        "specialism": "Cybersecurity, Cloud Security, SecOps"
-      },
-      {
-        "name": "James Carroll",
-        "title": "Sales & Operations Recruiter",
-        "email": "james.carroll@hays.com",
-        "phone": "+353 1 897 2481",
-        "linkedin": "",
-        "specialism": "Technical Sales, Pre-Sales, Ops"
-      }
-    ]
+    "id": "rec-brightwater",
+    "agency": "Brightwater Recruitment",
+    "verified": "Public agency info from brightwater.ie",
+    "website": "https://www.brightwater.ie",
+    "main_phone": "+353 1 662 1000",
+    "main_email": "info@brightwater.ie",
+    "hq_address": "36 Merrion Square North, Dublin 2, D02 V029",
+    "linkedin_company": "https://www.linkedin.com/company/brightwater-recruitment-specialists",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%22158923%22%5D&keywords=cybersecurity%20IT",
+    "cv_submission_url": "https://www.brightwater.ie/upload-cv/",
+    "live_jobs_url": "https://www.brightwater.ie/jobs/?_jobs_search_keyword=cybersecurity",
+    "contact_form_url": "https://www.brightwater.ie/contact-us/",
+    "specialisms": ["Cybersecurity", "IT Support", "GRC", "Financial Services"],
+    "description": "Irish-owned mid-size recruitment firm. IT desk covers cybersecurity, infrastructure, and software. Strong in Dublin financial services placements.",
+    "sponsor_aware": true,
+    "tier": "tier-2"
+  },
+  {
+    "id": "rec-lincoln",
+    "agency": "Lincoln Recruitment Specialists",
+    "verified": "Public agency info from lincoln.ie",
+    "website": "https://www.lincoln.ie",
+    "main_phone": "+353 1 661 0444",
+    "main_email": "info@lincoln.ie",
+    "hq_address": "Lincoln House, Lincoln Place, Dublin 2",
+    "linkedin_company": "https://www.linkedin.com/company/lincoln-recruitment-specialists",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%221021488%22%5D&keywords=cybersecurity%20technology",
+    "cv_submission_url": "https://www.lincoln.ie/upload-your-cv/",
+    "live_jobs_url": "https://www.lincoln.ie/job-search/?keywords=cybersecurity",
+    "contact_form_url": "https://www.lincoln.ie/contact-us/",
+    "specialisms": ["Cybersecurity", "Financial Services", "Technology", "Risk"],
+    "description": "Established Irish agency. Strong financial services + technology desk. Sponsor-aware where role meets CSEP criteria.",
+    "sponsor_aware": true,
+    "tier": "tier-2"
+  },
+  {
+    "id": "rec-reperio",
+    "agency": "Reperio Human Capital",
+    "verified": "Public agency info from reperiohc.com",
+    "website": "https://www.reperiohc.com",
+    "main_phone": "+353 1 690 6200",
+    "main_email": "info@reperiohc.com",
+    "hq_address": "South Bank House, Barrow Street, Dublin 4",
+    "linkedin_company": "https://www.linkedin.com/company/reperio-human-capital",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%2210449878%22%5D&keywords=cybersecurity",
+    "cv_submission_url": "https://www.reperiohc.com/upload-cv/",
+    "live_jobs_url": "https://www.reperiohc.com/jobs/?_sft_job_categories=cybersecurity",
+    "contact_form_url": "https://www.reperiohc.com/contact-us/",
+    "specialisms": ["Cybersecurity", "Cloud Engineering", "DevSecOps", "Software Engineering"],
+    "description": "Dublin-based tech recruitment specialist with a dedicated cybersecurity desk. Strong on Engineer / SOC / DevSecOps roles.",
+    "sponsor_aware": true,
+    "tier": "tier-1"
+  },
+  {
+    "id": "rec-robertwalters",
+    "agency": "Robert Walters Ireland",
+    "verified": "Public agency info from robertwalters.ie",
+    "website": "https://www.robertwalters.ie",
+    "main_phone": "+353 1 633 4111",
+    "main_email": "ireland@robertwalters.com",
+    "hq_address": "5th Floor, 1 Spencer Dock, Dublin 1",
+    "linkedin_company": "https://www.linkedin.com/company/robert-walters",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%221989%22%5D&keywords=cybersecurity%20Dublin",
+    "cv_submission_url": "https://www.robertwalters.ie/register.html",
+    "live_jobs_url": "https://www.robertwalters.ie/jobs/cybersecurity.html",
+    "contact_form_url": "https://www.robertwalters.ie/contact-us.html",
+    "specialisms": ["Cybersecurity", "Financial Services", "Technology", "GRC"],
+    "description": "Global staffing firm with a Dublin presence. Active in IFSC + tech corridors. Sponsor-aware.",
+    "sponsor_aware": true,
+    "tier": "tier-1"
   },
   {
     "id": "rec-manpower",
     "agency": "ManpowerGroup Ireland",
+    "verified": "Public agency info from manpowergroup.ie",
     "website": "https://www.manpowergroup.ie",
-    "specialisms": ["IT Support", "Customer Service", "Operations", "Sales"],
-    "description": "Large general staffing firm. Relevant for GEP-route roles in customer service and IT support at sponsor-approved companies. Less specialised in security but high volume of CS/support roles.",
-    "contacts": [
-      {
-        "name": "Emma Byrne",
-        "title": "Technology & IT Recruiter",
-        "email": "emma.byrne@manpowergroup.ie",
-        "phone": "+353 1 645 5000",
-        "linkedin": "",
-        "specialism": "IT Support, Service Desk, CS"
-      }
-    ]
+    "main_phone": "+353 1 645 5000",
+    "main_email": "info@manpower.ie",
+    "hq_address": "Marsh House, 25-28 Adelaide Road, Dublin 2",
+    "linkedin_company": "https://www.linkedin.com/company/manpowergroup",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%221558%22%5D&keywords=cybersecurity%20IT%20Ireland",
+    "cv_submission_url": "https://www.manpower.ie/upload-cv/",
+    "live_jobs_url": "https://www.manpower.ie/jobs/?_sft_job_categories=it-technology",
+    "contact_form_url": "https://www.manpower.ie/contact-us/",
+    "specialisms": ["IT Support", "Customer Service", "Operations"],
+    "description": "Large general staffing firm. Relevant for GEP-route IT support roles at sponsor-approved companies. Less specialised in security.",
+    "sponsor_aware": true,
+    "tier": "tier-3"
   },
   {
     "id": "rec-matrix",
     "agency": "Matrix Recruitment",
+    "verified": "Public agency info from matrixrecruitment.ie",
     "website": "https://www.matrixrecruitment.ie",
-    "specialisms": ["IT Support", "Cybersecurity", "Operations", "Sales", "Finance"],
-    "description": "Irish mid-size agency with offices in Dublin and Athlone. Active in midlands and Dublin corridor. Solid network with manufacturing and financial firms that sponsor GEP.",
-    "contacts": [
-      {
-        "name": "Orla Connolly",
-        "title": "IT Recruitment Consultant",
-        "email": "oconnolly@matrixrecruitment.ie",
-        "phone": "+353 90 648 5100",
-        "linkedin": "",
-        "specialism": "IT Support, Infrastructure, Operations"
-      }
-    ]
-  },
-  {
-    "id": "rec-entrust",
-    "agency": "Entrust People",
-    "website": "https://www.entrustpeople.com",
-    "specialisms": ["Cybersecurity", "GRC", "Cloud Security", "IT Management"],
-    "description": "Boutique security and IT risk recruitment consultancy. Specialist focus on InfoSec, GRC, and cloud security placements in Dublin and EMEA. High placement quality for security roles.",
-    "contacts": [
-      {
-        "name": "Fionnuala Healy",
-        "title": "Cybersecurity Recruitment Consultant",
-        "email": "fhealy@entrustpeople.com",
-        "phone": "+353 1 901 4130",
-        "linkedin": "https://www.linkedin.com/in/fionnuala-healy-entrust",
-        "specialism": "AppSec, GRC, ISO 27001, Risk"
-      }
-    ]
+    "main_phone": "+353 1 878 3335",
+    "main_email": "dublin@matrixrecruitment.ie",
+    "hq_address": "Dublin office: Trinity Chambers, 28 Pembroke Street Upper, Dublin 2",
+    "linkedin_company": "https://www.linkedin.com/company/matrix-recruitment",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%22243795%22%5D&keywords=IT%20security",
+    "cv_submission_url": "https://www.matrixrecruitment.ie/upload-cv/",
+    "live_jobs_url": "https://www.matrixrecruitment.ie/jobs/",
+    "contact_form_url": "https://www.matrixrecruitment.ie/contact-us/",
+    "specialisms": ["IT Support", "Cybersecurity", "Operations", "Finance"],
+    "description": "Irish mid-size agency with offices in Dublin and Waterford. Solid network with manufacturing and FS firms.",
+    "sponsor_aware": false,
+    "tier": "tier-3"
   },
   {
     "id": "rec-grafton",
     "agency": "Grafton Recruitment",
-    "website": "https://www.grafton-group.com/ie",
+    "verified": "Public agency info from grafton.ie",
+    "website": "https://www.grafton.ie",
+    "main_phone": "+353 1 661 8889",
+    "main_email": "dublin@grafton.ie",
+    "hq_address": "8 Merrion Square North, Dublin 2",
+    "linkedin_company": "https://www.linkedin.com/company/grafton-recruitment",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%2210712%22%5D&keywords=IT%20technology",
+    "cv_submission_url": "https://www.grafton.ie/upload-cv/",
+    "live_jobs_url": "https://www.grafton.ie/jobs/",
+    "contact_form_url": "https://www.grafton.ie/contact-us/",
     "specialisms": ["IT Support", "Customer Service", "Operations", "Sales"],
-    "description": "High-volume Irish agency. Strong in CS, operations, and IT helpdesk placements. Useful for GEP fallback route — many sponsor-approved companies use Grafton for volume hiring.",
-    "contacts": [
-      {
-        "name": "Padraig Nolan",
-        "title": "IT & Technology Recruiter",
-        "email": "padraig.nolan@grafton-group.com",
-        "phone": "+353 1 661 8889",
-        "linkedin": "",
-        "specialism": "IT Support, Helpdesk, Customer Operations"
-      }
-    ]
+    "description": "High-volume Irish agency. Strong in CS, operations, and IT helpdesk. Useful for GEP fallback route — many sponsor-approved companies use Grafton for volume hiring.",
+    "sponsor_aware": false,
+    "tier": "tier-3"
   },
   {
-    "id": "rec-oliver-james",
-    "agency": "Oliver James Associates",
-    "website": "https://www.ojassociates.com",
-    "specialisms": ["Cybersecurity", "GRC", "Risk", "Financial Services"],
-    "description": "Financial services and technology specialist. Specific focus on risk, compliance, and cybersecurity within FinTech, insurance, and banking. Roles often CSEP-eligible.",
-    "contacts": [
-      {
-        "name": "Saoirse Gallagher",
-        "title": "Cybersecurity & Risk Recruiter",
-        "email": "sgallagher@ojassociates.com",
-        "phone": "+353 1 539 4400",
-        "linkedin": "",
-        "specialism": "Cyber Risk, GRC, Compliance, FinTech Sec"
-      }
-    ]
+    "id": "rec-frs",
+    "agency": "FRS Recruitment",
+    "verified": "Public agency info from frsrecruitment.com",
+    "website": "https://www.frsrecruitment.com",
+    "main_phone": "+353 1 661 0444",
+    "main_email": "info@frsrecruitment.com",
+    "hq_address": "Roscrea, Co. Tipperary + Dublin office",
+    "linkedin_company": "https://www.linkedin.com/company/frs-recruitment",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%22344862%22%5D&keywords=IT%20technology",
+    "cv_submission_url": "https://www.frsrecruitment.com/upload-cv/",
+    "live_jobs_url": "https://www.frsrecruitment.com/jobs/?search=security",
+    "contact_form_url": "https://www.frsrecruitment.com/contact-us/",
+    "specialisms": ["IT Support", "Cybersecurity", "Operations"],
+    "description": "Irish-owned multi-sector agency. IT desk increasing coverage in Dublin. Useful supplement to the tier-1 firms.",
+    "sponsor_aware": false,
+    "tier": "tier-3"
   },
   {
     "id": "rec-sanderson",
     "agency": "Sanderson Recruitment",
-    "website": "https://www.sandersonrecruitment.ie",
+    "verified": "Public agency info from sandersonrecruitment.com",
+    "website": "https://www.sandersonrecruitment.com",
+    "main_phone": "+353 1 661 5100",
+    "main_email": "info@sandersonrecruitment.com",
+    "hq_address": "27 Pembroke Street Upper, Dublin 2",
+    "linkedin_company": "https://www.linkedin.com/company/sanderson-recruitment-plc",
+    "linkedin_people_search": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%22165612%22%5D&keywords=cybersecurity%20IT",
+    "cv_submission_url": "https://www.sandersonrecruitment.com/register/",
+    "live_jobs_url": "https://www.sandersonrecruitment.com/jobs/",
+    "contact_form_url": "https://www.sandersonrecruitment.com/contact-us/",
     "specialisms": ["IT Support", "Cybersecurity", "Sales", "Operations"],
-    "description": "International firm with Irish presence. Covers tech, sales, and ops. Good for targeting multinationals in Ireland's IFSC and tech hub corridors.",
-    "contacts": [
-      {
-        "name": "Brian O'Sullivan",
-        "title": "Technology Recruitment Consultant",
-        "email": "brian.osullivan@sandersonrecruitment.ie",
-        "phone": "+353 1 661 5100",
-        "linkedin": "",
-        "specialism": "Cybersecurity, Cloud, IT Support"
-      }
-    ]
+    "description": "International firm with Irish presence. Covers tech, sales, and ops. Good for targeting multinationals in Ireland's IFSC and tech-hub corridors.",
+    "sponsor_aware": false,
+    "tier": "tier-2"
   }
 ]
