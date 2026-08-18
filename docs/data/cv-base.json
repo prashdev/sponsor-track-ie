@@ -1,0 +1,159 @@
+{
+  "personal": {
+    "name": "Prashik Kamble",
+    "title": "Application Security Engineer | Penetration Tester",
+    "location": "Dublin, Ireland",
+    "email": "prashikk6@gmail.com",
+    "phone": "+353 89 XXX XXXX",
+    "linkedin": "linkedin.com/in/prashik-kamble",
+    "medium": "prashax.medium.com",
+    "work_authorisation_note": "Ireland resident (3+ years). EU work authorisation: requires Critical Skills / EU Blue Card sponsorship."
+  },
+  "summary_variants": {
+    "appsec": "Application security engineer with 3+ years across web, API, and mobile pentesting for telecom and financial-services platforms. Delivered 15+ full-scope assessments at Cubic Telecom, uncovering authentication and access-control flaws affecting connected-device fleets. Recognised in Nokia and Government of India Halls of Fame for responsible disclosure. MSc Cybersecurity, National College of Ireland.",
+    "pentester": "Penetration tester with 3+ years of hands-on web, API, mobile, and infrastructure engagements across telecom and financial services. Deep OWASP Top 10 / API Top 10 methodology; comfortable across grey-box and black-box scopes. Two-time responsible-disclosure Hall of Fame (Nokia, Government of India). MSc Cybersecurity from NCI.",
+    "soc": "Security engineer with 3+ years of practical exposure across detection, incident triage, and vulnerability management alongside offensive engagements. Familiar with SIEM (Splunk, Sentinel), EDR workflows, and MITRE ATT&CK-mapped detections. MSc Cybersecurity from National College of Ireland; ISO 27001 fundamentals via Advisera.",
+    "grc": "Security professional bridging technical depth with governance craft — 3+ years of AppSec + pentesting experience combined with ISO 27001 Lead Implementer training (Advisera) and DORA fundamentals. Delivered risk-informed remediation guidance across regulated telecom and financial-services engagements. MSc Cybersecurity from NCI.",
+    "ai_security": "Security engineer with 3+ years of AppSec + pentesting experience, actively specialising in AI/LLM security. Deep OWASP LLM Top 10 fluency; built vulnerable LLM agent for hands-on red-team testing with Garak / PyRIT / promptfoo. Nokia + Government of India Hall of Fame for responsible disclosure. MSc Cybersecurity, NCI.",
+    "generic": "Security engineer with 3+ years across application security, penetration testing, and vulnerability management in telecom and financial-services environments. Recognised in Nokia and Government of India Halls of Fame for responsible disclosure. MSc Cybersecurity from National College of Ireland."
+  },
+  "skills": {
+    "offensive": [
+      "Web application penetration testing",
+      "REST + GraphQL API security testing",
+      "Mobile app security (iOS / Android, Frida, Objection)",
+      "Manual code review (Node.js, Python, Java)",
+      "Threat modelling (STRIDE)",
+      "Exploit chaining (SSRF → IMDS, JWT alg confusion, IDOR escalation)"
+    ],
+    "defensive": [
+      "Vulnerability management lifecycle",
+      "SAST / DAST integration (Semgrep, SonarQube, ZAP)",
+      "Secure code review + fix-PR authorship",
+      "Detection engineering fundamentals (MITRE ATT&CK)",
+      "Incident triage + IR support"
+    ],
+    "cloud_devops": [
+      "AWS security fundamentals (IAM, S3, IMDSv2)",
+      "Docker + container hardening",
+      "CI/CD security (GitHub Actions, secret scanning)",
+      "Kubernetes security basics"
+    ],
+    "tools": [
+      "Burp Suite Professional",
+      "Nmap, Amass, Subfinder, feroxbuster",
+      "sqlmap, jwt_tool, ffuf",
+      "MobSF, Frida, Objection",
+      "Semgrep, Trivy, gitleaks, trufflehog",
+      "Splunk, Microsoft Sentinel (foundational)"
+    ],
+    "frameworks_standards": [
+      "OWASP Top 10 (Web + API + LLM + Mobile)",
+      "OWASP WSTG, ASVS, MASTG",
+      "MITRE ATT&CK",
+      "ISO 27001 (Lead Implementer training)",
+      "DORA fundamentals",
+      "PCI DSS basics"
+    ],
+    "languages": [
+      "Python (scripting + tooling)",
+      "JavaScript / Node.js (code review)",
+      "Bash",
+      "SQL"
+    ],
+    "ai_security": [
+      "OWASP LLM Top 10",
+      "Prompt injection (direct + indirect) testing",
+      "LLM red-team tooling: Garak, PyRIT, promptfoo",
+      "Adversarial testing methodology"
+    ]
+  },
+  "experience": [
+    {
+      "company": "Cubic Telecom",
+      "role": "Associate Security Engineer (Contract)",
+      "location": "Dublin, Ireland",
+      "start": "2024-06",
+      "end": "2025-03",
+      "context_tags": ["telecom", "appsec", "pentesting", "api", "mobile"],
+      "bullets": [
+        "Delivered 15+ full-scope security assessments across web applications, REST APIs, and mobile clients supporting connected-device platforms at scale.",
+        "Discovered critical JWT authentication bypass in inter-service API gateway; demonstrated reachable impact to device provisioning and fleet telemetry, resulting in 48-hour fix cycle and rotation of shared signing secrets.",
+        "Identified access-control flaws (IDOR, mass assignment) across customer-facing telematics APIs; authored fix guidance later adopted as internal secure-coding checklist.",
+        "Ran grey-box engagements against mobile clients using Frida + Objection to bypass certificate pinning and validate backend authorisation independent of the mobile SDK.",
+        "Produced dual-audience reports: executive summaries for leadership + technical detail with reproduction steps for engineering, supporting sprint-level remediation planning."
+      ]
+    },
+    {
+      "company": "Indusface",
+      "role": "Security Engineer",
+      "location": "India (Remote)",
+      "start": "2022-01",
+      "end": "2024-05",
+      "context_tags": ["appsec", "waf", "vulnerability_management", "api", "pentesting"],
+      "bullets": [
+        "Performed continuous web application + API pentests for enterprise SaaS customers across financial services and technology sectors.",
+        "Investigated production WAF telemetry to distinguish real attacks from noise; contributed rule tuning that reduced false-positive alert volume for customer SOC teams.",
+        "Authored vulnerability writeups mapped to CWE / OWASP references with clear reproduction steps, business-impact framing, and prescriptive remediation guidance.",
+        "Collaborated with customer engineering teams on fix validation cycles; regularly retested to confirm remediation before final report sign-off."
+      ]
+    },
+    {
+      "company": "Maharashtra Cyber Cell",
+      "role": "Cybersecurity Analyst",
+      "location": "India",
+      "start": "2021-01",
+      "end": "2021-12",
+      "context_tags": ["incident_response", "digital_forensics", "cybercrime"],
+      "bullets": [
+        "Supported cybercrime investigations including preliminary digital forensics on seized devices, OSINT-driven suspect identification, and evidence chain-of-custody documentation.",
+        "Assisted victim intake and case triage across financial fraud, social-engineering, and unauthorised-access incidents.",
+        "Contributed to internal case-tracking + reporting workflow improvements adopted across the analyst team."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "National College of Ireland",
+      "qualification": "MSc Cybersecurity",
+      "location": "Dublin, Ireland",
+      "start": "2023",
+      "end": "2024",
+      "notes": "Focus on offensive security, cloud security, and applied cryptography."
+    },
+    {
+      "institution": "[Prior Institution — verify]",
+      "qualification": "Bachelor's degree — Computer Science / IT",
+      "location": "India",
+      "start": "",
+      "end": "",
+      "notes": ""
+    }
+  ],
+  "certifications": [
+    "ISO/IEC 27001 Lead Implementer training (Advisera) — 2024",
+    "DORA compliance fundamentals — 2024",
+    "OWASP Web Security Academy — extensive lab completion"
+  ],
+  "recognitions": [
+    "Nokia — Security Hall of Fame (responsible disclosure)",
+    "Government of India — Cybersecurity Hall of Fame (responsible disclosure)"
+  ],
+  "projects": [
+    {
+      "name": "sponsor-track-ie",
+      "url": "https://prashdev.github.io/sponsor-track-ie/",
+      "description": "Job-hunt tracker for visa-constrained cybersecurity candidates. Vite + React + TypeScript, GitHub Pages. Live job aggregator across 4 free APIs, JD analyzer with matched interview Q&A, 30-day study roadmaps."
+    },
+    {
+      "name": "Vulnerable API + AI-Assisted Security Review",
+      "url": "[GitHub repo URL — add when live]",
+      "description": "Deliberately vulnerable REST API (IDOR, SQLi, JWT alg:none, SSRF, XXE) with parallel Claude Code security review + published comparison writeup on what AI caught, missed, and false-flagged."
+    },
+    {
+      "name": "LLM Agent Red-Team Lab",
+      "url": "[GitHub repo URL — add when live]",
+      "description": "LangChain + Llama 3 vulnerable agent red-teamed with Garak, PyRIT, and promptfoo. Documented attack chain effectiveness by tool."
+    }
+  ]
+}
