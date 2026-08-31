@@ -1,0 +1,466 @@
+{
+  "intro": "India-specific cybersecurity job sources for Associate Security Engineer, Application Security Engineer, Product Security Engineer, and Security Analyst roles. Live boards refresh in real-time; company careers pages update daily.",
+  "live_boards": [
+    {
+      "id": "in-naukri-appsec",
+      "name": "Naukri.com — Application Security Engineer",
+      "category": "general",
+      "url": "https://www.naukri.com/application-security-engineer-jobs",
+      "filter_applied": "Application Security Engineer",
+      "notes": "India's largest job board. Refresh daily. Use their alert feature for hourly notifications on this exact query.",
+      "priority": "high"
+    },
+    {
+      "id": "in-naukri-secanalyst",
+      "name": "Naukri.com — Security Analyst",
+      "category": "general",
+      "url": "https://www.naukri.com/security-analyst-jobs",
+      "filter_applied": "Security Analyst",
+      "notes": "L1/L2 SOC + Info Sec Analyst roles across the country. Filter by location (Bangalore / Mumbai / Pune / Hyderabad / Gurugram).",
+      "priority": "high"
+    },
+    {
+      "id": "in-naukri-productsec",
+      "name": "Naukri.com — Product Security Engineer",
+      "category": "general",
+      "url": "https://www.naukri.com/product-security-engineer-jobs",
+      "filter_applied": "Product Security Engineer",
+      "notes": "Product-side security roles at Indian product companies. Zoho, Freshworks, Postman, Razorpay type employers.",
+      "priority": "high"
+    },
+    {
+      "id": "in-naukri-associate",
+      "name": "Naukri.com — Associate Security Engineer",
+      "category": "general",
+      "url": "https://www.naukri.com/associate-security-engineer-jobs",
+      "filter_applied": "Associate Security Engineer",
+      "notes": "Entry-associate specific query — best filtered by experience 1-3 years to match your level.",
+      "priority": "high"
+    },
+    {
+      "id": "in-linkedin-india-appsec",
+      "name": "LinkedIn India — Application Security Engineer (last 24h)",
+      "category": "general",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=Application%20Security%20Engineer&location=India&f_TPR=r86400",
+      "filter_applied": "AppSec Engineer, India, last 24 hours",
+      "notes": "Freshest listings only. Save this search and enable email alerts for daily digest.",
+      "priority": "high"
+    },
+    {
+      "id": "in-linkedin-india-productsec",
+      "name": "LinkedIn India — Product Security Engineer (last 7 days)",
+      "category": "general",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=Product%20Security%20Engineer&location=India&f_TPR=r604800",
+      "filter_applied": "Product Security, India, 7 days",
+      "notes": "Weekly cadence for product security — smaller pool than AppSec so wider window is fine.",
+      "priority": "high"
+    },
+    {
+      "id": "in-linkedin-india-analyst",
+      "name": "LinkedIn India — Security Analyst (entry/associate)",
+      "category": "general",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=Security%20Analyst&location=India&f_TPR=r86400&f_E=2%2C3",
+      "filter_applied": "Security Analyst, India, entry+associate, last 24h",
+      "notes": "Pre-filtered to entry + associate experience levels (f_E=2,3).",
+      "priority": "high"
+    },
+    {
+      "id": "in-instahyre",
+      "name": "Instahyre — Security (India)",
+      "category": "tech-specialist",
+      "url": "https://www.instahyre.com/search-jobs/?q=security&locations=India",
+      "filter_applied": "Security keyword, India",
+      "notes": "Tech-focused Indian job platform. Curated roles at product companies + funded startups. Recruiters approach you.",
+      "priority": "high"
+    },
+    {
+      "id": "in-cutshort",
+      "name": "Cutshort — Cybersecurity (India)",
+      "category": "tech-specialist",
+      "url": "https://cutshort.io/jobs/cybersecurity-jobs-india",
+      "filter_applied": "Cybersecurity in India",
+      "notes": "Tech-focused Indian platform. Startups + scale-ups. Skill-matched recommendations. Complete your profile for best results.",
+      "priority": "high"
+    },
+    {
+      "id": "in-wellfound",
+      "name": "Wellfound — India Security",
+      "category": "tech-specialist",
+      "url": "https://wellfound.com/role-l/security-engineer/india",
+      "filter_applied": "Security Engineer, India",
+      "notes": "Formerly AngelList. Indian tech startup security roles. Equity-first comp. Direct-founder outreach possible on smaller companies.",
+      "priority": "medium"
+    },
+    {
+      "id": "in-hackerrank-jobs",
+      "name": "HackerRank Jobs — Security (India)",
+      "category": "tech-specialist",
+      "url": "https://www.hackerrank.com/jobs/search?keywords=security&locations=India",
+      "filter_applied": "Security in India",
+      "notes": "Technical assessments built into the flow. Product companies use HackerRank heavily for security screens.",
+      "priority": "medium"
+    },
+    {
+      "id": "in-indeed",
+      "name": "Indeed India — Cybersecurity (fresh 3 days)",
+      "category": "general",
+      "url": "https://in.indeed.com/jobs?q=cybersecurity&fromage=3",
+      "filter_applied": "Cybersecurity, posted last 3 days",
+      "notes": "Aggregator. Cross-references Naukri, LinkedIn, company sites. Fresh-only filter keeps the noise down.",
+      "priority": "medium"
+    },
+    {
+      "id": "in-foundit",
+      "name": "Foundit (formerly Monster India) — Security",
+      "category": "general",
+      "url": "https://www.foundit.in/search/security-jobs",
+      "filter_applied": "Security keyword",
+      "notes": "Legacy job board with strong enterprise coverage. Big-4 + traditional IT services heavily post here.",
+      "priority": "medium"
+    },
+    {
+      "id": "in-shine",
+      "name": "Shine.com — Cybersecurity",
+      "category": "general",
+      "url": "https://www.shine.com/job-search/cyber-security-jobs",
+      "filter_applied": "Cybersecurity",
+      "notes": "Supplementary board. Useful for tier-2 city roles (Ahmedabad, Chennai, Kolkata).",
+      "priority": "low"
+    },
+    {
+      "id": "in-glassdoor-india",
+      "name": "Glassdoor India — Cybersecurity",
+      "category": "general",
+      "url": "https://www.glassdoor.co.in/Job/india-cyber-security-jobs-SRCH_IL.0,5_IN115_KO6,20.htm",
+      "filter_applied": "Cybersecurity in India",
+      "notes": "Cross-reference for salary bands + Glassdoor reviews before applying. Use with Naukri, not instead of.",
+      "priority": "medium"
+    },
+    {
+      "id": "in-yc-work-india",
+      "name": "Y Combinator Work List — India Security",
+      "category": "tech-specialist",
+      "url": "https://www.workatastartup.com/jobs?query=security&location=India",
+      "filter_applied": "Security, India",
+      "notes": "YC portfolio companies with Indian offices. Small pool but high signal — early-career friendly, direct-founder access.",
+      "priority": "medium"
+    }
+  ],
+  "target_companies": [
+    {
+      "id": "in-co-tcs",
+      "name": "TCS (Tata Consultancy Services)",
+      "type": "IT Services",
+      "locations": ["Mumbai", "Bangalore", "Chennai", "Pune", "Hyderabad", "Gurugram"],
+      "careers_url": "https://www.tcs.com/careers",
+      "roles_hiring": ["Security Analyst", "Cybersecurity Consultant", "AppSec"],
+      "notes": "India's largest IT services firm. High volume of L1/L2 SOC and consulting roles. Entry-associate friendly. TCS Xperience Programme for graduates."
+    },
+    {
+      "id": "in-co-infosys",
+      "name": "Infosys",
+      "type": "IT Services",
+      "locations": ["Bangalore", "Pune", "Chennai", "Hyderabad", "Mysuru"],
+      "careers_url": "https://www.infosys.com/careers/apply.html",
+      "roles_hiring": ["Security Analyst", "Cybersecurity Specialist", "AppSec Engineer"],
+      "notes": "Second-largest Indian IT firm. Strong cybersecurity practice. Global services delivery — often client-facing roles."
+    },
+    {
+      "id": "in-co-wipro",
+      "name": "Wipro",
+      "type": "IT Services",
+      "locations": ["Bangalore", "Pune", "Hyderabad", "Chennai"],
+      "careers_url": "https://careers.wipro.com/careers-home/",
+      "roles_hiring": ["Security Analyst", "AppSec Engineer", "SOC Analyst"],
+      "notes": "Wipro Cybersecurity Services (CRS) hires across L1-L3. Global delivery centres for major banking + FS clients."
+    },
+    {
+      "id": "in-co-hcl",
+      "name": "HCLTech",
+      "type": "IT Services",
+      "locations": ["Noida", "Chennai", "Bangalore", "Pune"],
+      "careers_url": "https://www.hcltech.com/careers",
+      "roles_hiring": ["Security Analyst", "AppSec Engineer", "GRC Analyst"],
+      "notes": "Large cybersecurity practice. Government + BFSI client base. Good for entry roles with training pathway."
+    },
+    {
+      "id": "in-co-techm",
+      "name": "Tech Mahindra",
+      "type": "IT Services",
+      "locations": ["Pune", "Hyderabad", "Bangalore", "Noida"],
+      "careers_url": "https://careers.techmahindra.com/",
+      "roles_hiring": ["Security Analyst", "SOC", "Cybersecurity Consultant"],
+      "notes": "Strong telecom + BFSI cybersecurity focus. Overlap with your Cubic Telecom telematics background."
+    },
+    {
+      "id": "in-co-accenture-india",
+      "name": "Accenture India",
+      "type": "Consulting",
+      "locations": ["Bangalore", "Mumbai", "Chennai", "Gurugram", "Hyderabad"],
+      "careers_url": "https://www.accenture.com/in-en/careers/jobsearch?jk=security",
+      "roles_hiring": ["Security Analyst", "AppSec Engineer", "GRC Consultant"],
+      "notes": "Massive cybersecurity practice. Structured graduate + lateral hiring. Client-facing consulting track."
+    },
+    {
+      "id": "in-co-kpmg-india",
+      "name": "KPMG India — Cyber",
+      "type": "Big 4",
+      "locations": ["Mumbai", "Bangalore", "Gurugram", "Chennai", "Pune"],
+      "careers_url": "https://kpmg.com/in/en/careers.html",
+      "roles_hiring": ["Cyber Consultant", "GRC", "Pentester"],
+      "notes": "Cyber Risk Services practice. Strong lateral hiring at associate level. Client-facing advisory."
+    },
+    {
+      "id": "in-co-deloitte-india",
+      "name": "Deloitte India — Cyber Risk",
+      "type": "Big 4",
+      "locations": ["Mumbai", "Bangalore", "Gurugram", "Hyderabad"],
+      "careers_url": "https://www2.deloitte.com/in/en/careers/careers.html",
+      "roles_hiring": ["Cyber Risk Consultant", "AppSec", "SOC", "Pentester"],
+      "notes": "Cyber & Strategic Risk practice hires actively. Analyst / Consultant / Senior Consultant ladder. India Delivery Centre for global clients."
+    },
+    {
+      "id": "in-co-ey-india",
+      "name": "EY India — Cybersecurity",
+      "type": "Big 4",
+      "locations": ["Bangalore", "Gurugram", "Mumbai", "Kolkata"],
+      "careers_url": "https://www.ey.com/en_in/careers",
+      "roles_hiring": ["Cybersecurity Consultant", "Pentester", "GRC Analyst"],
+      "notes": "Cybersecurity + Privacy consulting. Structured lateral hiring at associate + senior associate."
+    },
+    {
+      "id": "in-co-pwc-india",
+      "name": "PwC India — Cyber & Privacy",
+      "type": "Big 4",
+      "locations": ["Bangalore", "Gurugram", "Mumbai", "Kolkata"],
+      "careers_url": "https://www.pwc.in/careers.html",
+      "roles_hiring": ["Cybersecurity Consultant", "AppSec", "GRC"],
+      "notes": "Cyber + Privacy practice. Consulting career track."
+    },
+    {
+      "id": "in-co-cisco-india",
+      "name": "Cisco India",
+      "type": "Product Company",
+      "locations": ["Bangalore"],
+      "careers_url": "https://jobs.cisco.com/jobs/SearchJobs/?location=India&keywords=security",
+      "roles_hiring": ["Product Security Engineer", "Security Engineer", "Threat Researcher"],
+      "notes": "Bangalore is Cisco's second-largest R&D site. Product Security team includes AppSec + Talos threat intel."
+    },
+    {
+      "id": "in-co-microsoft-india",
+      "name": "Microsoft India",
+      "type": "Product Company",
+      "locations": ["Bangalore", "Hyderabad"],
+      "careers_url": "https://jobs.careers.microsoft.com/global/en/search?lc=India&keywords=security",
+      "roles_hiring": ["Security Engineer", "Product Security", "SOC (Defender / Sentinel)"],
+      "notes": "Microsoft Defender + Sentinel + Purview teams in Hyderabad. Product security across Azure. Standard lateral entry."
+    },
+    {
+      "id": "in-co-aws-india",
+      "name": "AWS India",
+      "type": "Product Company",
+      "locations": ["Bangalore", "Hyderabad", "Gurugram"],
+      "careers_url": "https://amazon.jobs/en/search?base_query=security&loc_query=India",
+      "roles_hiring": ["Security Engineer", "AppSec Engineer", "Pentester"],
+      "notes": "AWS Security Engineer ladder (SDE-I equivalent for entry). High technical bar. Deep interview loop."
+    },
+    {
+      "id": "in-co-google-india",
+      "name": "Google India",
+      "type": "Product Company",
+      "locations": ["Bangalore", "Hyderabad", "Gurugram"],
+      "careers_url": "https://www.google.com/about/careers/applications/jobs/results/?location=India&q=security",
+      "roles_hiring": ["Security Engineer", "AppSec", "Detection Engineer"],
+      "notes": "Google India engineering hires security roles across product + infrastructure. Highly competitive."
+    },
+    {
+      "id": "in-co-adobe-india",
+      "name": "Adobe India",
+      "type": "Product Company",
+      "locations": ["Bangalore", "Noida"],
+      "careers_url": "https://careers.adobe.com/us/en/search-results?location=India&keywords=security",
+      "roles_hiring": ["Product Security Engineer", "AppSec", "Cloud Security"],
+      "notes": "Strong Product Security team in India. Direct AppSec + secure code review roles."
+    },
+    {
+      "id": "in-co-sap-labs-india",
+      "name": "SAP Labs India",
+      "type": "Product Company",
+      "locations": ["Bangalore", "Gurugram", "Pune"],
+      "careers_url": "https://jobs.sap.com/search/?locationsearch=India&q=security",
+      "roles_hiring": ["Security Engineer", "Product Security", "InfoSec Analyst"],
+      "notes": "SAP's largest R&D centre outside Germany. Product security across HANA + Cloud."
+    },
+    {
+      "id": "in-co-ibm-india",
+      "name": "IBM India",
+      "type": "Product Company",
+      "locations": ["Bangalore", "Pune", "Kolkata", "Chennai"],
+      "careers_url": "https://www.ibm.com/employment/careers/india",
+      "roles_hiring": ["Security Analyst", "AppSec", "SOC Analyst"],
+      "notes": "IBM Security (QRadar, X-Force, Guardium) hiring in India. Consulting + product teams."
+    },
+    {
+      "id": "in-co-oracle-india",
+      "name": "Oracle India",
+      "type": "Product Company",
+      "locations": ["Bangalore", "Hyderabad"],
+      "careers_url": "https://careers.oracle.com/jobs/#en/sites/jobsearch/requisitions?location=India&keyword=security",
+      "roles_hiring": ["Security Engineer", "AppSec", "Cloud Security"],
+      "notes": "Oracle Cloud Infrastructure security engineering. OCI is growing — good time to enter."
+    },
+    {
+      "id": "in-co-vmware-india",
+      "name": "VMware / Broadcom India",
+      "type": "Product Company",
+      "locations": ["Bangalore", "Pune"],
+      "careers_url": "https://jobs.broadcom.com/jobs?location=India&keywords=security",
+      "roles_hiring": ["Product Security Engineer", "Security Engineer"],
+      "notes": "Post-Broadcom acquisition. Still a substantial security engineering base in Bangalore."
+    },
+    {
+      "id": "in-co-crowdstrike-india",
+      "name": "CrowdStrike India",
+      "type": "Cybersecurity Vendor",
+      "locations": ["Pune", "Bangalore"],
+      "careers_url": "https://www.crowdstrike.com/careers/open-positions/?location=India",
+      "roles_hiring": ["SOC Analyst (Overwatch)", "Threat Researcher", "Detection Engineer"],
+      "notes": "Overwatch managed SOC has India team. Threat intel + detection engineering. Entry-friendly via Overwatch pathway."
+    },
+    {
+      "id": "in-co-palo-alto-india",
+      "name": "Palo Alto Networks India",
+      "type": "Cybersecurity Vendor",
+      "locations": ["Bangalore"],
+      "careers_url": "https://jobs.paloaltonetworks.com/careers?location=India&keywords=security",
+      "roles_hiring": ["Security Engineer", "Threat Researcher", "SOC"],
+      "notes": "Unit 42 threat intel + product security in India. Interview process is rigorous but rewarding."
+    },
+    {
+      "id": "in-co-zscaler-india",
+      "name": "Zscaler India",
+      "type": "Cybersecurity Vendor",
+      "locations": ["Bangalore", "Chandigarh"],
+      "careers_url": "https://www.zscaler.com/careers/opportunities?location=India",
+      "roles_hiring": ["Security Engineer", "Product Security", "SOC Analyst"],
+      "notes": "Cloud security specialist. Chandigarh is a large R&D site — often overlooked."
+    },
+    {
+      "id": "in-co-fortinet-india",
+      "name": "Fortinet India",
+      "type": "Cybersecurity Vendor",
+      "locations": ["Bangalore"],
+      "careers_url": "https://www.fortinet.com/corporate/careers/opportunities?locations=India",
+      "roles_hiring": ["Security Engineer", "SOC Analyst", "Threat Researcher"],
+      "notes": "Firewall + SD-WAN + FortiGuard threat intel. Steady hiring at associate level."
+    },
+    {
+      "id": "in-co-trellix-india",
+      "name": "Trellix (formerly McAfee/FireEye) India",
+      "type": "Cybersecurity Vendor",
+      "locations": ["Bangalore"],
+      "careers_url": "https://careers.trellix.com/us/en/search-results?location=India",
+      "roles_hiring": ["Security Engineer", "Threat Researcher", "Product Security"],
+      "notes": "Post-merger consolidation. Big Bangalore engineering base for XDR + threat intel."
+    },
+    {
+      "id": "in-co-checkpoint-india",
+      "name": "Check Point India",
+      "type": "Cybersecurity Vendor",
+      "locations": ["Bangalore"],
+      "careers_url": "https://www.checkpoint.com/careers/",
+      "roles_hiring": ["Security Engineer", "Threat Researcher", "SOC"],
+      "notes": "Israeli firewall + threat prevention leader. Bangalore R&D hires steadily."
+    },
+    {
+      "id": "in-co-rapid7-india",
+      "name": "Rapid7 India",
+      "type": "Cybersecurity Vendor",
+      "locations": ["Pune"],
+      "careers_url": "https://www.rapid7.com/careers/open-positions/?location=india",
+      "roles_hiring": ["Security Engineer", "AppSec", "Detection Engineer"],
+      "notes": "InsightVM + InsightIDR + AppSec teams. Pune engineering centre. Good AppSec entry pathway."
+    },
+    {
+      "id": "in-co-razorpay",
+      "name": "Razorpay",
+      "type": "Product Company (Fintech)",
+      "locations": ["Bangalore"],
+      "careers_url": "https://razorpay.com/jobs/",
+      "roles_hiring": ["AppSec Engineer", "Product Security", "SOC Analyst"],
+      "notes": "Indian fintech unicorn. Payment security context — RBI regulated. Strong AppSec team."
+    },
+    {
+      "id": "in-co-freshworks",
+      "name": "Freshworks",
+      "type": "Product Company",
+      "locations": ["Chennai", "Bangalore"],
+      "careers_url": "https://www.freshworks.com/company/careers/",
+      "roles_hiring": ["Product Security Engineer", "AppSec", "SOC"],
+      "notes": "SaaS product company (Nasdaq listed). Product security team hires AppSec + cloud security."
+    },
+    {
+      "id": "in-co-zoho",
+      "name": "Zoho",
+      "type": "Product Company",
+      "locations": ["Chennai", "Tenkasi"],
+      "careers_url": "https://www.zoho.com/careers.html",
+      "roles_hiring": ["Security Engineer", "Product Security"],
+      "notes": "Bootstrapped SaaS giant. Product security across 45+ apps. Strong engineering culture, lower-key hiring."
+    },
+    {
+      "id": "in-co-postman",
+      "name": "Postman",
+      "type": "Product Company",
+      "locations": ["Bangalore"],
+      "careers_url": "https://www.postman.com/company/careers/",
+      "roles_hiring": ["Security Engineer", "AppSec", "Product Security"],
+      "notes": "API tooling unicorn. Small but growing security team — high impact per engineer."
+    },
+    {
+      "id": "in-co-flipkart",
+      "name": "Flipkart",
+      "type": "Product Company",
+      "locations": ["Bangalore"],
+      "careers_url": "https://www.flipkartcareers.com/",
+      "roles_hiring": ["AppSec Engineer", "Product Security", "SOC Analyst"],
+      "notes": "Walmart-owned e-commerce leader. Large product security team. Payment + fraud security overlap."
+    },
+    {
+      "id": "in-co-payatu",
+      "name": "Payatu",
+      "type": "Cybersecurity Startup",
+      "locations": ["Pune"],
+      "careers_url": "https://payatu.com/careers/",
+      "roles_hiring": ["Penetration Tester", "AppSec", "IoT Security"],
+      "notes": "Pune-based offensive security specialist. Hardware + IoT + web + mobile. Strong training culture — nullcon organisers."
+    },
+    {
+      "id": "in-co-safe-security",
+      "name": "SAFE Security (formerly Lucideus)",
+      "type": "Cybersecurity Startup",
+      "locations": ["Gurugram", "Bangalore"],
+      "careers_url": "https://safe.security/careers/",
+      "roles_hiring": ["Security Engineer", "AppSec", "Product Security"],
+      "notes": "Cyber risk quantification platform. Well-funded, high-profile Indian security startup."
+    },
+    {
+      "id": "in-co-astra",
+      "name": "Astra Security",
+      "type": "Cybersecurity Startup",
+      "locations": ["Bangalore", "Remote-India"],
+      "careers_url": "https://www.getastra.com/careers/",
+      "roles_hiring": ["AppSec Engineer", "Penetration Tester"],
+      "notes": "Continuous pentest platform. Remote-first Indian startup. AppSec + pentesting focus."
+    },
+    {
+      "id": "in-co-cloudsek",
+      "name": "CloudSEK",
+      "type": "Cybersecurity Startup",
+      "locations": ["Bangalore", "Remote"],
+      "careers_url": "https://cloudsek.com/careers",
+      "roles_hiring": ["Threat Researcher", "Security Analyst", "Attack Surface"],
+      "notes": "Attack surface + threat intelligence platform. Bangalore-headquartered. Active hiring."
+    }
+  ]
+}

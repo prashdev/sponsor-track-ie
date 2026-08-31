@@ -1,0 +1,430 @@
+{
+  "intro": "UAE / Dubai cybersecurity job sources. English is the working language across tech + cyber roles. Employer sponsors work visa (mandatory). Tax-free salaries in AED. Target roles: Associate Security Engineer, AppSec, Product Security, Security Analyst.",
+  "live_boards": [
+    {
+      "id": "ae-linkedin-appsec",
+      "name": "LinkedIn UAE — Application Security Engineer (last 24h)",
+      "category": "general",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=Application%20Security%20Engineer&location=United%20Arab%20Emirates&f_TPR=r86400",
+      "filter_applied": "AppSec Engineer, UAE, last 24 hours",
+      "notes": "Freshest listings. Enable email alert for daily digest. Highest-volume single source for tech roles in UAE.",
+      "priority": "high"
+    },
+    {
+      "id": "ae-linkedin-productsec",
+      "name": "LinkedIn UAE — Product Security Engineer",
+      "category": "general",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=Product%20Security&location=United%20Arab%20Emirates&f_TPR=r604800",
+      "filter_applied": "Product Security, UAE, last 7 days",
+      "notes": "Smaller pool than AppSec — weekly cadence appropriate. Product-side roles concentrated in Dubai + Abu Dhabi.",
+      "priority": "high"
+    },
+    {
+      "id": "ae-linkedin-analyst",
+      "name": "LinkedIn UAE — Security Analyst (entry/associate)",
+      "category": "general",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=Security%20Analyst&location=United%20Arab%20Emirates&f_TPR=r86400&f_E=2%2C3",
+      "filter_applied": "Security Analyst, UAE, entry+associate, last 24h",
+      "notes": "Entry + associate experience filter (f_E=2,3). Government + banking heavy hirers here.",
+      "priority": "high"
+    },
+    {
+      "id": "ae-linkedin-associate",
+      "name": "LinkedIn UAE — Associate Security Engineer",
+      "category": "general",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=Associate%20Security%20Engineer&location=United%20Arab%20Emirates",
+      "filter_applied": "Associate Security Engineer, UAE",
+      "notes": "Direct match for your target role title. Refresh 2-3x per week.",
+      "priority": "high"
+    },
+    {
+      "id": "ae-bayt",
+      "name": "Bayt.com — Cybersecurity UAE",
+      "category": "regional",
+      "url": "https://www.bayt.com/en/uae/jobs/cybersecurity-jobs/",
+      "filter_applied": "Cybersecurity, UAE",
+      "notes": "Largest MENA job board. Government + banking + oil-and-gas heavily post here. Complete Bayt profile — recruiters search it.",
+      "priority": "high"
+    },
+    {
+      "id": "ae-naukrigulf",
+      "name": "Naukrigulf.com — Security UAE",
+      "category": "regional",
+      "url": "https://www.naukrigulf.com/security-jobs-in-uae",
+      "filter_applied": "Security in UAE",
+      "notes": "Naukri's Gulf edition. Familiar interface if you already have a Naukri India profile. Popular with Indian recruiters placing in UAE.",
+      "priority": "high"
+    },
+    {
+      "id": "ae-gulftalent",
+      "name": "GulfTalent — Cybersecurity",
+      "category": "regional",
+      "url": "https://www.gulftalent.com/uae/jobs/cyber-security",
+      "filter_applied": "Cybersecurity, UAE",
+      "notes": "Premium regional board. Strong for mid-senior roles at multinationals + FS. Set up job alerts.",
+      "priority": "high"
+    },
+    {
+      "id": "ae-indeed",
+      "name": "Indeed UAE — Cybersecurity (fresh 3 days)",
+      "category": "general",
+      "url": "https://ae.indeed.com/jobs?q=cybersecurity&fromage=3",
+      "filter_applied": "Cybersecurity, last 3 days",
+      "notes": "Cross-aggregator. Complements LinkedIn + Bayt. Fresh-only filter to keep signal high.",
+      "priority": "medium"
+    },
+    {
+      "id": "ae-hays",
+      "name": "Hays Middle East — Technology",
+      "category": "agency",
+      "url": "https://www.hays.ae/jobs/technology",
+      "filter_applied": "Technology (includes cyber)",
+      "notes": "UK staffing giant with major UAE presence. Contract + perm tech roles. Sponsor-aware.",
+      "priority": "high"
+    },
+    {
+      "id": "ae-michaelpage",
+      "name": "Michael Page UAE — Cybersecurity",
+      "category": "agency",
+      "url": "https://www.michaelpage.ae/jobs/cybersecurity",
+      "filter_applied": "Cybersecurity",
+      "notes": "Global staffing firm. Strong for financial services cyber roles in DIFC + ADGM.",
+      "priority": "high"
+    },
+    {
+      "id": "ae-cooperfitch",
+      "name": "Cooper Fitch — Technology UAE",
+      "category": "agency",
+      "url": "https://www.cooperfitch.ae/jobs/it-technology",
+      "filter_applied": "IT & Technology",
+      "notes": "Regional executive-search + recruitment firm. Higher-quality mid-senior placements. Good for Big-4 cyber advisory routing.",
+      "priority": "medium"
+    },
+    {
+      "id": "ae-robertwalters",
+      "name": "Robert Walters UAE",
+      "category": "agency",
+      "url": "https://www.robertwalters.ae/jobs.html?job-search-form-search-term=cybersecurity",
+      "filter_applied": "Cybersecurity",
+      "notes": "Global staffing firm with UAE office. Mid-senior tech + cyber. Sponsor-aware.",
+      "priority": "medium"
+    },
+    {
+      "id": "ae-charterhouse",
+      "name": "Charterhouse UAE — Technology",
+      "category": "agency",
+      "url": "https://www.charterhouseme.ae/en/jobs/it-technology-jobs",
+      "filter_applied": "IT & Technology",
+      "notes": "Regional professional services recruitment. Good for banking + FS cyber roles.",
+      "priority": "medium"
+    },
+    {
+      "id": "ae-wellfound-me",
+      "name": "Wellfound — Dubai Security",
+      "category": "tech-specialist",
+      "url": "https://wellfound.com/role-l/security-engineer/dubai",
+      "filter_applied": "Security Engineer, Dubai",
+      "notes": "Startup-heavy. Smaller pool than mainstream boards but direct-founder access on smaller companies. Careem-adjacent tech scene.",
+      "priority": "medium"
+    },
+    {
+      "id": "ae-wtj-me",
+      "name": "Welcome to the Jungle — UAE",
+      "category": "tech-specialist",
+      "url": "https://www.welcometothejungle.com/en/jobs?query=cybersecurity&refinementList%5Boffices.country_code%5D%5B%5D=AE",
+      "filter_applied": "Cybersecurity, UAE",
+      "notes": "Modern startup-focused board. English-first. Good for scale-ups.",
+      "priority": "medium"
+    }
+  ],
+  "target_companies": [
+    {
+      "id": "ae-co-help-ag",
+      "name": "Help AG (part of e& Enterprise)",
+      "type": "Cybersecurity Specialist (regional leader)",
+      "locations": ["Dubai", "Abu Dhabi", "Riyadh"],
+      "careers_url": "https://www.helpag.com/careers/",
+      "roles_hiring": ["SOC Analyst L1-L3", "Pentester", "Security Consultant", "AppSec"],
+      "notes": "Largest pure-play cybersecurity firm in the Middle East. Owned by Etisalat's e& Enterprise. Strong MSSP + consulting practice. Sponsors visa. Structured entry-level pathway via SOC."
+    },
+    {
+      "id": "ae-co-cpx",
+      "name": "CPX (part of G42)",
+      "type": "Cybersecurity Specialist",
+      "locations": ["Abu Dhabi", "Dubai"],
+      "careers_url": "https://cpx.net/careers",
+      "roles_hiring": ["Security Consultant", "SOC Analyst", "Pentester", "Cloud Security"],
+      "notes": "Part of G42 group. Focuses on advanced cybersecurity for government + enterprise. Well-funded, growing fast."
+    },
+    {
+      "id": "ae-co-injazat",
+      "name": "Injazat (part of G42)",
+      "type": "Managed Services + Cyber",
+      "locations": ["Abu Dhabi"],
+      "careers_url": "https://www.injazat.com/careers/",
+      "roles_hiring": ["Security Analyst", "SOC", "Cloud Security"],
+      "notes": "IBM-Injazat JV originally; now G42-owned. Managed IT + security services for UAE government + enterprise."
+    },
+    {
+      "id": "ae-co-eand-enterprise",
+      "name": "e& Enterprise (Etisalat)",
+      "type": "Telco Enterprise + Cyber",
+      "locations": ["Dubai", "Abu Dhabi"],
+      "careers_url": "https://careers.eand.com/",
+      "roles_hiring": ["Security Analyst", "Cybersecurity Consultant", "SOC"],
+      "notes": "Etisalat's enterprise arm. Large managed security services practice. Overlap with your telecom background from Cubic."
+    },
+    {
+      "id": "ae-co-du",
+      "name": "du (EITC)",
+      "type": "Telco",
+      "locations": ["Dubai"],
+      "careers_url": "https://www.du.ae/personal/about-us/careers",
+      "roles_hiring": ["Security Analyst", "SOC", "Cybersecurity Engineer"],
+      "notes": "Second UAE telco. In-house SOC + cyber team. Direct telecom overlap."
+    },
+    {
+      "id": "ae-co-emirates-nbd",
+      "name": "Emirates NBD",
+      "type": "Bank",
+      "locations": ["Dubai"],
+      "careers_url": "https://www.emiratesnbd.com/en/careers/",
+      "roles_hiring": ["Security Analyst", "AppSec", "SOC", "GRC"],
+      "notes": "UAE's largest bank. Well-established cyber team. Regulated by CBUAE — DORA-equivalent oversight."
+    },
+    {
+      "id": "ae-co-adcb",
+      "name": "ADCB (Abu Dhabi Commercial Bank)",
+      "type": "Bank",
+      "locations": ["Abu Dhabi", "Dubai"],
+      "careers_url": "https://www.adcb.com/en/careers/",
+      "roles_hiring": ["Security Analyst", "AppSec", "GRC", "SOC"],
+      "notes": "Major UAE bank. Cybersecurity team hires steadily. Financial regulatory context useful for GRC track."
+    },
+    {
+      "id": "ae-co-fab",
+      "name": "First Abu Dhabi Bank (FAB)",
+      "type": "Bank",
+      "locations": ["Abu Dhabi", "Dubai"],
+      "careers_url": "https://www.bankfab.com/en-ae/about-fab/careers",
+      "roles_hiring": ["Security Analyst", "Cyber Threat Intel", "GRC"],
+      "notes": "UAE's largest bank by assets. Substantial cyber team + threat intel practice."
+    },
+    {
+      "id": "ae-co-mashreq",
+      "name": "Mashreq Bank",
+      "type": "Bank",
+      "locations": ["Dubai"],
+      "careers_url": "https://careers.mashreqbank.com/",
+      "roles_hiring": ["Security Analyst", "AppSec", "Fraud Analyst"],
+      "notes": "Progressive UAE bank with digital-first strategy. Strong cybersecurity + fraud teams."
+    },
+    {
+      "id": "ae-co-emirates-group",
+      "name": "Emirates Group / dnata",
+      "type": "Aviation",
+      "locations": ["Dubai"],
+      "careers_url": "https://www.emiratesgroupcareers.com/",
+      "roles_hiring": ["Security Analyst", "AppSec Engineer", "SOC"],
+      "notes": "Emirates Airline + dnata. Substantial IT + cyber team. Non-EU workforce common; strong sponsor track record."
+    },
+    {
+      "id": "ae-co-careem",
+      "name": "Careem (Uber subsidiary)",
+      "type": "Product Company",
+      "locations": ["Dubai"],
+      "careers_url": "https://www.careem.com/en-ae/careers/",
+      "roles_hiring": ["Security Engineer", "AppSec", "Product Security"],
+      "notes": "Middle East super-app. English working language. Product security team hires actively. Uber-adjacent processes."
+    },
+    {
+      "id": "ae-co-noon",
+      "name": "Noon.com",
+      "type": "Product Company (E-commerce)",
+      "locations": ["Dubai", "Riyadh"],
+      "careers_url": "https://www.noon.com/uae-en/careers",
+      "roles_hiring": ["Security Engineer", "AppSec", "SOC"],
+      "notes": "Regional e-commerce leader. English working language. Fintech + payments + logistics attack surface."
+    },
+    {
+      "id": "ae-co-talabat",
+      "name": "Talabat (Delivery Hero)",
+      "type": "Product Company (Delivery)",
+      "locations": ["Dubai"],
+      "careers_url": "https://careers.talabat.com/",
+      "roles_hiring": ["Security Engineer", "AppSec", "Fraud"],
+      "notes": "Delivery Hero's MENA arm. Berlin engineering culture, English-language. Sponsor-aware."
+    },
+    {
+      "id": "ae-co-microsoft-uae",
+      "name": "Microsoft UAE",
+      "type": "Product Company",
+      "locations": ["Dubai", "Abu Dhabi"],
+      "careers_url": "https://jobs.careers.microsoft.com/global/en/search?lc=United%20Arab%20Emirates&keywords=security",
+      "roles_hiring": ["Security Engineer", "Cloud Security", "Cybersecurity Consultant"],
+      "notes": "Microsoft Security specialist team + consulting. Standard sponsor pipeline."
+    },
+    {
+      "id": "ae-co-aws-uae",
+      "name": "AWS UAE",
+      "type": "Product Company",
+      "locations": ["Dubai"],
+      "careers_url": "https://amazon.jobs/en/search?base_query=security&loc_query=United%20Arab%20Emirates",
+      "roles_hiring": ["Security Engineer", "SOC Analyst", "Cloud Security"],
+      "notes": "AWS ME region. Security engineering + consulting roles."
+    },
+    {
+      "id": "ae-co-google-uae",
+      "name": "Google UAE",
+      "type": "Product Company",
+      "locations": ["Dubai"],
+      "careers_url": "https://www.google.com/about/careers/applications/jobs/results/?location=United%20Arab%20Emirates&q=security",
+      "roles_hiring": ["Security Engineer", "Customer Engineer (Security)"],
+      "notes": "Smaller Dubai office. Sales engineering + customer-facing security roles most common. Sponsors."
+    },
+    {
+      "id": "ae-co-oracle-uae",
+      "name": "Oracle UAE",
+      "type": "Product Company",
+      "locations": ["Dubai"],
+      "careers_url": "https://careers.oracle.com/jobs/#en/sites/jobsearch/requisitions?location=United%20Arab%20Emirates&keyword=security",
+      "roles_hiring": ["Security Consultant", "Cloud Security Specialist"],
+      "notes": "Oracle Cloud Infrastructure + consulting practice. Sponsor UAE work visa."
+    },
+    {
+      "id": "ae-co-cisco-uae",
+      "name": "Cisco UAE",
+      "type": "Networking + Security Vendor",
+      "locations": ["Dubai"],
+      "careers_url": "https://jobs.cisco.com/jobs/SearchJobs/?location=United+Arab+Emirates&keywords=security",
+      "roles_hiring": ["Security Sales Engineer", "Security Consultant"],
+      "notes": "Regional HQ. Security-focused pre-sales + consulting. Sponsor."
+    },
+    {
+      "id": "ae-co-crowdstrike-uae",
+      "name": "CrowdStrike UAE",
+      "type": "Cybersecurity Vendor",
+      "locations": ["Dubai"],
+      "careers_url": "https://www.crowdstrike.com/careers/open-positions/?location=United%20Arab%20Emirates",
+      "roles_hiring": ["Security Engineer", "SOC (Overwatch)", "IR Analyst"],
+      "notes": "Falcon platform + Overwatch SOC coverage. Regional presence growing."
+    },
+    {
+      "id": "ae-co-palo-alto-uae",
+      "name": "Palo Alto Networks UAE",
+      "type": "Cybersecurity Vendor",
+      "locations": ["Dubai"],
+      "careers_url": "https://jobs.paloaltonetworks.com/careers?location=United%20Arab%20Emirates",
+      "roles_hiring": ["Security Consultant", "Sales Engineer (Security)"],
+      "notes": "Regional presence. Consulting + pre-sales focus for UAE."
+    },
+    {
+      "id": "ae-co-mandiant-uae",
+      "name": "Mandiant (Google Cloud) UAE",
+      "type": "Cybersecurity Vendor",
+      "locations": ["Dubai"],
+      "careers_url": "https://www.google.com/about/careers/applications/jobs/results/?location=United%20Arab%20Emirates&q=mandiant",
+      "roles_hiring": ["IR Consultant", "Threat Intel Analyst"],
+      "notes": "IR + threat intel for the region. Part of Google Cloud Security. Strong brand for the CV."
+    },
+    {
+      "id": "ae-co-kpmg-uae",
+      "name": "KPMG UAE — Cyber",
+      "type": "Big 4",
+      "locations": ["Dubai", "Abu Dhabi"],
+      "careers_url": "https://kpmg.com/ae/en/careers.html",
+      "roles_hiring": ["Cyber Consultant", "GRC Analyst", "Pentester"],
+      "notes": "Cyber Risk practice. Structured lateral hiring at associate + senior associate. Sponsor UAE work visa."
+    },
+    {
+      "id": "ae-co-deloitte-me",
+      "name": "Deloitte Middle East — Cyber Risk",
+      "type": "Big 4",
+      "locations": ["Dubai", "Abu Dhabi"],
+      "careers_url": "https://www2.deloitte.com/xe/en/pages/careers/topics/careers-middle-east.html",
+      "roles_hiring": ["Cyber Risk Consultant", "Pentester", "SOC"],
+      "notes": "Cyber & Strategic Risk practice active in ME. Regulatory work (NESA, ADSIC, DIFC) — good for GRC pivot."
+    },
+    {
+      "id": "ae-co-ey-me",
+      "name": "EY Middle East — Cybersecurity",
+      "type": "Big 4",
+      "locations": ["Dubai", "Abu Dhabi"],
+      "careers_url": "https://www.ey.com/en_ae/careers",
+      "roles_hiring": ["Cybersecurity Consultant", "Pentester", "GRC"],
+      "notes": "Cyber + Privacy practice. Sponsors. Regional client base includes government + banking."
+    },
+    {
+      "id": "ae-co-pwc-me",
+      "name": "PwC Middle East — Cyber & Privacy",
+      "type": "Big 4",
+      "locations": ["Dubai", "Abu Dhabi"],
+      "careers_url": "https://www.pwc.com/m1/en/careers.html",
+      "roles_hiring": ["Cybersecurity Consultant", "AppSec", "GRC"],
+      "notes": "Cyber + Privacy consulting. Structured associate → senior associate pathway."
+    },
+    {
+      "id": "ae-co-accenture-me",
+      "name": "Accenture Middle East — Security",
+      "type": "Consulting",
+      "locations": ["Dubai", "Abu Dhabi", "Riyadh"],
+      "careers_url": "https://www.accenture.com/ae-en/careers/jobsearch?jk=security",
+      "roles_hiring": ["Security Analyst", "Pentester", "SOC"],
+      "notes": "Large regional security practice. Sponsors UAE work visa. Entry via consulting track."
+    },
+    {
+      "id": "ae-co-spire",
+      "name": "Spire Solutions",
+      "type": "Regional Cybersecurity Distributor",
+      "locations": ["Dubai"],
+      "careers_url": "https://spiresolutions.com/careers/",
+      "roles_hiring": ["Pre-Sales Engineer (Security)", "SOC Analyst", "Security Consultant"],
+      "notes": "MENA cybersecurity distributor. Vendor-side pre-sales + technical roles. Good pivot into vendor careers."
+    },
+    {
+      "id": "ae-co-starlink",
+      "name": "StarLink (Infinigate)",
+      "type": "Regional Cybersecurity Distributor",
+      "locations": ["Dubai"],
+      "careers_url": "https://starlinkme.net/careers/",
+      "roles_hiring": ["Pre-Sales Security Engineer", "Cybersecurity Consultant"],
+      "notes": "Large regional value-added distributor for security vendors. Pre-sales + technical enablement roles."
+    },
+    {
+      "id": "ae-co-paramount",
+      "name": "Paramount Computer Systems",
+      "type": "Regional MSSP",
+      "locations": ["Dubai"],
+      "careers_url": "https://www.paramountassure.com/careers/",
+      "roles_hiring": ["Security Consultant", "SOC Analyst", "Pentester"],
+      "notes": "MENA cybersecurity services firm. Consulting + MSSP + GRC. Sponsor-aware."
+    },
+    {
+      "id": "ae-co-mubadala",
+      "name": "Mubadala Investment Company",
+      "type": "Sovereign Fund",
+      "locations": ["Abu Dhabi"],
+      "careers_url": "https://www.mubadala.com/en/careers",
+      "roles_hiring": ["Security Analyst", "GRC", "Cyber Risk"],
+      "notes": "Abu Dhabi sovereign wealth fund with in-house cyber team. High-prestige employer. Sponsor UAE visa."
+    },
+    {
+      "id": "ae-co-adnoc",
+      "name": "ADNOC",
+      "type": "Energy",
+      "locations": ["Abu Dhabi"],
+      "careers_url": "https://careers.adnoc.ae/",
+      "roles_hiring": ["OT Security", "SOC Analyst", "Cybersecurity Engineer"],
+      "notes": "State oil company. Growing OT + IT security team. Regulatory context: NESA, critical infrastructure. Sponsor."
+    },
+    {
+      "id": "ae-co-chalhoub",
+      "name": "Chalhoub Group",
+      "type": "Retail Conglomerate",
+      "locations": ["Dubai"],
+      "careers_url": "https://www.chalhoubgroup.com/careers/",
+      "roles_hiring": ["Security Analyst", "AppSec", "GRC"],
+      "notes": "Luxury retail group with substantial IT + cyber footprint. Progressive employer, English-first."
+    }
+  ]
+}

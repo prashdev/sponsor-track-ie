@@ -1383,11 +1383,209 @@ function GermanSponsored() {
   );
 }
 
+// ─── Region-specific Jobs (India / UAE) — reusable ────────────────────────────
+
+interface RegionalBoard {
+  id: string;
+  name: string;
+  category: string;
+  url: string;
+  filter_applied: string;
+  notes: string;
+  priority: 'high' | 'medium' | 'low';
+}
+
+interface RegionalCompany {
+  id: string;
+  name: string;
+  type: string;
+  locations: string[];
+  careers_url: string;
+  roles_hiring: string[];
+  notes: string;
+}
+
+interface RegionalJobsFile {
+  intro: string;
+  live_boards: RegionalBoard[];
+  target_companies: RegionalCompany[];
+}
+
+const PRIORITY_STYLES: Record<RegionalBoard['priority'], string> = {
+  high: 'bg-emerald-100 text-emerald-700',
+  medium: 'bg-amber-100 text-amber-700',
+  low: 'bg-zinc-100 text-zinc-500',
+};
+
+function RegionalJobs({
+  dataPath,
+  bannerColor,
+  bannerContent,
+}: {
+  dataPath: string;
+  bannerColor: string;
+  bannerContent: React.ReactNode;
+}) {
+  const { data, loading, error } = useStaticData<RegionalJobsFile>(dataPath);
+  const [priorityFilter, setPriorityFilter] = useState<'all' | 'high'>('high');
+  const [companySearch, setCompanySearch] = useState('');
+  const [roleFilter, setRoleFilter] = useState('all');
+
+  if (loading) return <p className="text-sm text-zinc-400">Loading…</p>;
+  if (error || !data) return <p className="text-sm text-red-500">Failed to load: {error}</p>;
+
+  const filteredBoards = data.live_boards.filter((b) =>
+    priorityFilter === 'all' ? true : b.priority === 'high'
+  );
+
+  const allRoles = Array.from(new Set(data.target_companies.flatMap((c) => c.roles_hiring))).sort();
+
+  const filteredCompanies = data.target_companies.filter((c) => {
+    if (roleFilter !== 'all' && !c.roles_hiring.some((r) => r.toLowerCase().includes(roleFilter.toLowerCase()))) return false;
+    if (companySearch.trim()) {
+      const q = companySearch.toLowerCase();
+      return c.name.toLowerCase().includes(q) || c.type.toLowerCase().includes(q) || c.notes.toLowerCase().includes(q);
+    }
+    return true;
+  });
+
+  return (
+    <div className="max-w-4xl">
+      <div className={`mb-4 rounded-lg border px-4 py-3 text-xs leading-relaxed ${bannerColor}`}>
+        {bannerContent}
+      </div>
+
+      {/* ── Live boards */}
+      <div className="mb-8">
+        <div className="mb-3 flex items-center justify-between">
+          <h3 className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+            <Briefcase size={12} /> Live Job Boards ({filteredBoards.length})
+          </h3>
+          <div className="flex gap-1.5">
+            {(['all', 'high'] as const).map((p) => (
+              <button key={p} onClick={() => setPriorityFilter(p)}
+                className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                  priorityFilter === p ? 'bg-zinc-900 text-white' : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
+                }`}>
+                {p === 'all' ? 'All boards' : 'High priority only'}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          {filteredBoards.map((b) => (
+            <a key={b.id} href={b.url} target="_blank" rel="noreferrer"
+              className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-white p-4 hover:border-zinc-400 hover:shadow-sm transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <p className="text-sm font-medium text-zinc-900">{b.name}</p>
+                  <span className={`rounded-full px-1.5 py-0.5 text-[9px] font-medium ${PRIORITY_STYLES[b.priority]}`}>
+                    {b.priority}
+                  </span>
+                </div>
+                <p className="mt-0.5 text-[10px] text-zinc-400">Filter: {b.filter_applied}</p>
+                <p className="mt-1 text-xs text-zinc-500 line-clamp-2">{b.notes}</p>
+              </div>
+              <ExternalLink size={14} className="mt-0.5 shrink-0 text-zinc-400" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Target companies */}
+      <div>
+        <div className="mb-3 flex flex-wrap items-center gap-3">
+          <h3 className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+            <MapPin size={11} /> Target Companies ({filteredCompanies.length})
+          </h3>
+          <div className="relative">
+            <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-zinc-400" />
+            <input
+              className="rounded-lg border border-zinc-200 bg-white pl-7 pr-3 py-1.5 text-xs w-48 focus:outline-none focus:ring-1 focus:ring-zinc-400"
+              placeholder="Search company or type…"
+              value={companySearch}
+              onChange={(e) => setCompanySearch(e.target.value)}
+            />
+          </div>
+          <select
+            value={roleFilter}
+            onChange={(e) => setRoleFilter(e.target.value)}
+            className="rounded-lg border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-400"
+          >
+            <option value="all">All target roles</option>
+            {allRoles.map((r) => <option key={r} value={r}>{r}</option>)}
+          </select>
+        </div>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {filteredCompanies.map((c) => (
+            <div key={c.id} className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-4 hover:border-zinc-300 transition-colors">
+              <div className="flex items-start justify-between gap-2">
+                <div>
+                  <p className="text-sm font-semibold text-zinc-900">{c.name}</p>
+                  <p className="text-[10px] text-zinc-500">{c.type}</p>
+                </div>
+              </div>
+              <p className="text-[10px] text-zinc-500 flex items-center gap-1"><MapPin size={9} />{c.locations.join(' · ')}</p>
+              <div className="flex flex-wrap gap-1">
+                {c.roles_hiring.map((r) => (
+                  <span key={r} className="rounded bg-zinc-100 px-2 py-0.5 text-[10px] text-zinc-600">{r}</span>
+                ))}
+              </div>
+              <p className="text-xs text-zinc-500 leading-relaxed">{c.notes}</p>
+              <a href={c.careers_url} target="_blank" rel="noreferrer"
+                className="mt-auto inline-flex items-center gap-1 text-xs font-medium text-zinc-700 hover:text-zinc-900">
+                Open careers <ExternalLink size={11} />
+              </a>
+            </div>
+          ))}
+          {filteredCompanies.length === 0 && (
+            <div className="col-span-2 rounded-lg border border-dashed border-zinc-300 px-6 py-8 text-center text-sm text-zinc-500">
+              No companies match these filters.
+            </div>
+          )}
+        </div>
+      </div>
+
+      <p className="mt-6 text-xs text-zinc-400">{data.intro}</p>
+    </div>
+  );
+}
+
+function IndiaJobs() {
+  return (
+    <RegionalJobs
+      dataPath="data/india-jobs.json"
+      bannerColor="border-orange-200 bg-orange-50 text-orange-900"
+      bannerContent={
+        <>
+          <strong>India — Cybersecurity roles (Associate / AppSec / Product Security / Security Analyst).</strong>{' '}
+          Refresh Naukri + LinkedIn India daily; both support job alerts by email. Product companies (Google/Microsoft/AWS/Adobe/Razorpay/Freshworks) have higher bar + higher salary than IT services (TCS/Infosys/Wipro). Big-4 cyber advisory is a fast-turnaround lateral entry route.
+        </>
+      }
+    />
+  );
+}
+
+function UAEJobs() {
+  return (
+    <RegionalJobs
+      dataPath="data/uae-jobs.json"
+      bannerColor="border-yellow-200 bg-yellow-50 text-yellow-900"
+      bannerContent={
+        <>
+          <strong>UAE / Dubai — Cybersecurity roles. Employer sponsors work visa. Tax-free AED salaries.</strong>{' '}
+          Highest-yield first stops: Help AG, CPX, Injazat, e& Enterprise (regional cyber specialists) — then FS (Emirates NBD / ADCB / FAB / Mashreq), then Big 4 ME cyber, then product companies (Careem / Noon / Talabat).
+        </>
+      }
+    />
+  );
+}
+
 // ─── Main Route ───────────────────────────────────────────────────────────────
 
 export default function Jobs() {
   const [state, setState] = useAppState();
-  const [tab, setTab] = useState<'tracker' | 'live' | 'daily' | 'ireland' | 'germany' | 'germany-sponsored'>('tracker');
+  const [tab, setTab] = useState<'tracker' | 'live' | 'daily' | 'ireland' | 'germany' | 'germany-sponsored' | 'india' | 'uae'>('tracker');
   const [view, setView] = useState<'table' | 'kanban'>('table');
   const [filterStatus, setFilterStatus] = useState<Job['status'] | 'all'>('all');
   const [sponsorOnly, setSponsorOnly] = useState(false);
@@ -1442,6 +1640,8 @@ export default function Jobs() {
           { id: 'ireland', label: 'Ireland Jobs', icon: <MapPin size={13} className="inline mr-1" /> },
           { id: 'germany', label: 'Germany Jobs', icon: <MapPin size={13} className="inline mr-1" /> },
           { id: 'germany-sponsored', label: 'Germany Sponsored', icon: <Sparkles size={13} className="inline mr-1" /> },
+          { id: 'india', label: 'India Jobs', icon: <MapPin size={13} className="inline mr-1" /> },
+          { id: 'uae', label: 'UAE Jobs', icon: <MapPin size={13} className="inline mr-1" /> },
         ] as const).map((t) => (
           <button key={t.id} onClick={() => setTab(t.id)}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
@@ -1513,10 +1713,12 @@ export default function Jobs() {
             setTab('tracker');
           }} />
         </div>
+      ) : tab === 'germany-sponsored' ? (
+        <div className="mt-4"><GermanSponsored /></div>
+      ) : tab === 'india' ? (
+        <div className="mt-4"><IndiaJobs /></div>
       ) : (
-        <div className="mt-4">
-          <GermanSponsored />
-        </div>
+        <div className="mt-4"><UAEJobs /></div>
       )}
 
       {editJob !== null && (

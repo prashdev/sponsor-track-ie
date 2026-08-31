@@ -1,0 +1,196 @@
+{
+  "india": {
+    "id": "india",
+    "title": "India — Cybersecurity Interview Prep",
+    "market_context": "The Indian cyber market is dominated by three employer types: (1) IT services giants (TCS/Infosys/Wipro/HCL/Tech Mahindra/Accenture India) — high volume, client-facing, structured lateral hiring; (2) Product companies (Google/Microsoft/Adobe/Cisco/Zscaler/Palo Alto India + Indian unicorns like Razorpay/Freshworks) — deeper technical bar, higher salary, competitive; (3) Big 4 cyber advisory (KPMG/Deloitte/EY/PwC India) — consulting track, GRC + technical mix. Salary in LPA (lakhs per annum). CTC vs in-hand distinction matters — always clarify.",
+    "process_norms": [
+      "3-5 interview rounds typical: HR screen → technical screen → deep technical → manager → HR wrap",
+      "Coding / hands-on round common at product companies (HackerRank, CoderPad)",
+      "Assignment / take-home task frequent at startups + Big 4 (2-4 hour scope)",
+      "Notice period discussion is standard — 30/60/90 days. Buy-out negotiations are common at product companies but not IT services",
+      "Reference check + BGV (background verification) is mandatory. Discrepancies on dates or titles = offer withdrawn",
+      "Offer discussion in LPA — always clarify fixed vs variable, joining bonus, retention bonus, ESOP vs stock",
+      "Location flexibility matters — many roles are hybrid, some fully in-office (mostly IT services + Big 4)"
+    ],
+    "cultural_notes": [
+      "Address recruiters and interviewers by first name unless they open with title (Sir/Ma'am common in older IT services firms, less at startups)",
+      "'Why leave your current role?' asked more directly — have a clear, non-negative answer prepared",
+      "Compensation negotiation is expected — first offer is rarely final. Push back with data (Levels.fyi, AmbitionBox salary ranges)",
+      "Ask about tech stack + team size upfront to filter services companies from product companies",
+      "For non-Indian citizens (you are Indian): no visa issue for India. But mention Ireland residency + your MSc from NCI as a differentiator, not a complication"
+    ],
+    "salary_bands": [
+      "Associate Security Engineer (1-3 yrs): ₹8-14 LPA at IT services · ₹15-25 LPA at product companies · ₹18-30 LPA at top-tier product (Google, Microsoft, AWS)",
+      "AppSec / Product Security Engineer (2-5 yrs): ₹15-25 LPA at IT services · ₹25-45 LPA at product companies · ₹40-70 LPA at top-tier",
+      "Security Analyst (0-3 yrs): ₹6-12 LPA at IT services · ₹12-20 LPA at product companies · ₹15-30 LPA at Big 4 associate level",
+      "Add 20-30% for Bangalore/Gurugram vs tier-2 cities; ESOPs meaningful only at top-tier product + funded startups"
+    ],
+    "common_technical_questions": [
+      "Walk me through the OWASP Top 10. Which two do you find most under-appreciated by developers?",
+      "You find an IDOR in production during grey-box testing. Walk me through your next 5 steps.",
+      "Explain SSRF + how it chains to AWS metadata credential theft. What is IMDSv2 and why does it matter?",
+      "Difference between SAST and DAST. Give one bug each catches that the other misses.",
+      "Walk through the OWASP API Security Top 10. Rank the top 3 by real-world impact.",
+      "Explain JWT algorithm confusion attack. How would you exploit and how would you fix?",
+      "You're doing a pentest and the client says 'stay in scope'. Mid-engagement you find an exposed AWS access key on GitHub. What do you do?",
+      "How would you secure a REST API from scratch — auth, rate limit, input validation, logging?",
+      "What is CSP and what are its limitations against XSS in 2026?",
+      "Explain the difference between XSS, CSRF, and clickjacking. Give one mitigation for each.",
+      "Walk me through your methodology for a web application pentest from kick-off to report.",
+      "How do you validate a critical vulnerability report from a scanner? What is your false-positive rate?",
+      "For an AppSec role: how would you introduce security into a CI/CD pipeline that has zero security controls today?",
+      "For a Product Security role: how do you threat-model a new feature during design phase?",
+      "For a Security Analyst role: walk me through your alert triage process. What do you check in the first 5 minutes?"
+    ],
+    "common_behavioural_questions": [
+      "Why do you want to leave your current company?",
+      "Where do you see yourself in 3-5 years?",
+      "Tell me about a critical vulnerability you found. How did you report it? What was the impact?",
+      "Tell me about a time you disagreed with a developer on severity of a finding. How did it resolve?",
+      "Why India after being in Ireland? (Be direct — visa timing, family, market fit)",
+      "Are you open to relocation within India? What is your preferred base?",
+      "What is your current notice period? Can you serve less if we buy it out?",
+      "What is your expected CTC?"
+    ],
+    "prep_resources": [
+      { "label": "AmbitionBox — Salary + interview experiences by company", "url": "https://www.ambitionbox.com/" },
+      { "label": "Levels.fyi India — Product company salary bands", "url": "https://www.levels.fyi/companies/india/" },
+      { "label": "Naukri Insights — Company reviews", "url": "https://www.naukri.com/companies-hub" },
+      { "label": "InterviewBit — DSA + tech interview practice", "url": "https://www.interviewbit.com/" },
+      { "label": "GeeksForGeeks — Interview experiences by company", "url": "https://www.geeksforgeeks.org/interview-experiences/" },
+      { "label": "PortSwigger Web Academy — free AppSec labs (used by Indian interviewers as reference)", "url": "https://portswigger.net/web-security" },
+      { "label": "OWASP Cheat Sheet Index", "url": "https://cheatsheetseries.owasp.org/" },
+      { "label": "TryHackMe — SOC + AppSec learning paths (Indian recruiters recognise)", "url": "https://tryhackme.com/" }
+    ],
+    "sprint_plan_2_months": [
+      { "phase": "Week 1-2 (Days 1-14): Volume + baseline", "items": [
+        "Set up Naukri profile with keywords: Application Security, Penetration Testing, OWASP, Burp Suite, JWT, API Security, ISO 27001",
+        "Set up LinkedIn India job alerts for all 4 target role titles (AppSec, Product Sec, Associate Security Engineer, Security Analyst) — daily digest",
+        "Apply to 30 roles per week across Naukri + LinkedIn — mix IT services (volume plays) + product companies (target plays)",
+        "Refresh Instahyre + Cutshort profiles — recruiters will approach you"
+      ]},
+      { "phase": "Week 3-4 (Days 15-28): Screening + first rounds", "items": [
+        "Expect first HR screens to land in Week 3. Prep the standard: notice period, expected CTC, reason to leave, willingness to relocate",
+        "Technical rounds start Week 4. Drill the 15 common technical questions above out loud — record yourself, tighten the weak 3",
+        "Big 4 processes are slower — apply early Week 1, expect first-round interviews in Week 3-4",
+        "Ask for BGV requirements upfront — start collecting employment letters, education transcripts, PAN, Aadhaar copies"
+      ]},
+      { "phase": "Week 5-6 (Days 29-42): Deeper rounds + offer negotiation", "items": [
+        "Manager rounds + case-based rounds land here. Focus on your Cubic Telecom + Indusface stories with STAR format",
+        "Start salary conversations with recruiters — anchor high, cite AmbitionBox + Levels.fyi data",
+        "Product company loops (Google/Microsoft/AWS/Adobe) may extend to Week 8+. Continue applying but don't over-index on these if you have a firm offer in hand",
+        "Reference-check requests start — line up 2-3 references from Cubic + Indusface who will respond quickly"
+      ]},
+      { "phase": "Week 7-8 (Days 43-60): Close", "items": [
+        "Target: 1-2 firm offers in hand by Day 45",
+        "Negotiate final offer — joining bonus, notice-period buy-out, retention bonus",
+        "Serve notice + BGV in parallel — most offers give 45-60 days to join",
+        "Book flights only after signed offer letter + BGV clearance"
+      ]}
+    ]
+  },
+  "uae": {
+    "id": "uae",
+    "title": "UAE (Dubai / Abu Dhabi) — Cybersecurity Interview Prep",
+    "market_context": "UAE cybersecurity market is dominated by: (1) Regional cybersecurity specialists (Help AG, CPX, Injazat) — MSSP + consulting, strong entry pathway via SOC; (2) Financial services (Emirates NBD, ADCB, FAB, Mashreq) — regulated by CBUAE, growing cyber teams; (3) Government + sovereign (Mubadala, ADNOC, Emirates Group, e& / Etisalat) — high-prestige, non-EU workforce common; (4) Big 4 cyber advisory (KPMG/Deloitte/EY/PwC ME) — consulting track; (5) Multinationals (Microsoft/AWS/Cisco/CrowdStrike/Palo Alto UAE) — smaller footprint than India but growing. Employer sponsors work visa (mandatory). Salary in AED, tax-free.",
+    "process_norms": [
+      "2-3 rounds typical — faster than India: HR screen → technical → hiring manager / final",
+      "Assignment / hands-on task uncommon (unless Big 4 or product company)",
+      "Visa + relocation logistics discussed in the second round usually — employer runs the process",
+      "Salary quoted as monthly (basic + housing + transport) or annual all-in — always clarify",
+      "Notice period at UAE employers typically 1-3 months; offer letters common practice, contracts signed on arrival",
+      "Reference checks + police clearance certificate (from India + Ireland) required for visa"
+    ],
+    "cultural_notes": [
+      "English is the business language across tech + cyber roles — no Arabic required for most roles",
+      "Formal but friendly tone — 'Dear' openings, sign-off with 'Kind regards' or 'Best regards'",
+      "Islamic greetings (Assalamu Alaikum) appreciated but not required — 'Good morning' is fine",
+      "Working week is Monday-Friday (changed from Sunday-Thursday in 2022). Some private companies still on Sunday-Thursday",
+      "Ramadan working hours are shorter (typically 6 hours/day); expect delayed responses during Ramadan",
+      "Emiratisation quotas apply to some roles at large employers — non-Emiratis are still hired at all levels in tech + cyber, no issue",
+      "Interviews often conducted over Teams / Zoom for first round; final round increasingly in-person after visit visa"
+    ],
+    "regulatory_context_to_know": [
+      "UAE IA (Information Assurance) Standards — federal cybersecurity baseline",
+      "NESA (National Electronic Security Authority) — signals + government sector oversight",
+      "ADSIC — Abu Dhabi Systems and Information Committee, government IT standards",
+      "Dubai Cybersecurity Strategy — Dubai Electronic Security Center (DESC) governance",
+      "CBUAE — Central Bank of UAE cybersecurity regulations for banking (parallels DORA)",
+      "DIFC + ADGM — financial free zones with their own data protection + operational resilience rules",
+      "PDPL — UAE Personal Data Protection Law (2021) — GDPR-inspired",
+      "ISO 27001 and PCI DSS widely referenced across banking + payments"
+    ],
+    "salary_bands_aed_tax_free": [
+      "Associate Security Engineer (1-3 yrs): AED 12,000-20,000/month (~USD 3,300-5,400) at consultancies + banks",
+      "AppSec / Product Security Engineer (2-5 yrs): AED 20,000-35,000/month at product companies + banks",
+      "Security Analyst / SOC L1-L2: AED 10,000-16,000/month (Help AG / Injazat entry tier)",
+      "Big 4 associate cyber consultant: AED 14,000-22,000/month + relocation",
+      "Add: annual return flight, health insurance, education allowance (if family), 30 days annual leave. All salaries tax-free."
+    ],
+    "common_technical_questions": [
+      "Walk me through the OWASP Top 10. Which are you most familiar with?",
+      "Explain a critical vulnerability you discovered in a recent engagement. What was the impact?",
+      "How do you approach an API security assessment? Walk me through the OWASP API Top 10.",
+      "Difference between SAST and DAST — where would you use each in a CI/CD pipeline?",
+      "You're building a SOC playbook for a phishing email with a malicious attachment. Walk through the steps.",
+      "Explain the difference between IDS, IPS, and EDR. When would you deploy each?",
+      "What is Zero Trust architecture? How would you begin rolling it out at a bank?",
+      "How does OAuth 2.0 differ from OpenID Connect? Common misconfigurations you've seen?",
+      "For a bank role: how would you approach a PCI DSS assessment for a payment gateway?",
+      "For a government / critical-infra role: what is UAE IA Standards awareness? How does it compare to NIST CSF?",
+      "How would you build a threat model for a mobile banking app (Android + iOS)?",
+      "Walk me through a SOC alert triage — a Windows host beaconing to a suspicious domain.",
+      "What's your experience with cloud security (AWS / Azure)? Explain IAM least-privilege for a web app.",
+      "How would you conduct a phishing simulation? What metrics matter?",
+      "For a Product Security role: how do you build a security champions programme in engineering?"
+    ],
+    "common_behavioural_questions": [
+      "Why UAE / Dubai as a market? What's your long-term plan?",
+      "Are you open to relocation? What is your current visa status?",
+      "Tell me about a time you managed conflict with a stakeholder — client, developer, or manager",
+      "Describe a project where you had to influence without authority",
+      "How do you handle working across cultures? (relevant given the UAE workforce mix)",
+      "Are you available to travel across GCC (KSA, Qatar, Oman) if the role requires?",
+      "What is your current salary and expected package in AED?",
+      "How soon can you start after visa is issued?"
+    ],
+    "prep_resources": [
+      { "label": "Bayt.com Salaries — MENA cyber salary benchmarks", "url": "https://www.bayt.com/en/uae/salaries/" },
+      { "label": "GulfTalent Insights — Regional salary surveys", "url": "https://www.gulftalent.com/resources" },
+      { "label": "Cooper Fitch Salary Guide UAE", "url": "https://www.cooperfitch.ae/salary-guide" },
+      { "label": "Robert Walters Middle East Salary Guide", "url": "https://www.robertwalters.ae/insights/salary-survey.html" },
+      { "label": "UAE Government Portal — Working in UAE", "url": "https://u.ae/en/information-and-services/jobs" },
+      { "label": "OWASP Cheat Sheet Index", "url": "https://cheatsheetseries.owasp.org/" },
+      { "label": "TCM Security — PNPT free preview content (used by ME employers)", "url": "https://certifications.tcm-sec.com/" },
+      { "label": "TryHackMe — SOC / AppSec paths", "url": "https://tryhackme.com/" },
+      { "label": "PortSwigger Academy — Free AppSec labs", "url": "https://portswigger.net/web-security" }
+    ],
+    "sprint_plan_2_months": [
+      { "phase": "Week 1-2 (Days 1-14): Setup + volume", "items": [
+        "Set up Bayt, Naukrigulf, GulfTalent, LinkedIn UAE profiles with matching keywords",
+        "Apply to Help AG, CPX, Injazat, e& Enterprise, Emirates NBD, ADCB, Careem, Noon in Week 1 (they move fastest)",
+        "Register with Hays Middle East + Michael Page UAE + Cooper Fitch — sponsor-aware recruiters",
+        "Prepare digital copies: passport, MSc certificate (attested for UAE), Ireland residence stamp, prior education attestation, police clearance from India + Ireland"
+      ]},
+      { "phase": "Week 3-4 (Days 15-28): First screens", "items": [
+        "HR screens land Week 2-3. Prep the standard: expected package in AED, notice period, visa status, willingness to relocate on X weeks",
+        "Technical rounds Week 3-4 — drill the 15 UAE-specific questions above out loud",
+        "Big 4 Middle East processes are structured but slower — apply Week 1, first round in Week 3-4",
+        "Practise regulatory context: UAE IA, NESA, PDPL, CBUAE guidelines — these come up in bank + government interviews"
+      ]},
+      { "phase": "Week 5-6 (Days 29-42): Final rounds + offers", "items": [
+        "Manager + hiring team rounds land here. Have concrete Cubic Telecom + Indusface stories ready in STAR format",
+        "Start salary conversations — anchor with Bayt + GulfTalent + Cooper Fitch data for your role band",
+        "Visa logistics discussed in this phase. Employer typically applies for entry visa, you enter UAE on visit visa or employment visa, then convert to residence visa",
+        "Book police clearance certificates now (India + Ireland) if not already — 2-6 week turnaround"
+      ]},
+      { "phase": "Week 7-8 (Days 43-60): Close + logistics", "items": [
+        "Target: 1-2 firm offers by Day 45",
+        "Negotiate final package: basic + housing + transport allowance, annual return flight, health insurance, education (if applicable), joining bonus",
+        "Sign offer letter — actual contract signed on arrival in UAE typically",
+        "Begin visa application via employer + start packing / relocation logistics in parallel",
+        "Attestation of documents (MSc + prior degrees) via UAE embassy in Ireland or India — start early, 2-3 weeks turnaround"
+      ]}
+    ]
+  }
+}

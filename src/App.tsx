@@ -12,6 +12,7 @@ import Roadmaps from './routes/Roadmaps';
 import LinkedInPosts from './routes/LinkedInPosts';
 import IrishCyberStartups from './routes/IrishCyberStartups';
 import ApplicationKit from './routes/ApplicationKit';
+import RegionalPrep from './routes/RegionalPrep';
 import Study from './routes/Study';
 import News from './routes/News';
 import Blog from './routes/Blog';
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="/linkedin" element={<LinkedInPosts />} />
           <Route path="/irish-cyber" element={<IrishCyberStartups />} />
           <Route path="/apply" element={<ApplicationKit />} />
+          <Route path="/regional-prep" element={<RegionalPrep />} />
           <Route path="/settings" element={<Settings />} />
         </Route>
       </Routes>
